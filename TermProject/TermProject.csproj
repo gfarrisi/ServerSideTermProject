@@ -67,13 +67,109 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="blog.html" />
+    <Content Include="contact.html" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\flaticon.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\magnific-popup.css" />
+    <Content Include="css\nice-select.css" />
+    <Content Include="css\owl.carousel.min.css" />
+    <Content Include="css\slicknav.min.css" />
+    <Content Include="css\style.css" />
+    <Content Include="fonts\Flaticon.svg" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="how-it-works.html" />
+    <Content Include="img\apple-store.jpg" />
+    <Content Include="img\arrange\arrange-1.jpg" />
+    <Content Include="img\arrange\arrange-2.jpg" />
+    <Content Include="img\arrange\arrange-3.jpg" />
+    <Content Include="img\arrange\arrange-4.jpg" />
+    <Content Include="img\arrange\arrange-5.jpg" />
+    <Content Include="img\arrange\arrange-6.jpg" />
+    <Content Include="img\arrange\arrange-7.jpg" />
+    <Content Include="img\arrange\arrange-8.jpg" />
+    <Content Include="img\arrange\arrange-9.jpg" />
+    <Content Include="img\blog-bg.jpg" />
+    <Content Include="img\blog\blog-1.jpg" />
+    <Content Include="img\blog\blog-2.jpg" />
+    <Content Include="img\blog\blog-3.jpg" />
+    <Content Include="img\categories\cat-1.jpg" />
+    <Content Include="img\categories\cat-2.jpg" />
+    <Content Include="img\categories\cat-3.jpg" />
+    <Content Include="img\categories\cat-4.jpg" />
+    <Content Include="img\categories\cat-5.jpg" />
+    <Content Include="img\check-icon.png" />
+    <Content Include="img\contact-add.png" />
+    <Content Include="img\f-blog-1.jpg" />
+    <Content Include="img\f-blog-2.jpg" />
+    <Content Include="img\google-store.jpg" />
+    <Content Include="img\hero-bg.jpg" />
+    <Content Include="img\hero_listing.jpg" />
+    <Content Include="img\how-it-works-1.png" />
+    <Content Include="img\how-it-works-2.png" />
+    <Content Include="img\how-it-works-3.png" />
+    <Content Include="img\how-it-works-bg.jpg" />
+    <Content Include="img\howit-bg.png" />
+    <Content Include="img\line-bg.jpg" />
+    <Content Include="img\line.png" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\phone.png" />
+    <Content Include="img\pin.png" />
+    <Content Include="img\placeholder.png" />
+    <Content Include="img\testimonial-1.png" />
+    <Content Include="img\testimonial-bg.png" />
+    <Content Include="img\trending\trending-1.jpg" />
+    <Content Include="img\trending\trending-2.jpg" />
+    <Content Include="img\trending\trending-3.jpg" />
+    <Content Include="img\trending\trending-4.jpg" />
+    <Content Include="img\video-bg.jpg" />
+    <Content Include="img\zoom.png" />
+    <Content Include="index.html" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\jquery-3.3.1.min.js" />
+    <Content Include="js\jquery.magnific-popup.min.js" />
+    <Content Include="js\jquery.nice-select.min.js" />
+    <Content Include="js\jquery.slicknav.js" />
+    <Content Include="js\main.js" />
+    <Content Include="js\mixitup.min.js" />
+    <Content Include="js\owl.carousel.min.js" />
+    <Content Include="listings.html" />
+    <Content Include="main.html" />
+    <Content Include="readme.txt" />
+    <Content Include="single-listing.html" />
+    <Content Include="Source\photo credits - directory.txt" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FoodOrder.Master.cs">
+      <DependentUpon>FoodOrder.Master</DependentUpon>
+    </Compile>
+    <Compile Include="FoodOrder.Master.designer.cs">
+      <DependentUpon>FoodOrder.Master</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".DS_Store" />
+    <Content Include="fonts\Flaticon.eot" />
+    <Content Include="fonts\Flaticon.ttf" />
+    <Content Include="fonts\Flaticon.woff" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="FoodOrder.Master" />
     <None Include="packages.config" />
+    <Content Include="Source\bootstrap-4.2.1-dist.zip" />
+    <Content Include="Source\Flaticon.zip" />
+    <Content Include="Source\font-awesome-4.7.0.zip" />
+    <Content Include="Source\jquery-nice-select-1.1.0.zip" />
+    <Content Include="Source\Magnific-Popup-master.zip" />
+    <Content Include="Source\OwlCarousel2-2.3.4.zip" />
+    <Content Include="Source\sass.zip" />
+    <Content Include="Source\SlickNav-master.zip" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -82,10 +178,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DatabaseUtilities\DatabaseUtilities.csproj">
-      <Project>{7697faa3-375f-4f0d-9418-ca94f7f19f3a}</Project>
-      <Name>DatabaseUtilities</Name>
-    </ProjectReference>
+    <Folder Include="bin\" />
+    <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
