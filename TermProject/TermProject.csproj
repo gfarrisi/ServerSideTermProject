@@ -181,6 +181,16 @@
     <Folder Include="bin\" />
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DatabaseUtilities\DatabaseUtilities.csproj">
+      <Project>{7697faa3-375f-4f0d-9418-ca94f7f19f3a}</Project>
+      <Name>DatabaseUtilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FoodOrderingUtils\FoodOrderingUtils.csproj">
+      <Project>{75fe7597-d2d4-431a-8b47-53bac18282e4}</Project>
+      <Name>FoodOrderingUtils</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
