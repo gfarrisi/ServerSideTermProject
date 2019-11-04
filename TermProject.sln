@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TermProject", "TermProject\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseUtilities", "DatabaseUtilities\DatabaseUtilities.csproj", "{7697FAA3-375F-4F0D-9418-CA94F7F19F3A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodOrderingUtils", "FoodOrderingUtils\FoodOrderingUtils.csproj", "{75FE7597-D2D4-431A-8B47-53BAC18282E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7697FAA3-375F-4F0D-9418-CA94F7F19F3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7697FAA3-375F-4F0D-9418-CA94F7F19F3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7697FAA3-375F-4F0D-9418-CA94F7F19F3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75FE7597-D2D4-431A-8B47-53BAC18282E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75FE7597-D2D4-431A-8B47-53BAC18282E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75FE7597-D2D4-431A-8B47-53BAC18282E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75FE7597-D2D4-431A-8B47-53BAC18282E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
