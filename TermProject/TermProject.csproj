@@ -77,6 +77,8 @@
     <Content Include="css\owl.carousel.min.css" />
     <Content Include="css\slicknav.min.css" />
     <Content Include="css\style.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="fonts\Flaticon.svg" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="how-it-works.html" />
@@ -142,8 +144,23 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FoodOrder.Master.cs">
       <DependentUpon>FoodOrder.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="FoodOrder.Master.designer.cs">
       <DependentUpon>FoodOrder.Master</DependentUpon>
