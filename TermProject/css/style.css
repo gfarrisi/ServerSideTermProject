@@ -2071,7 +2071,15 @@ ol {
 	display: inline-block;
 }
 
-
+.contact-form-button {
+    color: #fff;
+    font-size: 20px;
+    border: 1px solid #FF5581;
+    background: #FF5581;
+    padding: 6px 42px;
+    cursor: pointer;
+    display: inline-block;
+}
 
 .contact-section {
 	padding-top: 120px;
