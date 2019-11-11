@@ -4,18 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//Hazel Boston 11-11-2019
+
 namespace FoodOrderingUtils
 {
-    public class RepresentativeAccount
+    class Restaurant
     {
         int RestaurantID { get; set; }
+        string RestaurantName { get; set; }
+        string ImageURL { get; set; }
+        string Phone { get; set; }
         string Email { get; set; }
-        string Password { get; set; }
-        string RepresentativeName { get; set; }
-        string Address1 { get; set; }
-        string Address2 { get; set; }
+        string Address { get; set; }
         string City { get; set; }
         string State { get; set; }
         string Zip { get; set; }
+        string RepresentativeEmailID { get; set; }
+
+        public Restaurant()
+        {
+
+        }
     }
 }
