@@ -10,39 +10,39 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" class="contact-form" runat="server">
-
         <!-- Contact Section Begin -->
         <section class="contact-section spad">
             <h2>Register your Restaurant</h2>
             <br />
-            <hr />
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-8">
                         <div class="row">
                             <div class="col-lg-6">
-                                <label>Restaurant Name:</label><asp:TextBox ID="txtResName" placeholder="Restaurant Name" runat="server"></asp:TextBox>
+                                <label>Restaurant Name:</label><asp:TextBox ID="txtResName" placeholder="Restaurant Name" runat="server" required></asp:TextBox>
                             </div>
                             <div class="col-lg-6">
                                 <label>Restaurant Graphic (URL Format)</label>
-                                <asp:TextBox ID="txtResImg" placeholder="Image URL" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtResImg" placeholder="Image URL" runat="server" required></asp:TextBox>
                             </div>
                             <div class="col-lg-6">
-                                <label>Contact Phone:</label><asp:TextBox ID="txtResPhone" placeholder="Phone" runat="server"></asp:TextBox>
+                                <label>Contact Phone:</label><asp:TextBox ID="txtResPhone" placeholder="Phone" runat="server" required></asp:TextBox>
                             </div>
                             <div class="col-lg-6">
-                                <label>Contact Email:</label><asp:TextBox ID="txtResEmail" placeholder="Email" runat="server"></asp:TextBox>
+                                <label>Contact Email:</label><asp:TextBox ID="txtResEmail" placeholder="Email" runat="server" required></asp:TextBox>
                             </div>
                             <div class="col-lg-12">
-                                <label>Restaurant Address:</label><asp:TextBox ID="txtResAddr" placeholder="Address" runat="server"></asp:TextBox>
+                                <label>Restaurant Address:</label><asp:TextBox ID="txtResAddr" placeholder="Address" runat="server" required></asp:TextBox>
                             </div>
                             <div class="col-lg-4">
-                                <label>City</label><asp:TextBox ID="txtResCity" placeholder="City" runat="server"></asp:TextBox>
+                                <label>City</label><asp:TextBox ID="txtResCity" placeholder="City" runat="server" required></asp:TextBox>
                             </div>
                             <div class="col-lg-4">
                                 <label>State</label>
                                 <br />
-                                <asp:DropDownList CssClass="nice-select" Style="height: 58px; width: 100%;" ID="ddlResState" runat="server">
+                                <asp:DropDownList CssClass="nice-select" Style="height: 58px; width: 100%;" ID="ddlResState" runat="server" required>
+                                    <asp:ListItem Value="" Selected="True" disabled>Select a State</asp:ListItem>
                                     <asp:ListItem Value="AL">Alabama</asp:ListItem>
                                     <asp:ListItem Value="AK">Alaska</asp:ListItem>
                                     <asp:ListItem Value="AZ">Arizona</asp:ListItem>
@@ -98,10 +98,15 @@
                                 </asp:DropDownList>
                             </div>
                             <div class="col-lg-4">
-                                <label>ZIP</label><asp:TextBox ID="txtResZip" placeholder="5-number ZIP code" runat="server"></asp:TextBox>
+                                <label>ZIP</label><asp:TextBox ID="txtResZip" placeholder="5-number ZIP code" runat="server" required></asp:TextBox>
                             </div>
                             <div class="col-lg-12">
-                                                            <p style="text-align:center;">Upon submitting this form, your account will be automatically set as the representative of this restauraunt.</p>
+                                <hr />
+                                <p style="text-align: center;">Upon submitting this form, your user account will automatically be set as the representative of this restauraunt.</p>
+                            </div>
+                            <div class="col-lg-3">
+                            </div>
+                            <div class="col-lg-6">
                                 <asp:Button ID="btnRegister" CssClass="contact-form-button" Text="Register Restaurant" runat="server" />
                             </div>
                         </div>
