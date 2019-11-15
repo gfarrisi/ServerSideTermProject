@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace PaymentProcessor.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/service/[controller]")]
     [ApiController]
     public class PaymentGatewayController : ControllerBase
     {
