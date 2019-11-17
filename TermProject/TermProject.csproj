@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AccountSettings.aspx" />
     <Content Include="blog.html" />
     <Content Include="ChooseAccountType.aspx" />
     <Content Include="contact.html" />
@@ -149,6 +150,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountSettings.aspx.cs">
+      <DependentUpon>AccountSettings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AccountSettings.aspx.designer.cs">
+      <DependentUpon>AccountSettings.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ChooseAccountType.aspx.cs">
       <DependentUpon>ChooseAccountType.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

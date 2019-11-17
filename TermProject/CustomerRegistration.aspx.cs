@@ -82,45 +82,45 @@ namespace TermProject
                 objCommand.CommandText = "CreateUser";
                 objCommand.Parameters.Clear();
 
-                objCommand.Parameters.AddWithValue("@FirstName", firstName);
-                objCommand.Parameters.AddWithValue("@LastName", lastName);
-                objCommand.Parameters.AddWithValue("@Email", email);
-                objCommand.Parameters.AddWithValue("@UserID", email);
-                objCommand.Parameters.AddWithValue("@Password", password);
-                objCommand.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
-                objCommand.Parameters.AddWithValue("@Birthdate", birthday);
-                objCommand.Parameters.AddWithValue("@ContactEmail", contactEmail);
-                objCommand.Parameters.AddWithValue("@Address", address);
-                objCommand.Parameters.AddWithValue("@City", city);
-                objCommand.Parameters.AddWithValue("@State", state);
-                objCommand.Parameters.AddWithValue("@AvatarPath", avatar);
-                objCommand.Parameters.AddWithValue("@Type", account);
-                objCommand.Parameters.AddWithValue("@Active", active);
-                objCommand.Parameters.AddWithValue("@BannedText", banned);
+                //objCommand.Parameters.AddWithValue("@FirstName", firstName);
+                //objCommand.Parameters.AddWithValue("@LastName", lastName);
+                //objCommand.Parameters.AddWithValue("@Email", email);
+                //objCommand.Parameters.AddWithValue("@UserID", email);
+                //objCommand.Parameters.AddWithValue("@Password", password);
+                //objCommand.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
+                //objCommand.Parameters.AddWithValue("@Birthdate", birthday);
+                //objCommand.Parameters.AddWithValue("@ContactEmail", contactEmail);
+                //objCommand.Parameters.AddWithValue("@Address", address);
+                //objCommand.Parameters.AddWithValue("@City", city);
+                //objCommand.Parameters.AddWithValue("@State", state);
+                //objCommand.Parameters.AddWithValue("@AvatarPath", avatar);
+                //objCommand.Parameters.AddWithValue("@Type", account);
+                //objCommand.Parameters.AddWithValue("@Active", active);
+                //objCommand.Parameters.AddWithValue("@BannedText", banned);
 
-                int returnValue = objDB.DoUpdateUsingCmdObj(objCommand);
+                //int returnValue = objDB.DoUpdateUsingCmdObj(objCommand);
 
-                if (returnValue > 0)
-                {
-                    Response.Write("<script>alert('Account Created');</script>");
-                    //check to see if email already exists 
-                    //store email as user session ID
-                    //redirect to either admin home or user home
-                    Session["EmailID"] = email;
-                    if (account.Equals("User"))
-                    {
-                        Response.Redirect("Home.aspx");
-                    }
-                    else if (account.Equals("Admin"))
-                    {
-                        Response.Redirect("Admin.aspx");
-                    }
+                //if (returnValue > 0)
+                //{
+                //    Response.Write("<script>alert('Account Created');</script>");
+                //    //check to see if email already exists 
+                //    //store email as user session ID
+                //    //redirect to either admin home or user home
+                //    Session["EmailID"] = email;
+                //    if (account.Equals("User"))
+                //    {
+                //        Response.Redirect("Home.aspx");
+                //    }
+                //    else if (account.Equals("Admin"))
+                //    {
+                //        Response.Redirect("Admin.aspx");
+                //    }
 
-                }
-                else
-                {
-                    Response.Write("<script>alert('Account Not Created');</script>");
-                }
+                //}
+                //else
+                //{
+                //    Response.Write("<script>alert('Account Not Created');</script>");
+                //}
             }
 
 
@@ -129,4 +129,4 @@ namespace TermProject
         }
     }
     }
-}
+//}
