@@ -146,7 +146,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Customer.cs" />
     <Compile Include="CustomerRegistration.aspx.cs">
       <DependentUpon>CustomerRegistration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
