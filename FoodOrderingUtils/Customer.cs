@@ -6,7 +6,7 @@ using System.Web;
 //Gabriella Farrisi
 //11.11.2019
 
-namespace TermProject
+namespace FoodOrderingUtils
 {
     public class Customer
     {
