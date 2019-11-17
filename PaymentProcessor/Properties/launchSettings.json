@@ -1,17 +1,17 @@
-﻿{
+{
   "iisSettings": {
-    "windowsAuthentication": false, 
-    "anonymousAuthentication": true, 
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
     "iisExpress": {
       "applicationUrl": "http://localhost:53367",
-      "sslPort": 44308
+      "sslPort": 0
     }
   },
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/paymentgateway",
+      "launchUrl": "api/service/paymentgateway",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -19,11 +19,11 @@
     "PaymentProcessor": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/paymentgateway",
-      "applicationUrl": "https://localhost:5001;http://localhost:5000",
+      "launchUrl": "api/service/paymentgateway",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      },
+      "applicationUrl": "https://localhost:5001;http://localhost:5000"
     }
   }
 }

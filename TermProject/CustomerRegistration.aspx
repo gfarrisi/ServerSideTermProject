@@ -5,10 +5,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form runat="server">
 
-        <!-- Page Preloder -->
+       <%-- <!-- Page Preloder -->
         <div id="preloder">
             <div class="loader"></div>
-        </div>
+        </div>--%>
 
         <!-- Header Section Begin -->
         <header class="header-section listings">
@@ -22,8 +22,7 @@
                 </nav>
                 <div class="header-right">
                     <div class="user-access">
-                        <a href="#">Register/</a>
-                        <a href="#">Login</a>
+                        <a href="Login.aspx">Register/Login</a>                   
                     </div>
 
                 </div>
@@ -36,7 +35,13 @@
             <div class="col-lg-4 col-md-8 mt-5">
                 <br />
                 <h3 class="pb-5 mt-5 p-4" align="center">Customer Sign Up</h3>
+                <div class="mb-2">
+                    <asp:Label ID="lbContactInfo" runat="server" Text="Contact Info" CssClass="mb-5"></asp:Label>
+
+                </div>
+
                 <div class="row">
+
                     <div class="col-lg-6 mt-10">
                         <asp:TextBox CssClass="contact-form-input" ID="txtFirstName" runat="server" placeholder="First Name" required="true"></asp:TextBox>
 
@@ -55,11 +60,13 @@
                     <asp:TextBox CssClass="contact-form-input" ID="txtPassword" runat="server" placeholder="Password" required="true"></asp:TextBox>
 
                 </div>
-                 <div class="mt-10">
+                <div class="mt-10">
                     <asp:TextBox CssClass="contact-form-input" ID="txtContactEmail" runat="server" placeholder="Contact Email Address" required="true"></asp:TextBox>
 
                 </div>
-                <asp:Label ID="Label2" runat="server" Text="Delivery Info"></asp:Label>
+                <div class="mb-2">
+                    <asp:Label ID="lblDeliveryInfo" runat="server" Text="Delivery Info" CssClass="mb-5"></asp:Label>
+                </div>
                 <div class="mt-10">
                     <asp:TextBox CssClass="contact-form-input" ID="txtDeliveryAddress" runat="server" placeholder="Delivery Address" required="true"></asp:TextBox>
 
@@ -81,30 +88,34 @@
                 <div class="mb-2">
                     <asp:Label ID="lblBiliingInfo" runat="server" Text="Billing Info" CssClass="mb-5"></asp:Label><br />
                 </div>
-                <asp:CheckBox ID="CheckBox1" runat="server" />
-                <asp:Label ID="Label1" runat="server" Text="Same as delivery" CssClass="mb-5"></asp:Label><br />
+                <div class="mb-2">
+                    <asp:CheckBox ID="chkSameAsDelivery" runat="server" AutoPostBack="True" OnCheckedChanged="chkSameAsDelivery_CheckedChanged" />
+                    <asp:Label ID="Label1" runat="server" Text="Same as delivery" CssClass="mb-5"></asp:Label><br />
+                </div>
 
                 <div class="mt-10">
-                    <asp:TextBox CssClass="contact-form-input" ID="TextBox1" runat="server" placeholder="Billing Address" required="true"></asp:TextBox>
+                    <asp:TextBox CssClass="contact-form-input" ID="txtBillingAddress" runat="server" placeholder="Billing Address" required="true"></asp:TextBox>
 
                 </div>
                 <div class="row">
                     <div class="col-lg-4 mt-10">
-                        <asp:TextBox CssClass="contact-form-input" ID="TextBox2" runat="server" placeholder="Billing City" required="true"></asp:TextBox>
+                        <asp:TextBox CssClass="contact-form-input" ID="txtBillingCity" runat="server" placeholder="Billing City" required="true"></asp:TextBox>
 
                     </div>
                     <div class="col-lg-4 mt-10">
-                        <asp:TextBox CssClass="contact-form-input" ID="TextBox3" runat="server" placeholder="Billing State" required="true"></asp:TextBox>
+                        <asp:TextBox CssClass="contact-form-input" ID="txtBillingState" runat="server" placeholder="Billing State" required="true"></asp:TextBox>
 
                     </div>
                     <div class="col-lg-4 mt-10">
-                        <asp:TextBox CssClass="contact-form-input" ID="TextBox4" runat="server" placeholder="Billing Zip" required="true"></asp:TextBox>
+                        <asp:TextBox CssClass="contact-form-input" ID="txtBillingZip" runat="server" placeholder="Billing Zip" required="true"></asp:TextBox>
 
                     </div>
                 </div>
                 <div class="col-lg-12 text-center">
-                    <div class="mb-1">
-                        <asp:Button ID="Button2" runat="server" Text="Log In" CssClass="contact-form-button" />
+                    <asp:Label ID="lblError" runat="server" Text="" Visible="false" CssClass="mb-5"></asp:Label><br />
+
+                    <div class="mb-5">
+                        <asp:Button ID="btnSignUp" runat="server" Text="Sign Up" OnClick="btnSignUp_Click" CssClass="contact-form-button" />
                     </div>
                 </div>
 

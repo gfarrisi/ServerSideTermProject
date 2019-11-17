@@ -67,7 +67,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AccountSettings.aspx" />
     <Content Include="blog.html" />
+    <Content Include="ChooseAccountType.aspx" />
     <Content Include="contact.html" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\flaticon.css" />
@@ -79,6 +81,8 @@
     <Content Include="css\style.css" />
     <Content Include="CustomerRegistration.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="ForgotEmail.aspx" />
+    <Content Include="ForgotPassword.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="fonts\Flaticon.svg" />
     <Content Include="fonts\fontawesome-webfont.svg" />
@@ -146,6 +150,20 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountSettings.aspx.cs">
+      <DependentUpon>AccountSettings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AccountSettings.aspx.designer.cs">
+      <DependentUpon>AccountSettings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChooseAccountType.aspx.cs">
+      <DependentUpon>ChooseAccountType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChooseAccountType.aspx.designer.cs">
+      <DependentUpon>ChooseAccountType.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CustomerRegistration.aspx.cs">
       <DependentUpon>CustomerRegistration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -159,6 +177,20 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ForgotEmail.aspx.cs">
+      <DependentUpon>ForgotEmail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ForgotEmail.aspx.designer.cs">
+      <DependentUpon>ForgotEmail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ForgotPassword.aspx.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ForgotPassword.aspx.designer.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
