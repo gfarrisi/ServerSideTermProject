@@ -10,9 +10,31 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" class="contact-form" runat="server">
+        <%-- Header Section --%>
+        <header class="header-section listings">
+            <div class="container-fluid">
+                <div class="logo">
+                    <a href="./index.html">
+                        <img src="img/logo0.png" alt=""></a>
+
+                </div>
+                <nav class="main-menu mobile-menu">
+                </nav>
+                <div class="header-right">
+                    <div class="user-access">
+                        <a href="Login.aspx">Register/Login</a>
+                    </div>
+
+                </div>
+                <div id="mobile-menu-wrap"></div>
+            </div>
+        </header>
         <!-- Contact Section Begin -->
         <section class="contact-section spad">
             <h2>Register your Restaurant</h2>
+            <br />
+            <h3>Restaurant Info</h3>
+            <h6 style="color:deeppink">These are the details that customers will see when interacting with your restaurant.</h6>
             <br />
             <div class="container">
                 <div class="row">
@@ -20,23 +42,23 @@
                     <div class="col-lg-8">
                         <div class="row">
                             <div class="col-lg-6">
-                                <label>Restaurant Name:</label><asp:TextBox ID="txtResName" placeholder="Restaurant Name" runat="server" required></asp:TextBox>
+                                <label>Restaurant Name:</label><asp:TextBox CssClass="contact-form-input" ID="txtResName" placeholder="Restaurant Name" runat="server" required></asp:TextBox>
                             </div>
                             <div class="col-lg-6">
                                 <label>Restaurant Graphic (URL Format)</label>
-                                <asp:TextBox ID="txtResImg" placeholder="Image URL" runat="server" required></asp:TextBox>
+                                <asp:TextBox CssClass="contact-form-input" ID="txtResImg" placeholder="Image URL" runat="server" required></asp:TextBox>
                             </div>
                             <div class="col-lg-6">
-                                <label>Contact Phone:</label><asp:TextBox ID="txtResPhone" placeholder="Phone" runat="server" required></asp:TextBox>
+                                <label>Contact Phone:</label><asp:TextBox CssClass="contact-form-input" ID="txtResPhone" placeholder="Phone" runat="server" required></asp:TextBox>
                             </div>
                             <div class="col-lg-6">
-                                <label>Contact Email:</label><asp:TextBox ID="txtResEmail" placeholder="Email" runat="server" required></asp:TextBox>
+                                <label>Contact Email:</label><asp:TextBox CssClass="contact-form-input" ID="txtResEmail" placeholder="Email" runat="server" required></asp:TextBox>
                             </div>
                             <div class="col-lg-12">
-                                <label>Restaurant Address:</label><asp:TextBox ID="txtResAddr" placeholder="Address" runat="server" required></asp:TextBox>
+                                <label>Restaurant Address:</label><asp:TextBox CssClass="contact-form-input" ID="txtResAddr" placeholder="Address" runat="server" required></asp:TextBox>
                             </div>
                             <div class="col-lg-4">
-                                <label>City</label><asp:TextBox ID="txtResCity" placeholder="City" runat="server" required></asp:TextBox>
+                                <label>City</label><asp:TextBox CssClass="contact-form-input" ID="txtResCity" placeholder="City" runat="server" required></asp:TextBox>
                             </div>
                             <div class="col-lg-4">
                                 <label>State</label>
@@ -98,17 +120,52 @@
                                 </asp:DropDownList>
                             </div>
                             <div class="col-lg-4">
-                                <label>ZIP</label><asp:TextBox ID="txtResZip" placeholder="5-number ZIP code" runat="server" required></asp:TextBox>
+                                <label>ZIP</label><asp:TextBox CssClass="contact-form-input" ID="txtResZip" placeholder="5-number ZIP code" runat="server" required></asp:TextBox>
                             </div>
-                            <div class="col-lg-12">
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
                                 <hr />
-                                <p style="text-align: center;">Upon submitting this form, your user account will automatically be set as the representative of this restauraunt.</p>
+                                <h3>Representative Account Info</h3>
+                                <h6 style="color:deeppink">These are the account credentials you will use when logging in to manage the restaurant.</h6>
+                                <br />
                             </div>
-                            <div class="col-lg-3">
+
+                            <div class="col-lg-6 mt-10">
+                                                            <label>First Name:</label>
+                                <asp:TextBox CssClass="contact-form-input" ID="txtFirstName" runat="server" placeholder="First Name" required="true"></asp:TextBox>
+
                             </div>
-                            <div class="col-lg-6">
-                                <asp:Button ID="btnRegister" CssClass="contact-form-button" Text="Register Restaurant" runat="server" />
+                            <div class="col-lg-6 mt-10">
+                                <label>Last Name:</label>
+                                <asp:TextBox CssClass="contact-form-input" ID="txtLastName" runat="server" placeholder="Last Name" required="true"></asp:TextBox>
                             </div>
+                        </div>
+
+                        <div class="mt-10">
+                            <label>Representative Email:</label>
+                            <asp:TextBox CssClass="contact-form-input" ID="txtEmail" runat="server" placeholder="Email Address" required="true"></asp:TextBox>
+
+                        </div>
+                        <div class="mt-10">
+                            <label>Password:</label>
+                            <asp:TextBox CssClass="contact-form-input" ID="txtPassword" runat="server" placeholder="Password" required="true"></asp:TextBox>
+
+                        </div>
+                        <div class="mt-10">
+                            <label>Contact Email:</label>
+                            <asp:TextBox CssClass="contact-form-input" ID="txtContactEmail" runat="server" placeholder="Contact Email Address" required="true"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <hr />
+                            <p style="text-align: center;"> Upon submitting this form, your user account will automatically be set as the representative of this restauraunt.</p>
+                        </div>
+                        <div class="col-lg-3">
+                        </div>
+                        <div class="col-lg-6">
+                            <asp:Button ID="btnRegister" CssClass="contact-form-button" Text="Register Restaurant" runat="server" />
                         </div>
                     </div>
                 </div>
