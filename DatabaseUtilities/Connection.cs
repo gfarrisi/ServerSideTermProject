@@ -1,4 +1,4 @@
-﻿using System;
+﻿`using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Collections.Generic;
@@ -13,9 +13,9 @@ namespace Utilities
         //work at home
         //String SqlConnectString = "server=127.0.0.1,5555;Database=fa19_3342_tug53772;User id=tug53772;Password=ca9eKaec";
         //work at school
-        //String SqlConnectString = "server=cis-mssql1.temple.edu;Database=fa19_3342_tug53772;User id=tug53772;Password=ca9eKaec";
+        String SqlConnectString = "server=cis-mssql1.temple.edu;Database=fa19_3342_tug53772;User id=tug53772;Password=ca9eKaec";
         //Ellie -- work at homee
-        String SqlConnectString = "server=127.0.0.1,5555;Database=FA19_3342_tug35007;User id=tug35007;Password=ZaiRi7ae";
+        //String SqlConnectString = "server=127.0.0.1,5555;Database=FA19_3342_tug35007;User id=tug35007;Password=ZaiRi7ae";
         //Ellie --at school
         //String SqlConnectString = "server=cis-mssql1.temple.edu;Database=FA19_3342_tug35007;User id=tug35007;Password=ZaiRi7ae";
         SqlConnection myConnectionSql;

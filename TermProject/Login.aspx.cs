@@ -25,12 +25,15 @@ namespace TermProject
 
         protected void lbForgotEmail_Click(object sender, EventArgs e)
         {
+            Response.Redirect("ForgotEmail.aspx");
         }
         protected void lbForgotPassword_Click(object sender, EventArgs e)
         {
+            Response.Redirect("ForgotPassword.aspx");
         }
         protected void lbCreateAccount_Click(object sender, EventArgs e)
         {
+            Response.Redirect("ChooseAccountType.aspx");
         }
     }
 }
