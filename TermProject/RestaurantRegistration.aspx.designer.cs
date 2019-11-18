@@ -22,6 +22,24 @@ namespace TermProject {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// secError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl secError;
+        
+        /// <summary>
+        /// secContent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl secContent;
+        
+        /// <summary>
         /// txtResName control.
         /// </summary>
         /// <remarks>
@@ -146,5 +164,14 @@ namespace TermProject {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnRegister;
+        
+        /// <summary>
+        /// secSuccess control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl secSuccess;
     }
 }
