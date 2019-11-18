@@ -29,8 +29,18 @@
                 <div id="mobile-menu-wrap"></div>
             </div>
         </header>
-        <!-- Contact Section Begin -->
-        <section class="contact-section spad">
+
+        <section class="contact-section" style="padding-bottom:0px;" id="secError" runat="server" visible="false">
+            <div style="background-color:crimson;">
+                <h2 style="color: white;">Error...</h2>
+                <br />
+                <h5 style="color: white;">Something went wrong while creating your account. Did you forget a form? Is your representative account already in use?</h5>
+                <br />
+            </div>
+        </section>
+
+        <!-- Content Section Begin -->
+        <section class="contact-section spad" id="secContent" runat="server" visible="true">
             <h2>Register your Restaurant</h2>
             <br />
             <h3>Restaurant Info</h3>
@@ -64,7 +74,7 @@
                                 <label>State</label>
                                 <br />
                                 <asp:DropDownList CssClass="nice-select" Style="height: 58px; width: 100%;" ID="ddlResState" runat="server" required>
-                                    <asp:ListItem Value="" Selected="True" disabled>Select a State</asp:ListItem>
+                                    <asp:ListItem Value="Not Specified" Selected="True" disabled="disabled">Select a State</asp:ListItem>
                                     <asp:ListItem Value="AL">Alabama</asp:ListItem>
                                     <asp:ListItem Value="AK">Alaska</asp:ListItem>
                                     <asp:ListItem Value="AZ">Arizona</asp:ListItem>
@@ -161,14 +171,22 @@
                         <div class="col-lg-12">
                             <hr />
                             <p style="text-align: center;"> Upon submitting this form, your user account will automatically be set as the representative of this restauraunt.</p>
-                        </div>
+                        </div>  
                         <div class="col-lg-3">
                         </div>
                         <div class="col-lg-6">
-                            <asp:Button ID="btnRegister" CssClass="contact-form-button" Text="Register Restaurant" runat="server" />
+                            <asp:Button ID="btnRegister" CssClass="contact-form-button" Text="Register Restaurant" OnClick="btnRegister_Click" runat="server" />
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+        <section id="secSuccess" class="contact-section spad" runat="server" visible="false">
+            <div style="background-color:mediumseagreen;">
+            <h2 style="color:white;">Success!</h2>
+            <br />
+            <h5 style="color: white;">Your account has now been created. Please <a style="color:aliceblue; text-decoration:underline" href="Login.aspx">log in</a> to manage your restaurant.</h5>
+            <br />
             </div>
         </section>
     </form>

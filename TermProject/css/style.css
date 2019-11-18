@@ -571,7 +571,7 @@ ol {
 .trend-item .trend-pic {
 	display: inline-block;
 	position: relative;
-	margin-left: -15px;
+	margin-left: 10px;
 	margin-right: 20px;
 }
 
