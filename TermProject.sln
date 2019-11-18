@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentProcessor", "Payment
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MerchantRegistration", "MerchantRegistration\MerchantRegistration.csproj", "{A8EC87E4-6C11-4C65-8419-358A4A63B9F3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentGateway", "PaymentGateway\PaymentGateway.csproj", "{DBA2D8BA-C9DE-4E72-B6A6-7134F752B131}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{A8EC87E4-6C11-4C65-8419-358A4A63B9F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8EC87E4-6C11-4C65-8419-358A4A63B9F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8EC87E4-6C11-4C65-8419-358A4A63B9F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBA2D8BA-C9DE-4E72-B6A6-7134F752B131}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBA2D8BA-C9DE-4E72-B6A6-7134F752B131}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBA2D8BA-C9DE-4E72-B6A6-7134F752B131}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBA2D8BA-C9DE-4E72-B6A6-7134F752B131}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
