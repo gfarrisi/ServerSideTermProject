@@ -576,9 +576,11 @@ ol {
 }
 
 .trend-item .trend-pic img {
-	height: 185px;
-	width: 185px;
-	border-radius: 50%;
+	height: 150px;
+    width: 150px;
+    object-fit: cover;
+    /*border radius for landing page images*/
+	border-radius: 2.5%;
 }
 
 .trend-item .trend-pic .rating {

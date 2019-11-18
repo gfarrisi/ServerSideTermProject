@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -13,23 +15,32 @@ namespace TermProject
         DBConnect objDB = new DBConnect();
         protected void Page_Load(object sender, EventArgs e)
         {
-            for (int i = 1; i < 5; i++)
+
+            if (!IsPostBack)
             {
-                RestaurantControl ctrl = (RestaurantControl)LoadControl("RestaurantControl.ascx");
-                
-                
-                ctrl.ResTitle = "Restaurant " + i;
-                ctrl.ResDescription = "Description";
-                ctrl.ResAddress = "" + i + "" + i + "" + i + "" + i + " Main Street";
-                ctrl.ResImage = "img/trending/trending-" + i + ".jpg";
-                //ctrl.DataBind();
-                if (i % 2 == 0)
+
+                SqlCommand sqlGetRestaurants = new SqlCommand();
+                sqlGetRestaurants.CommandType = CommandType.StoredProcedure;
+                sqlGetRestaurants.CommandText = "TP_GetAllRestaurants";
+                DataSet ds = objDB.GetDataSetUsingCmdObj(sqlGetRestaurants);
+
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                 {
-                    divRestaurantColumn.Controls.Add(ctrl);
-                }
-                else
-                {
-                    divRestaurantColumn2.Controls.Add(ctrl);
+                    RestaurantControl ctrl = (RestaurantControl)LoadControl("RestaurantControl.ascx");
+
+                    DataRow drv = ds.Tables[0].Rows[i];
+                    ctrl.ResTitle = drv[1].ToString();
+                    ctrl.ResAddress = drv[5].ToString();
+                    ctrl.ResImage = drv[2].ToString();
+                    //ctrl.DataBind();
+                    if (i % 2 == 0)
+                    {
+                        divRestaurantColumn.Controls.Add(ctrl);
+                    }
+                    else
+                    {
+                        divRestaurantColumn2.Controls.Add(ctrl);
+                    }
                 }
             }
         }

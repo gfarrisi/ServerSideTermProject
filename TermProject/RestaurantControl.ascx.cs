@@ -19,11 +19,6 @@ namespace TermProject
             get { return txtRestaurantName.InnerText; }
             set { txtRestaurantName.InnerText = value; }
         }
-        public String ResDescription
-        {
-            get { return txtDescription.InnerText; }
-            set { txtDescription.InnerText = value; }
-        }
 
         public String ResAddress
         {

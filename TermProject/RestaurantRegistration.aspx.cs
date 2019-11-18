@@ -56,7 +56,6 @@ namespace TermProject
                 int i = objDB.DoUpdateUsingCmdObj(sqlRegisterRestaurantRep);
 
                 //add success code here
-                Response.Write(i);
                 if (i > 0)
                 {
                     secError.Visible = false;

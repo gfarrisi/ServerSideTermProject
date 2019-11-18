@@ -13,9 +13,8 @@
     </div>
     <div class="trend-text">
         <h4 id="txtRestaurantName" runat="server">New Place Restaurant</h4>
-        <span id="txtAddress" runat="server">Main Road , No 25/11</span>
-        <p id="txtDescription" runat="server">Fusce urna quam, euismod sit amet mollis quis.</p>
+        <span id="txtAddress" runat="server">Main Road , No 25/11</span> <br />
     <asp:Button ID="btnRegister" CssClass="contact-form-button" Text="View" runat="server" />
     </div>
-   <%-- <div class="tic-text">Restaurant</div>--%>
+   <div class="tic-text">Restaurant</div>
 </div>
