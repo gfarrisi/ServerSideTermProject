@@ -10,14 +10,18 @@ namespace Utilities
 {
     public class DBConnect
     {
-        //work at home
-        //String SqlConnectString = "server=127.0.0.1,5555;Database=fa19_3342_tug53772;User id=tug53772;Password=ca9eKaec";
-        //work at school
+        /*String for accounts database*/
+        //Hazel -- work at home
+        String SqlConnectString = "server=127.0.0.1,5555;Database=fa19_3342_tug53772;User id=tug53772;Password=ca9eKaec";
+        //Hazel -- at school
        // String SqlConnectString = "server=cis-mssql1.temple.edu;Database=fa19_3342_tug53772;User id=tug53772;Password=ca9eKaec";
+        
+        /*String for payment processor database */
         //Ellie -- work at homee
-        String SqlConnectString = "server=127.0.0.1,5555;Database=FA19_3342_tug35007;User id=tug35007;Password=ZaiRi7ae";
+        String APIConnectString = "server=127.0.0.1,5555;Database=FA19_3342_tug35007;User id=tug35007;Password=ZaiRi7ae";
         //Ellie --at school
         //String SqlConnectString = "server=cis-mssql1.temple.edu;Database=FA19_3342_tug35007;User id=tug35007;Password=ZaiRi7ae";
+
         SqlConnection myConnectionSql;
         SqlCommand objCmd;
         SqlDataReader objDataReader;
@@ -26,6 +30,25 @@ namespace Utilities
         public DBConnect()
         {
             myConnectionSql = new SqlConnection(SqlConnectString);
+        }
+        
+        public DBConnect(bool isAPI)
+        {
+            myConnectionSql = new SqlConnection(APIConnectString);
+        }
+
+        public DBConnect SetStringFoodDelivery()
+        {
+            DBConnect db = new DBConnect();
+            myConnectionSql = new SqlConnection(SqlConnectString);
+            return db;
+        }
+
+        public DBConnect SetStringAPI()
+        {
+            DBConnect db = new DBConnect();
+            myConnectionSql = new SqlConnection(APIConnectString);
+            return db;
         }
 
         // This method is used to execute a SELECT SQL statement and retrieve a record set containing the results.
