@@ -18,7 +18,7 @@ namespace PaymentProcessor.Controllers
     [ApiController]
     public class PaymentGatewayController : ControllerBase
     {
-        DBConnect objDB = new DBConnect();
+        DBConnect objDB = new DBConnect().SetStringAPI();
         SqlCommand objCommand = new SqlCommand();
 
         // GET: api/service/paymentgateway
