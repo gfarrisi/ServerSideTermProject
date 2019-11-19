@@ -13,5 +13,10 @@ namespace TermProject
         {
             lblEnterEmail.ForeColor = System.Drawing.ColorTranslator.FromHtml("#FF5581");
         }
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

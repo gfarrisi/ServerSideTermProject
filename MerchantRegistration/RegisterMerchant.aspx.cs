@@ -13,7 +13,7 @@ namespace MerchantRegistration
 {
     public partial class RegisterMerchant : System.Web.UI.Page
     {
-        DBConnect objDB = new DBConnect();
+        DBConnect objDB = new DBConnect(true);
         SqlCommand objCommand = new SqlCommand();
 
         protected void Page_Load(object sender, EventArgs e)

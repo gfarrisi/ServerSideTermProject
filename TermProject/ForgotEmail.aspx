@@ -56,7 +56,7 @@
                             </div>
                             <div class="col-lg-12 text-center">
                                 <div class="mb-1 mt-5">
-                                    <asp:Button ID="Button1" runat="server" Text="Submit" CssClass="contact-form-button" />
+                                    <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="Submit" CssClass="contact-form-button" />
                                 </div>
                                 <br />
                                 <br />

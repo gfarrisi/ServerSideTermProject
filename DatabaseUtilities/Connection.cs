@@ -20,7 +20,7 @@ namespace Utilities
 
         String APIConnectString = "server=127.0.0.1,5555;Database=FA19_3342_tug35007;User id=tug35007;Password=ZaiRi7ae";
         
-        //String APIConnectString = "server=cis-mssql1.temple.edu;Database=FA19_3342_tug35007;User id=tug35007;Password=ZaiRi7ae";
+    //    String APIConnectString = "server=cis-mssql1.temple.edu;Database=FA19_3342_tug35007;User id=tug35007;Password=ZaiRi7ae";
 
         SqlConnection myConnectionSql;
         SqlCommand objCmd;
