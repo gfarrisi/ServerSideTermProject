@@ -37,6 +37,9 @@
                     <div class="col-lg-4">
                     </div>
                     <div class="col-lg-4">
+                        <div class="mb-5" align="center">
+                                <asp:Label ID="lblSent" Visible="false" runat="server" Text="Please enter backup contact email" CssClass="mb-5"></asp:Label>
+                            </div>
                         <div align="center">
                             <h2>Forgot Password</h2>
                                 <br /><br /><br />
@@ -55,7 +58,7 @@
                             </div>
                             <div class="col-lg-12 text-center">
                                 <div class="mb-1 mt-5">
-                                    <asp:Button ID="Button1" runat="server" Text="Submit" CssClass="contact-form-button" />
+                                    <asp:Button ID="btnSubmit" OnClick="btnSubmit_Click" runat="server" Text="Submit" CssClass="contact-form-button" />
                                 </div>
                                 <br />
                                 <br />

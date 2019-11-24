@@ -38,6 +38,9 @@
                     <div class="col-lg-4">
                     </div>
                     <div class="col-lg-4">
+                         <div class="mb-5" align="center">
+                                <asp:Label ID="lblSent" Visible="false" runat="server" Text="Please enter backup contact email" CssClass="mb-5"></asp:Label>
+                            </div>
                         <div align="center">
                             <h2>Forgot Email</h2>
                                 <br /><br /><br />
