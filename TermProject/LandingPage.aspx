@@ -8,7 +8,7 @@
             console.log("Happening");
             var params = "search=" + document.getElementById("search").value;
             // Open a new asynchronous request, set the callback function, and send the request.
-            xmlhttp.open("GET", "LandingPage.aspx?" + params, true);
+            xmlhttp.open("GET", "SearchResults.aspx?" + params, true);
         xmlhttp.setRequestHeader("Content-Type", "application-json");
         xmlhttp.onreadystatechange = onComplete;
         xmlhttp.send(); 

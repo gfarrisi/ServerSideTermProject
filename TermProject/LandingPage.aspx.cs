@@ -19,14 +19,12 @@ namespace TermProject
             if (!String.IsNullOrEmpty(Request.QueryString["search"]))
             {
                 String strName = Request.QueryString["search"];
-                Response.Write(strName);
                 return;
             }
             //get dataset from viewstate, if it exists
             ds = (DataSet)ViewState["DataSet"];
             if (ds == null) {
                 //retrieve database for the first time
-                Response.Write("Need database");
                 SqlCommand sqlGetRestaurants = new SqlCommand();
                 sqlGetRestaurants.CommandType = CommandType.StoredProcedure;
                 sqlGetRestaurants.CommandText = "TP_GetAllRestaurants";
