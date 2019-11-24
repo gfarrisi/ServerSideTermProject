@@ -30,7 +30,7 @@ namespace PaymentGateway.Controllers
 
         // GET: api/paymentgateway/GetTransactions
         [HttpGet("GetTransactions/{APIKey}/{MerhchantID}/{VirtualWalletID}/")]
-        public List<Transaction> GetTransactions(string APIKey, string MerhchantID, string VirtualWalletID)
+        public List<Transaction> GetTransactions(string APIKey, string MerchantID, string VirtualWalletID)
         {
             //verify there is an account based on parameters
             //take that vwid and return ds of transactions           
@@ -40,7 +40,7 @@ namespace PaymentGateway.Controllers
             objCommand.Parameters.Clear();
 
             objCommand.Parameters.AddWithValue("@API_Key", APIKey);
-            objCommand.Parameters.AddWithValue("@MerchantID", MerhchantID);
+            objCommand.Parameters.AddWithValue("@MerchantID", MerchantID);
             objCommand.Parameters.AddWithValue("@VirtualWalletID", VirtualWalletID);
             DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
             DataTable myDT = myDS.Tables[0];
@@ -68,35 +68,58 @@ namespace PaymentGateway.Controllers
         // POST: api/PaymentGateway/ProcessPayment
         [HttpPost]
         [Route("ProcessPayment")]      
-        public Boolean ProcessPayment([FromBody] Transaction transaction)
+        public String ProcessPayment([FromBody] Transaction transaction)
         {
+
             objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "PP_ProcessPayment";
+            objCommand.CommandText = "PP_GetVirtualWalletBalance";
             objCommand.Parameters.Clear();
 
             objCommand.Parameters.AddWithValue("@API_Key", transaction.API_Key);
             objCommand.Parameters.AddWithValue("@MerchantID", transaction.MerchantID);
-            objCommand.Parameters.AddWithValue("@VirtualWalletIDSender", transaction.VirtualWalletSenderID);
-            objCommand.Parameters.AddWithValue("@VirtualWalletIDReceiver", transaction.VirtualWalletReceiverID);
-            objCommand.Parameters.AddWithValue("@Transaction_Type", transaction.Transaction_Type);
-            objCommand.Parameters.AddWithValue("@Transaction_Amount", transaction.Transaction_Amount);
-
-            DateTime dt = DateTime.Now;
-
-            objCommand.Parameters.AddWithValue("@Transaction_DateTime", dt); ;
-
-            int returnValue = objDB.DoUpdateUsingCmdObj(objCommand);
-
-            if (returnValue > 0)
+            objCommand.Parameters.AddWithValue("@VirtualWalletID", transaction.VirtualWalletSenderID);
+            DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+            DataTable myDT = myDS.Tables[0];
+            if(myDS.Tables[0].Rows.Count > 0)
             {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+                string balancestring = myDS.Tables[0].Rows[0]["Balance"].ToString();
+                decimal balance = Convert.ToDecimal(balancestring);
+                if (balance < 0)
+                {
+                    return "Insufficiant Funds";
+                }
+                else
+                {
+                    objCommand.CommandType = CommandType.StoredProcedure;
+                    objCommand.CommandText = "PP_ProcessPayment";
+                    objCommand.Parameters.Clear();
 
+                    objCommand.Parameters.AddWithValue("@API_Key", transaction.API_Key);
+                    objCommand.Parameters.AddWithValue("@MerchantID", transaction.MerchantID);
+                    objCommand.Parameters.AddWithValue("@VirtualWalletIDSender", transaction.VirtualWalletSenderID);
+                    objCommand.Parameters.AddWithValue("@VirtualWalletIDReceiver", transaction.VirtualWalletReceiverID);
+                    objCommand.Parameters.AddWithValue("@Transaction_Type", transaction.Transaction_Type);
+                    objCommand.Parameters.AddWithValue("@Transaction_Amount", transaction.Transaction_Amount);
+
+                    DateTime dt = DateTime.Now;
+
+                    objCommand.Parameters.AddWithValue("@Transaction_DateTime", dt); ;
+
+                    int returnValue = objDB.DoUpdateUsingCmdObj(objCommand);
+
+                    if (returnValue > 0)
+                    {
+                        return "true";
+                    }
+                    else
+                    {
+                        return "false";
+                    }
+
+                }
+            }
            
+            return "false";
         }
 
 
@@ -156,6 +179,10 @@ namespace PaymentGateway.Controllers
                 return false;
             }
         }
+
+
+        // it will take in transaction object where instead of heaving a different sender and reciever it is the same
+        // it will add the the fund as a transaction and update the balance of the user
 
         // PUT: api/PaymentGateway/FundAccount
         [HttpPut("FundAccount")]

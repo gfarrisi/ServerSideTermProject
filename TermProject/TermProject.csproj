@@ -80,10 +80,10 @@
     <Content Include="css\slicknav.min.css" />
     <Content Include="css\style.css" />
     <Content Include="CustomerRegistration.aspx" />
-    <Content Include="Default.aspx" />
+    <Content Include="Home.aspx" />
     <Content Include="ForgotEmail.aspx" />
     <Content Include="ForgotPassword.aspx" />
-    <Content Include="Login.aspx" />
+    <Content Include="Default.aspx" />
     <Content Include="fonts\Flaticon.svg" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="how-it-works.html" />
@@ -174,12 +174,12 @@
     <Compile Include="CustomerRegistration.aspx.designer.cs">
       <DependentUpon>CustomerRegistration.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="ForgotEmail.aspx.cs">
       <DependentUpon>ForgotEmail.aspx</DependentUpon>
@@ -195,12 +195,12 @@
     <Compile Include="ForgotPassword.aspx.designer.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="FoodOrder.Master.cs">
       <DependentUpon>FoodOrder.Master</DependentUpon>
@@ -259,6 +259,7 @@
     <Content Include="Source\OwlCarousel2-2.3.4.zip" />
     <Content Include="Source\sass.zip" />
     <Content Include="Source\SlickNav-master.zip" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
