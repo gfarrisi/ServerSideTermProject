@@ -146,6 +146,7 @@
     <Content Include="readme.txt" />
     <Content Include="RestaurantControl.ascx" />
     <Content Include="RestaurantRegistration.aspx" />
+    <Content Include="SearchResults.aspx" />
     <Content Include="single-listing.html" />
     <Content Include="Source\photo credits - directory.txt" />
     <Content Include="Web.config" />
@@ -229,6 +230,13 @@
     </Compile>
     <Compile Include="LandingPage.aspx.designer.cs">
       <DependentUpon>LandingPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchResults.aspx.cs">
+      <DependentUpon>SearchResults.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchResults.aspx.designer.cs">
+      <DependentUpon>SearchResults.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
