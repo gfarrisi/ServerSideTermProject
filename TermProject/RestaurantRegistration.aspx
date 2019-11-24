@@ -163,8 +163,8 @@
 
                         </div>
                         <div class="mt-10">
-                            <label>Contact Email:</label>
-                            <asp:TextBox CssClass="contact-form-input" ID="txtContactEmail" runat="server" placeholder="Contact Email Address" required="true"></asp:TextBox>
+                            <label>Backup Email (For account recovery):</label>
+                            <asp:TextBox CssClass="contact-form-input" ID="txtContactEmail" runat="server" placeholder="Backup Email Address" required="true"></asp:TextBox>
                         </div>
                     </div>
                     <div class="row">
