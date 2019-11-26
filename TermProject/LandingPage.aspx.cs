@@ -31,7 +31,7 @@ namespace TermProject
                 ds = objDB.GetDataSetUsingCmdObj(sqlGetRestaurants);
                 ViewState.Add("DataSet", ds);
             }
-            DrawSearchResults();
+            //DrawSearchResults();
         }
 
         void DrawSearchResults()

@@ -51,7 +51,7 @@
                                 <h4>Menu</h4>                                               
                                 <asp:Repeater ID="repeaterMenu" runat="server">
                                     <ItemTemplate>
-                                        <uc1:MenuItemControl ID="MenuItemControl1" runat="server" />
+                                        <uc1:MenuItemControl runat="server" />
                                     </ItemTemplate>
                                 </asp:Repeater>
                             </div>

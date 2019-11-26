@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -36,6 +37,43 @@ namespace TermProject
         {
             get { return imgMenuItem.Src; }
             set { imgMenuItem.Src = value; }
+        }
+
+        public Repeater ItemConfigurableRepeater
+        {
+            get; set;
+        }
+
+        public String ItemConfigurableLabel
+        {
+            get;set;
+        } 
+
+        public DropDownList ItemConfigurableDropDown
+        {
+            get; 
+            set;
+        }
+
+        protected void OnItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType ==
+            ListItemType.AlternatingItem)
+            {
+                //Find the DropDownList in the Repeater Item.
+                DropDownList ddlConfigurableOptions = (e.Item.FindControl("ddlCustomControl") as DropDownList);
+                ddlConfigurableOptions.DataSource = null;
+                ddlConfigurableOptions.DataTextField = "Country";
+                ddlConfigurableOptions.DataValueField = "Country";
+                ddlConfigurableOptions.DataBind();
+
+                //Add Default Item in the DropDownList.
+                ddlConfigurableOptions.Items.Insert(0, new ListItem("Please select"));
+
+                //Select the Country of Customer in DropDownList.
+                string country = (e.Item.DataItem as DataRowView)["Country"].ToString();
+                ddlConfigurableOptions.Items.FindByValue(country).Selected = true;
+            }
         }
     }
 }
