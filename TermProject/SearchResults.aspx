@@ -19,8 +19,8 @@
     <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 <body>
-    <form id="form1" runat="server">
-  <div class="container">
+  <form id="form1" runat="server">
+  <div class="container" runat="server">
             <div class="row">
                 <div class="col-md-6" id="divRestaurantColumn" runat="server">
                 </div>

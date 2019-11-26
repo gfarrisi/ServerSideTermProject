@@ -9,9 +9,9 @@
         <span id="txtItemDescription" runat="server">Description</span> <br />
         <asp:Repeater ID="repeaterCustomControls" runat="server" OnItemDataBound="OnItemDataBound"> 
             <ItemTemplate>
-                <label id="txtCustomControl" runat="server">
+                <asp:Label ID="txtCustomControl" runat="server">
                     <%-- Add control name here (size, toppings, etc) --%>
-                </label>
+                </asp:Label>
                 <asp:DropDownList ID="ddlCustomControl" runat="server">
                     <%-- Add dropdown value items here --%>
                 </asp:DropDownList>

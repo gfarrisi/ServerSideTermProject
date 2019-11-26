@@ -23,7 +23,7 @@
             //Response is READY and Status is OK
 
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                document.getElementById("startResults").innerHTML = "";
+                //document.getElementById("startResults").innerHTML = "";
                 document.getElementById("ajaxtest").innerHTML = xmlhttp.responseText;
             }
         }
@@ -31,7 +31,7 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form id="form1" runat="server">
+    <%--<form id="form1" runat="server">--%>
         <h2 style="text-align: center;">Restaurants List</h2>
         <br />
         <div class="container">
@@ -44,9 +44,8 @@
                         <script>
                             getSearch();
                         </script>
-                        <div class="input-group-append">
-                            <asp:LinkButton ID="linkBtnSearch" OnClick="linkBtnSearch_Click" runat="server"><span class="input-group-text alert-warning lighten-3" id="spnSearch" style="padding: .65rem .75rem"><i class="fa fa-search text-grey"
-                                 aria-hidden="true"></i></span></asp:LinkButton>
+                        <div class="input-group-append"><span> <i class="fa fa-search text-grey"
+                                 aria-hidden="true"></i></span>
                         </div>
                     </div>
                 </div>
@@ -64,5 +63,5 @@
                 </div>
             </div>
         </div>
-    </form>
+    <%--</form>--%>
 </asp:Content>

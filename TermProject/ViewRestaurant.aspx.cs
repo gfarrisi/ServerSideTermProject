@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Utilities;
+using FoodOrderingUtils;
 
 namespace TermProject
 {
@@ -17,8 +18,19 @@ namespace TermProject
         DBConnect objDB = new DBConnect();
         DataSet ds;
         int RestaurantID = 400;
+        //will be account object
+        Restaurant res = new Restaurant();
+        List<string> testConfigurableList = new List<string>
+        {
+            "Small",
+            "Medium",
+            "Large",
+        };
         protected void Page_Load(object sender, EventArgs e)
         {
+            res = (Restaurant)Session["currentRestaurant"];
+            RestaurantID = res.RestaurantID;
+            Response.Write(RestaurantID.ToString());
             if (!IsPostBack)
             {
                 SqlCommand sqlGetMenu = new SqlCommand();
@@ -65,6 +77,8 @@ namespace TermProject
                             DataRow drvNext = ds.Tables[0].Rows[i + 1];
                             JSON = drvNext[9].ToString();
                             System.Diagnostics.Debug.WriteLine(JSON);
+
+                           // ctrlMIC.ItemConfigurableRepeater.DataBind();
                             i++;
                         }
                     }

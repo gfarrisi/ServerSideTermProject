@@ -52,6 +52,7 @@ namespace TermProject
                 foreach (DataRow drv in dt.DefaultView.ToTable().Rows)
                 {
                     RestaurantControl ctrl = (RestaurantControl)LoadControl("RestaurantControl.ascx");
+                    ctrl.ResID = int.Parse(drv[0].ToString());
                     ctrl.ResTitle = drv[1].ToString();
                     ctrl.ResAddress = drv[5].ToString();
                     ctrl.ResImage = drv[2].ToString();

@@ -49,12 +49,6 @@ namespace TermProject
             get;set;
         } 
 
-        public DropDownList ItemConfigurableDropDown
-        {
-            get; 
-            set;
-        }
-
         protected void OnItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType ==
@@ -62,17 +56,11 @@ namespace TermProject
             {
                 //Find the DropDownList in the Repeater Item.
                 DropDownList ddlConfigurableOptions = (e.Item.FindControl("ddlCustomControl") as DropDownList);
-                ddlConfigurableOptions.DataSource = null;
-                ddlConfigurableOptions.DataTextField = "Country";
-                ddlConfigurableOptions.DataValueField = "Country";
+                //ddlConfigurableOptions.DataSource = testConfigurableList;
                 ddlConfigurableOptions.DataBind();
 
                 //Add Default Item in the DropDownList.
                 ddlConfigurableOptions.Items.Insert(0, new ListItem("Please select"));
-
-                //Select the Country of Customer in DropDownList.
-                string country = (e.Item.DataItem as DataRowView)["Country"].ToString();
-                ddlConfigurableOptions.Items.FindByValue(country).Selected = true;
             }
         }
     }
