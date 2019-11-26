@@ -54,6 +54,9 @@
                                         <uc1:MenuItemControl runat="server" />
                                     </ItemTemplate>
                                 </asp:Repeater>
+                                <div id="divMenu" runat="server">
+
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -17,10 +17,6 @@ namespace TermProject
         DataTable dt;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(Request.QueryString["search"]))
-            {
-                return;
-            }
             //get dataset from viewstate, if it exists
             ds = (DataSet)ViewState["DataSet"];
             if (ds == null)
@@ -36,9 +32,11 @@ namespace TermProject
             String strName = Request.QueryString["search"];
             //Response.Write(strName);
             if (ds != null)
-            {
+
                 dt = ds.Tables[0];
-                dt.DefaultView.RowFilter = "Restaurant_Name Like '%" + strName + "%'"; 
+            if (!String.IsNullOrEmpty(strName))
+            {
+                dt.DefaultView.RowFilter = "Restaurant_Name Like '%" + strName + "%'";
             }
             if (dt != null)
             {
@@ -48,18 +46,15 @@ namespace TermProject
 
         void DrawSearchResults()
         {
-            //  for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             if (dt.DefaultView.Count > 0)
             {
                 int i = 0;
                 foreach (DataRow drv in dt.DefaultView.ToTable().Rows)
                 {
                     RestaurantControl ctrl = (RestaurantControl)LoadControl("RestaurantControl.ascx");
-                    // DataRow drv = dt.Rows[i];
                     ctrl.ResTitle = drv[1].ToString();
                     ctrl.ResAddress = drv[5].ToString();
                     ctrl.ResImage = drv[2].ToString();
-                    //ctrl.DataBind();
                     if (i % 2 == 0)
                     {
                         divRestaurantColumn.Controls.Add(ctrl);
