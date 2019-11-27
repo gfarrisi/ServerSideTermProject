@@ -14,7 +14,7 @@
     <div class="trend-text">
         <h4 id="txtRestaurantName" runat="server">New Place Restaurant</h4>
         <span id="txtAddress" runat="server">Main Road , No 25/11</span> <br />
-    <asp:Button ID="btnRegister" CssClass="contact-form-button" Text="View" runat="server" />
+    <asp:Button ID="btnRegister" CssClass="contact-form-button" Text="View" runat="server" OnClick="btnRegister_Click" />
     </div>
    <div class="tic-text">Restaurant</div>
 </div>

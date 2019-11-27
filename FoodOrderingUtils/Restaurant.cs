@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace FoodOrderingUtils
 {
-    class Restaurant
+    public class Restaurant
     {
-        int RestaurantID { get; set; }
+        public int RestaurantID { get; set; }
         string RestaurantName { get; set; }
         string ImageURL { get; set; }
         string Phone { get; set; }
@@ -24,6 +24,11 @@ namespace FoodOrderingUtils
         public Restaurant()
         {
 
+        }
+
+        public Restaurant(int id)
+        {
+            this.RestaurantID = id;
         }
     }
 }

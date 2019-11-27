@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FoodOrderingUtils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,6 +14,8 @@ namespace TermProject
         {
 
         }
+
+        public Int32 ResID { get; set; }
 
         public String ResTitle
         {
@@ -31,6 +34,13 @@ namespace TermProject
         {
             get { return imgRestaurant.Src; }
             set { imgRestaurant.Src = value; }
+        }
+
+        protected void btnRegister_Click(object sender, EventArgs e)
+        {
+            Restaurant res = new Restaurant(ResID);
+            Session.Add("currentRestaurant", res);
+            Response.Redirect("ViewRestaurant.aspx");
         }
     }
 }

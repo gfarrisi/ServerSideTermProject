@@ -31,9 +31,10 @@ namespace TermProject
                 ds = objDB.GetDataSetUsingCmdObj(sqlGetRestaurants);
                 ViewState.Add("DataSet", ds);
             }
-            DrawSearchResults();
+           // DrawSearchResults();
         }
 
+        /* 
         void DrawSearchResults()
         {
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
@@ -41,6 +42,8 @@ namespace TermProject
                 RestaurantControl ctrl = (RestaurantControl)LoadControl("RestaurantControl.ascx");
 
                 DataRow drv = ds.Tables[0].Rows[i];
+                ctrl.ResID = int.Parse(drv[0].ToString());
+                System.Diagnostics.Debug.WriteLine(ctrl.ResID.ToString());
                 ctrl.ResTitle = drv[1].ToString();
                 ctrl.ResAddress = drv[5].ToString();
                 ctrl.ResImage = drv[2].ToString();
@@ -54,11 +57,11 @@ namespace TermProject
                     divRestaurantColumn2.Controls.Add(ctrl);
                 }
             }
-        }
+        }*/
 
         protected void linkBtnSearch_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("ViewRestaurant.aspx");
         }
     }
 }
