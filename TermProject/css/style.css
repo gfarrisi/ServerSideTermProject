@@ -2084,6 +2084,16 @@ ol {
     display: inline-block;
 }
 
+.contact-form-button-2 {
+    color: #fff;
+    font-size: 20px;
+    border: 1px solid #66B2B2;
+    background: #66B2B2;
+    padding: 6px 42px;
+    cursor: pointer;
+    display: inline-block;
+}
+
 .contact-section {
 	padding-top: 120px;
 	padding-bottom: 72px;
