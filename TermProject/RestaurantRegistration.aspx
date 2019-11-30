@@ -41,9 +41,9 @@
 
         <!-- Content Section Begin -->
         <section class="contact-section spad" id="secContent" runat="server" visible="true">
-            <h2>Register your Restaurant</h2>
+            <h3 class="pt-4">Register your Restaurant</h3>
             <br />
-            <h3>Restaurant Info</h3>
+            <h4>Restaurant Info</h4>
             <h6 style="color:deeppink">These are the details that customers will see when interacting with your restaurant.</h6>
             <br />
             <div class="container">
@@ -136,7 +136,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <hr />
-                                <h3>Representative Account Info</h3>
+                                <h4>Representative Account Info</h4>
                                 <h6 style="color:deeppink">These are the account credentials you will use when logging in to manage the restaurant.</h6>
                                 <br />
                             </div>
@@ -167,7 +167,7 @@
                             <asp:TextBox CssClass="contact-form-input" ID="txtContactEmail" runat="server" placeholder="Contact Email Address" required="true"></asp:TextBox>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row text-center">
                         <div class="col-lg-12">
                             <hr />
                             <p style="text-align: center;"> Upon submitting this form, your user account will automatically be set as the representative of this restauraunt.</p>

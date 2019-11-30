@@ -145,6 +145,7 @@
     <Content Include="main.html" />
     <Content Include="readme.txt" />
     <Content Include="RestaurantControl.ascx" />
+    <Content Include="RestaurantLanding.aspx" />
     <Content Include="RestaurantRegistration.aspx" />
     <Content Include="SearchResults.aspx" />
     <Content Include="single-listing.html" />
@@ -217,6 +218,13 @@
     <Compile Include="RestaurantControl.ascx.designer.cs">
       <DependentUpon>RestaurantControl.ascx</DependentUpon>
     </Compile>
+    <Compile Include="RestaurantLanding.aspx.cs">
+      <DependentUpon>RestaurantLanding.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RestaurantLanding.aspx.designer.cs">
+      <DependentUpon>RestaurantLanding.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RestaurantRegistration.aspx.cs">
       <DependentUpon>RestaurantRegistration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -230,6 +238,13 @@
     </Compile>
     <Compile Include="LandingPage.aspx.designer.cs">
       <DependentUpon>LandingPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RestaurantRepView.Master.cs">
+      <DependentUpon>RestaurantRepView.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RestaurantRepView.Master.designer.cs">
+      <DependentUpon>RestaurantRepView.Master</DependentUpon>
     </Compile>
     <Compile Include="SearchResults.aspx.cs">
       <DependentUpon>SearchResults.aspx</DependentUpon>
@@ -260,6 +275,7 @@
     <Content Include="Source\sass.zip" />
     <Content Include="Source\SlickNav-master.zip" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="RestaurantRepView.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
