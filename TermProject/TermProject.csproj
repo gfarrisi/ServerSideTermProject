@@ -153,7 +153,6 @@
     <Content Include="RestaurantControl.ascx" />
     <Content Include="RestaurantRegistration.aspx" />
     <Content Include="SearchResults.aspx" />
-    <Content Include="SetConfigurable.ascx" />
     <Content Include="single-listing.html" />
     <Content Include="Source\photo credits - directory.txt" />
     <Content Include="ViewRestaurant.aspx" />
@@ -266,13 +265,6 @@
     </Compile>
     <Compile Include="SearchResults.aspx.designer.cs">
       <DependentUpon>SearchResults.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="SetConfigurable.ascx.cs">
-      <DependentUpon>SetConfigurable.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="SetConfigurable.ascx.designer.cs">
-      <DependentUpon>SetConfigurable.ascx</DependentUpon>
     </Compile>
     <Compile Include="ViewRestaurant.aspx.cs">
       <DependentUpon>ViewRestaurant.aspx</DependentUpon>

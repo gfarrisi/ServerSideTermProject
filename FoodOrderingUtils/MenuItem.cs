@@ -14,11 +14,15 @@ namespace FoodOrderingUtils
         public string Title { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
-        public List<MenuConfigurableItem> Configurables { get; set; }
+        public List<MenuConfigurableItem> Configurables
+        {
+            get;
+            set;
+        }
 
         public MenuItem()
         {
-
+            Configurables = new List<MenuConfigurableItem>();
         }
     }
 }

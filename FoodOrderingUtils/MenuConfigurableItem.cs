@@ -12,6 +12,7 @@ namespace FoodOrderingUtils
         public string Title { get; set; }
         public List<string> Values { get; set; }
 
+        public string ValuesList { get; set; } //not in database, just for enumerating the current values easily
         public MenuConfigurableItem()
         {
 

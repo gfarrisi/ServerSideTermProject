@@ -24,7 +24,7 @@
                             <asp:TextBox CssClass="contact-form-input" ID="txtItemImg" placeholder="Image URL" runat="server"></asp:TextBox>
                         </div>
                         <div class="col-lg-6">
-                            <label>Description</label><asp:TextBox CssClass="contact-form-input" ID="txtItemDescription" TextMode="MultiLine" Rows="2" placeholder="Description" runat="server"></asp:TextBox>
+                            <label>Description</label><asp:TextBox CssClass="contact-form-input" ID="txtItemDescription" placeholder="Description" runat="server"></asp:TextBox>
                         </div>
                         <div class="col-lg-6">
                             <label>Price ($)</label><asp:TextBox CssClass="contact-form-input" ID="txtItemPrice" placeholder="0.00" runat="server"></asp:TextBox>
@@ -32,37 +32,39 @@
                     </div>
                     <h3>Configurable Items</h3>
                     <div class="row">
-                        <div class="col-lg-12">     
+                        <div class="col-lg-12">
                             <asp:Button ID="btnRemoveConfigurables" CssClass="btn btn-link" Text="Remove Configurables" OnClick="btnRemoveConfigurables_Click" runat="server" />
                         </div>
                         <div class="col-lg-6">
-                            <asp:ScriptManager ID="ScriptManager1" runat="server">
-                            </asp:ScriptManager>
-                            <asp:UpdatePanel ID="panelConfigure" runat="server">
-                                 <contenttemplate>
-                                 </contenttemplate>
-                            </asp:UpdatePanel>
+                            <asp:GridView ID="gvConfigurables" runat="server" AutoGenerateColumns="false" CssClass="table table-responsive-md table-striped table-bordered">
+                                <Columns>
+                                    <asp:BoundField DataField="Title" HeaderText="Title" />
+                                    <asp:BoundField DataField="ValuesList" HeaderText="Values" />
+                                </Columns>
+                            </asp:GridView>
                         </div>
-                        <div class="col-lg-6" style="border:8px groove rosybrown;border-radius:5px;padding:20px;">
-                              <label>Configurable Name:</label><asp:TextBox CssClass="contact-form-input" ID="txtConfigurableName" placeholder="Size, Sauce, Flavor, etc" runat="server"></asp:TextBox>
-                <h6 style="color:deeppink">Enter each value on its own line in the textbox below.</h6>
-    <label>Configurable Values:</label><asp:TextBox CssClass="form-control" ID="txtConfigurableValues" TextMode="MultiLine" Rows="5" runat="server"></asp:TextBox>
-                       <br />
-                            <asp:Button ID="btnAddConfigurable" CssClass="btn btn-secondary" Text="Add Configurable" OnClick="btnSubmit_Click" style="width:100%;" runat="server" />
+                        <div class="col-lg-6" style="border: 8px groove rosybrown; border-radius: 5px; padding: 20px;">
+                            <label id="configurableWarning" runat="server" style="color:crimson;font-size:.75em;"></label>
+                            <label>Configurable Name:</label>
+                            <asp:TextBox CssClass="contact-form-input" ID="txtConfigurableName" placeholder="Size, Sauce, Flavor, etc" runat="server" EnableViewState="false"></asp:TextBox>
+                            <label style="color: deeppink; font-size:.75em;">Enter each value on its own line in the textbox below.</label>
+                            <label>Configurable Values:</label>
+                            <asp:TextBox CssClass="form-control" ID="txtConfigurableValues" TextMode="MultiLine" Rows="5" runat="server"></asp:TextBox>
+                            <br />
+                            <asp:Button ID="btnAddConfigurable" CssClass="btn btn-secondary" Text="Add Configurable" OnClick="btnAddConfigurable_Click" Style="width: 100%;" runat="server" />
                         </div>
-                        </div>
-                        <br />
+                    </div>
+                    <br />
                     <hr />
-                        <div class="row">
-                            
-                            <div class="col-lg-3">
-                            </div>
-                            <div class="col-lg-6">
-                                <asp:Button ID="btnSubmit" CssClass="contact-form-button-2" Text="Add Item To Menu" OnClick="btnSubmit_Click" style="width:100%;" runat="server" />
-                            </div>
+                    <div class="row">
+                        <div class="col-lg-3">
+                        </div>
+                        <div class="col-lg-6">
+                            <asp:Button ID="btnSubmit" CssClass="contact-form-button-2" Text="Add Item To Menu" OnClick="btnSubmit_Click" Style="width: 100%;" runat="server" />
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
     </form>
 </asp:Content>
