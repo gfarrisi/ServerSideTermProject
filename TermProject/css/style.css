@@ -1772,15 +1772,16 @@ ol {
 	top: calc(50% - 38px);
 }
 
-.about-right .contact-info .contact-text {
-	padding-left: 32px;
-	padding-top: 45px;
-	padding-bottom: 50px;
-	padding-right: 20px;
-	border-left: 1px solid #CACDD6;
-	border-right: 1px solid #CACDD6;
-	border-bottom: 1px solid #CACDD6;
-}
+    .about-right .contact-info .contact-text {
+        padding-left: 32px;
+        padding-top: 45px;
+        padding-bottom: 50px;
+        padding-right: 20px;
+        border-left: 1px solid #CACDD6;
+        border-right: 1px solid #CACDD6;
+        border-top: 1px solid #CACDD6;
+        border-bottom: 1px solid #CACDD6;
+    }
 
 .about-right .contact-info .contact-text h4 {
 	color: #242424;
@@ -2025,7 +2026,7 @@ ol {
 	color: #838383;
 	font-weight: 700;
 	font-style: italic;
-	padding-left: 34px;
+	padding-left: 20px;
 	-webkit-transition: all 0.3s;
 	transition: all 0.3s;
 }
@@ -2078,6 +2079,16 @@ ol {
     font-size: 20px;
     border: 1px solid #FF5581;
     background: #FF5581;
+    padding: 6px 42px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.contact-form-button-2 {
+    color: #fff;
+    font-size: 20px;
+    border: 1px solid #66B2B2;
+    background: #66B2B2;
     padding: 6px 42px;
     cursor: pointer;
     display: inline-block;
