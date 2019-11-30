@@ -44,7 +44,7 @@
             <h3 class="pt-4">Register your Restaurant</h3>
             <br />
             <h4>Restaurant Info</h4>
-            <h6 style="color:deeppink">These are the details that customers will see when interacting with your restaurant.</h6>
+            <h6 style="color:deeppink;">These are the details that customers will see when interacting with your restaurant.</h6>
             <br />
             <div class="container">
                 <div class="row">

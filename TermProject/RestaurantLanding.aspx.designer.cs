@@ -58,13 +58,22 @@ namespace TermProject {
         protected global::System.Web.UI.WebControls.LinkButton lbViewAsUser;
         
         /// <summary>
-        /// Panel1 control.
+        /// rptContactInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
+        protected global::System.Web.UI.WebControls.Repeater rptContactInfo;
+        
+        /// <summary>
+        /// pnlNoMenu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlNoMenu;
         
         /// <summary>
         /// btnStartMenu control.
@@ -74,6 +83,24 @@ namespace TermProject {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnStartMenu;
+        
+        /// <summary>
+        /// pnlMenu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlMenu;
+        
+        /// <summary>
+        /// rptMenuItems control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptMenuItems;
         
         /// <summary>
         /// newrow control.
