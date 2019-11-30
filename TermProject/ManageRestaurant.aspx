@@ -1,33 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/FoodOrder.Master" AutoEventWireup="true" CodeBehind="ViewRestaurant.aspx.cs" Inherits="TermProject.ViewRestaurant" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/FoodOrder.Master" AutoEventWireup="true" CodeBehind="ManageRestaurant.aspx.cs" Inherits="TermProject.ManageRestaurant" %>
 <%@ Register src="MenuItemControl.ascx" tagname="MenuItemControl" tagprefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <form id="form1" runat="server">
-         <!-- Header Section Begin -->
-        <header class="header-section listings">
-            <div class="container-fluid">
-                <div class="logo">
-                    <a href="./index.html">
-                        <img src="img/logo0.png" alt=""></a>
-
-                </div>
-                <nav class="main-menu mobile-menu">
-                </nav>
-                <div class="header-right">
-                    <div class="user-access">
-                           <a href="Login.aspx" class="mr-3">Explore Locals</a>    
-                          <a href="Login.aspx" class="mr-3">Account Settings</a>                     
-                    
-                        <a href="Login.aspx"  class="mr-3">Logout <i class="fa fa-sign-out"></i></a>
-                          <a href="#" class="primary-btn mr-3">View Cart</a>
-                          
-                    </div>
-
-                </div>
-                <div id="mobile-menu-wrap"></div>
-            </div>
-        </header>
      <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -72,14 +48,15 @@
                     <div class="col-lg-8">
                         <div class="about-left">
                             <div class="about-desc contact-info">
-                                <h4>Menu</h4>                                               
+                                <h4>Menu</h4>
+                                <asp:Button ID="btnAddItem" CssClass="contact-form-button-2" Text="Add Menu Item" runat="server" />
+
                                 <asp:Repeater ID="repeaterMenu" runat="server">
                                     <ItemTemplate>
                                         <uc1:MenuItemControl runat="server" />
                                     </ItemTemplate>
                                 </asp:Repeater>
                                 <div id="divMenu" runat="server">
-
                                 </div>
                             </div>
                         </div>
@@ -95,6 +72,8 @@
                                         <li id="txtPhone" runat="server">+1 556-788-3221</li>
                                         <li id="txtEmail">restaurantemail@gmail.com</li> 
                                     </ul>
+                                    <br />
+                                    <asp:Button ID="btnEditInfo" CssClass="contact-form-button-2" Text="Edit Restaurant Info" runat="server" />
                                 </div>
                             </div>
                         </div>

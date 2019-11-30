@@ -23,7 +23,7 @@
             //Response is READY and Status is OK
 
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-
+                //document.getElementById("startResults").innerHTML = "";
                 document.getElementById("ajaxtest").innerHTML = xmlhttp.responseText;
             }
         }
@@ -31,6 +31,7 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<<<<<<< HEAD
     <form id="form1" runat="server">
         
         <!-- Page Preloder -->
@@ -63,6 +64,10 @@
             </div>
         </header>
         <h2 style="text-align: center; padding-top: 10%;">Restaurants List</h2>
+=======
+    <%--<form id="form1" runat="server">--%>
+        <h2 style="text-align: center;">Restaurants List</h2>
+>>>>>>> 529a03c3cb28301d2d3c1d075f5eeb62411d4272
         <br />
         <div class="container">
             <div class="row">
@@ -70,16 +75,25 @@
                 </div>
                 <div class="col-md-8">
                     <div class="input-group md-form form-sm form-2 pl-0">                 
+<<<<<<< HEAD
                         <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search" id="search" onkeyup="getSearch()">
                         <div class="input-group-append">
                             <asp:LinkButton ID="linkBtnSearch" OnClick="linkBtnSearch_Click" runat="server"><span class="input-group-text alert-warning lighten-3 mb-4" id="spnSearch" style="padding: .65rem .75rem"><i class="fa fa-search text-grey"
                                  aria-hidden="true"></i></span></asp:LinkButton>
+=======
+                        <input class="form-control my-0 py-1 red-border" type="text" placeholder="Start typing to search" aria-label="Search" id="search" onkeyup="getSearch()">
+                        <script>
+                            getSearch();
+                        </script>
+                        <div class="input-group-append"><span> <i class="fa fa-search text-grey"
+                                 aria-hidden="true"></i></span>
+>>>>>>> 529a03c3cb28301d2d3c1d075f5eeb62411d4272
                         </div>
                     </div>
                 </div>
             </div>
             <br />
-            <div class="row">
+            <div class="row" id="startResults">
                 <div class="col-md-6" id="divRestaurantColumn" runat="server">
                 </div>
                 <div class="col-md-6" id="divRestaurantColumn2" runat="server">
@@ -91,5 +105,5 @@
                 </div>
             </div>
         </div>
-    </form>
+    <%--</form>--%>
 </asp:Content>

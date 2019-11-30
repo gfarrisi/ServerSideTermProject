@@ -7,11 +7,11 @@
     <div class="trend-text">
         <h4 id="txtItemName" runat="server">Menu Item</h4>
         <span id="txtItemDescription" runat="server">Description</span> <br />
-        <asp:Repeater ID="repeaterCustomControls" runat="server">
+        <asp:Repeater ID="repeaterCustomControls" runat="server" OnItemDataBound="OnItemDataBound"> 
             <ItemTemplate>
-                <label id="txtCustomControl">
+                <asp:Label ID="txtCustomControl" runat="server">
                     <%-- Add control name here (size, toppings, etc) --%>
-                </label>
+                </asp:Label>
                 <asp:DropDownList ID="ddlCustomControl" runat="server">
                     <%-- Add dropdown value items here --%>
                 </asp:DropDownList>
