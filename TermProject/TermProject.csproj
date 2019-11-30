@@ -231,6 +231,7 @@
     </Compile>
     <Compile Include="NewMenu.aspx.designer.cs">
       <DependentUpon>NewMenu.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ManageRestaurant.aspx.cs">
       <DependentUpon>ManageRestaurant.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
