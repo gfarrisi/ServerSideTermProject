@@ -13,7 +13,7 @@ using FoodOrderingUtils;
 
 namespace TermProject
 {
-    public partial class ViewRestaurant : System.Web.UI.Page
+    public partial class ManageRestaurant : System.Web.UI.Page
     {
         DBConnect objDB = new DBConnect();
         DataSet ds;
@@ -28,14 +28,14 @@ namespace TermProject
         };
         protected void Page_Load(object sender, EventArgs e)
         {
-            res = (Restaurant)Session["currentRestaurant"];
-            if(res == null)
-            {
-                Response.Write("404: Please go back and select a restaurant.");
-                form1.Visible = false;
-                return;
-            }
-            RestaurantID = res.RestaurantID;
+            //res = (Restaurant)Session["currentRestaurant"];
+            //if (res == null)
+            //{
+            //    Response.Write("404: Please go back and select a restaurant.");
+            //    form1.Visible = false;
+            //    return;
+            //}
+            //RestaurantID = res.RestaurantID;
             if (!IsPostBack)
             {
                 SqlCommand sqlGetMenu = new SqlCommand();
@@ -55,8 +55,9 @@ namespace TermProject
             {
                 DrawMenuItems();
             }
-            }
-        public void DrawMenuItems() {
+        }
+        public void DrawMenuItems()
+        {
             int i = 0;
             while (i < ds.Tables[0].Rows.Count)
             {
@@ -83,7 +84,7 @@ namespace TermProject
                             JSON = drvNext[9].ToString();
                             System.Diagnostics.Debug.WriteLine(JSON);
 
-                           // ctrlMIC.ItemConfigurableRepeater.DataBind();
+                            // ctrlMIC.ItemConfigurableRepeater.DataBind();
                             i++;
                         }
                     }

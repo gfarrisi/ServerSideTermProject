@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AccountSettings.aspx" />
+    <Content Include="AddItem.aspx" />
     <Content Include="blog.html" />
     <Content Include="ChooseAccountType.aspx" />
     <Content Include="contact.html" />
@@ -146,6 +147,7 @@
     <Content Include="js\owl.carousel.min.js" />
     <Content Include="listings.html" />
     <Content Include="main.html" />
+    <Content Include="ManageRestaurant.aspx" />
     <Content Include="MenuItemControl.ascx" />
     <Content Include="readme.txt" />
     <Content Include="RestaurantControl.ascx" />
@@ -164,6 +166,13 @@
     </Compile>
     <Compile Include="AccountSettings.aspx.designer.cs">
       <DependentUpon>AccountSettings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddItem.aspx.cs">
+      <DependentUpon>AddItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddItem.aspx.designer.cs">
+      <DependentUpon>AddItem.aspx</DependentUpon>
     </Compile>
     <Compile Include="ChooseAccountType.aspx.cs">
       <DependentUpon>ChooseAccountType.aspx</DependentUpon>
@@ -213,6 +222,13 @@
     </Compile>
     <Compile Include="FoodOrder.Master.designer.cs">
       <DependentUpon>FoodOrder.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ManageRestaurant.aspx.cs">
+      <DependentUpon>ManageRestaurant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageRestaurant.aspx.designer.cs">
+      <DependentUpon>ManageRestaurant.aspx</DependentUpon>
     </Compile>
     <Compile Include="MenuItemControl.ascx.cs">
       <DependentUpon>MenuItemControl.ascx</DependentUpon>

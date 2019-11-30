@@ -2026,7 +2026,7 @@ ol {
 	color: #838383;
 	font-weight: 700;
 	font-style: italic;
-	padding-left: 34px;
+	padding-left: 20px;
 	-webkit-transition: all 0.3s;
 	transition: all 0.3s;
 }
@@ -2079,6 +2079,16 @@ ol {
     font-size: 20px;
     border: 1px solid #FF5581;
     background: #FF5581;
+    padding: 6px 42px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.contact-form-button-2 {
+    color: #fff;
+    font-size: 20px;
+    border: 1px solid #66B2B2;
+    background: #66B2B2;
     padding: 6px 42px;
     cursor: pointer;
     display: inline-block;
