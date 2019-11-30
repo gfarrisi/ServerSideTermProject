@@ -32,7 +32,37 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
-        <h2 style="text-align: center;">Restaurants List</h2>
+        
+        <!-- Page Preloder -->
+        <div id="preloder">
+            <div class="loader"></div>
+        </div>
+
+        <!-- Header Section Begin -->
+        <header class="header-section listings">
+            <div class="container-fluid">
+                <div class="logo">
+                    <a href="./index.html">
+                        <img src="img/logo0.png" alt=""></a>
+
+                </div>
+                <nav class="main-menu mobile-menu">
+                </nav>
+                <div class="header-right">
+                    <div class="user-access">
+                         <a href="Login.aspx" class="mr-3">Explore Locals</a>    
+                           <a href="Login.aspx" class="mr-3">Account Settings</a>                     
+                      
+                        <a href="Login.aspx"  class="mr-3">Logout <i class="fa fa-sign-out"></i></a>
+                          <a href="#" class="primary-btn mr-3">View Cart</a>
+                          
+                    </div>
+
+                </div>
+                <div id="mobile-menu-wrap"></div>
+            </div>
+        </header>
+        <h2 style="text-align: center; padding-top: 10%;">Restaurants List</h2>
         <br />
         <div class="container">
             <div class="row">
@@ -42,7 +72,7 @@
                     <div class="input-group md-form form-sm form-2 pl-0">                 
                         <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search" id="search" onkeyup="getSearch()">
                         <div class="input-group-append">
-                            <asp:LinkButton ID="linkBtnSearch" OnClick="linkBtnSearch_Click" runat="server"><span class="input-group-text alert-warning lighten-3" id="spnSearch" style="padding: .65rem .75rem"><i class="fa fa-search text-grey"
+                            <asp:LinkButton ID="linkBtnSearch" OnClick="linkBtnSearch_Click" runat="server"><span class="input-group-text alert-warning lighten-3 mb-4" id="spnSearch" style="padding: .65rem .75rem"><i class="fa fa-search text-grey"
                                  aria-hidden="true"></i></span></asp:LinkButton>
                         </div>
                     </div>

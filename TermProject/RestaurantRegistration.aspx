@@ -10,6 +10,32 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" class="contact-form" runat="server">
+        
+        <!-- Page Preloder -->
+        <div id="preloder">
+            <div class="loader"></div>
+        </div>
+
+        <!-- Header Section Begin -->
+        <header class="header-section listings">
+            <div class="container-fluid">
+                <div class="logo">
+                    <a href="./index.html">
+                        <img src="img/logo0.png" alt=""></a>
+
+                </div>
+                <nav class="main-menu mobile-menu">
+                </nav>
+                <div class="header-right">
+                    <div class="user-access">
+                        <a href="Login.aspx">Register/Login</a>
+                        
+                    </div>
+
+                </div>
+                <div id="mobile-menu-wrap"></div>
+            </div>
+        </header>
         <%-- Header Section --%>
         <header class="header-section listings">
             <div class="container-fluid">

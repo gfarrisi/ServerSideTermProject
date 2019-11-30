@@ -4,6 +4,30 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <form id="form1" runat="server">
+         <!-- Header Section Begin -->
+        <header class="header-section listings">
+            <div class="container-fluid">
+                <div class="logo">
+                    <a href="./index.html">
+                        <img src="img/logo0.png" alt=""></a>
+
+                </div>
+                <nav class="main-menu mobile-menu">
+                </nav>
+                <div class="header-right">
+                    <div class="user-access">
+                           <a href="Login.aspx" class="mr-3">Explore Locals</a>    
+                          <a href="Login.aspx" class="mr-3">Account Settings</a>                     
+                    
+                        <a href="Login.aspx"  class="mr-3">Logout <i class="fa fa-sign-out"></i></a>
+                          <a href="#" class="primary-btn mr-3">View Cart</a>
+                          
+                    </div>
+
+                </div>
+                <div id="mobile-menu-wrap"></div>
+            </div>
+        </header>
      <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
