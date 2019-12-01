@@ -8,6 +8,8 @@ using System.Data;
 using System.Data.SqlClient;
 //using DatabaseUtilities;
 using Utilities;
+using Newtonsoft.Json;
+using System.Web.Script.Serialization;
 
 namespace TermProject
 {
@@ -63,7 +65,62 @@ namespace TermProject
 
         public void GetMenuItmes()
         {
+            // int restaurantID = Convert.ToInt32(Session["RestaurantID"].ToString());
+            int restaurantID = 401;
 
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_GetMenuItems";
+            objCommand.Parameters.Clear();
+
+            objCommand.Parameters.AddWithValue("@RestaurantID", restaurantID);
+
+            DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+            DataTable myDT = myDS.Tables[0];
+            rptMenuItems.DataSource = myDT;
+            rptMenuItems.DataBind();
+        }
+
+        protected void ItemBound(object sender, RepeaterItemEventArgs args)
+        {
+            List<string> values = new List<string>();
+           
+
+            if (args.Item.ItemType == ListItemType.Item || args.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                HiddenField field = args.Item.FindControl("hfMenuItemID") as HiddenField;
+                int menuItemID = Convert.ToInt32(field.Value);
+             
+                JavaScriptSerializer js = new JavaScriptSerializer();
+
+                List<string> deserializedValue = new List<string>();
+                deserializedValue.Add("Small");
+                deserializedValue.Add("Medium");
+                deserializedValue.Add("Large");
+                string json = JsonConvert.SerializeObject(deserializedValue, Formatting.Indented);
+                
+                objCommand.CommandType = CommandType.StoredProcedure;
+                objCommand.CommandText = "TP_Get_Menu_Item_Configurable";
+                objCommand.Parameters.Clear();
+
+                objCommand.Parameters.AddWithValue("@Menu_Item_ID", menuItemID);
+
+                DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+                DataTable myDT = myDS.Tables[0];
+                Repeater rptItemConfigurableTitle = (Repeater)args.Item.FindControl("rptItemConfigurableTitle");
+                rptItemConfigurableTitle.DataSource = myDT;
+                rptItemConfigurableTitle.DataBind();
+
+                // string json = myDT.Rows[0]["Configurable_Values"].ToString();
+                //   string JSON = "[{\"Small\"},{\"Medium\"}, {\"Large\"}]";
+
+
+                values =js.Deserialize<List<string>>(Server.UrlDecode(json));
+                            
+                Repeater configurablesRepeater = (Repeater)args.Item.FindControl("rptItemConfigurables");
+                configurablesRepeater.DataSource = values;
+                configurablesRepeater.DataBind();
+                               
+            }
         }
     }
 }
