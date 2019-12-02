@@ -494,6 +494,16 @@ ol {
 	padding-left: 31px;
 }
 
+.nice-select-tiny {
+    width: calc(100% - 20px);
+    font-size: 14px;
+    color: darkslategray;
+    height: 25px;
+    line-height: 23px;
+    padding-left: 2px;
+}
+
+
 .filter-search .location-search .nice-select:after {
 	display: none;
 }
@@ -575,6 +585,13 @@ ol {
 	margin-right: 20px;
 }
 
+    .trend-item .trend-cat {
+        display: inline-block;
+        position: relative;
+        margin-left: 10px;
+        margin-right: 20px;
+    }
+
 .trend-item .trend-pic img {
 	height: 150px;
     width: 150px;
@@ -602,7 +619,7 @@ ol {
 	display: inline-block;
 	padding-top: 20px;
 	padding-bottom: 15px;
-	float: right;
+	float:right;
 }
 
 .trend-item .trend-text h4 {
@@ -1159,6 +1176,8 @@ ol {
 	font-weight: 900;
 	margin-bottom: 12px;
 }
+
+
 
 .search-filter .filter-search .category-search .nice-select {
 	width: calc(100% - 20px);
@@ -2184,13 +2203,15 @@ ol {
 	.filter-search button {
 		padding: 13px 50px;
 	}
-	.trend-item {
-		text-align: center;
-		padding: 18px 0 18px 0;
-	}
+    .trend-item {
+        text-align: center;
+        padding: 18px 0 18px 0;
+        
+    }
 	.trend-item .trend-pic {
 		margin-left: 0;
 		margin-right: 0;
+
 	}
 	.trend-item .trend-text {
 		float: none;

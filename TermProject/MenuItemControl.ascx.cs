@@ -1,18 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using FoodOrderingUtils;
+using Newtonsoft.Json;
+using Utilities;
 
 namespace TermProject
 {
     public partial class MenuItemControl : System.Web.UI.UserControl
     {
+        DBConnect objDB = new DBConnect();
+        DataTable dt;
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        public int ItemID
+        {
+            get;set;
         }
 
         public String ItemName
@@ -39,29 +50,42 @@ namespace TermProject
             set { imgMenuItem.Src = value; }
         }
 
-        public Repeater ItemConfigurableRepeater
+        public void GetConfigurables(int ItemID)
         {
-            get; set;
+            SqlCommand sqlGetConfigurables = new SqlCommand();
+            sqlGetConfigurables.CommandType = CommandType.StoredProcedure;
+            sqlGetConfigurables.CommandText = "TP_Get_Menu_Item_Configurable";
+            sqlGetConfigurables.Parameters.AddWithValue("@Menu_Item_ID", ItemID);
+            DataSet ds = objDB.GetDataSetUsingCmdObj(sqlGetConfigurables);
+            dt = ds.Tables[0];
+            if (dt.Rows.Count > 0)
+            {
+                repeaterCustomControls.DataSource = dt;
+                DataBind();
+            }
         }
-
-        public String ItemConfigurableLabel
-        {
-            get;set;
-        } 
 
         protected void OnItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType ==
             ListItemType.AlternatingItem)
             {
+                DataRow current = dt.Rows[e.Item.ItemIndex];
+                //Find the Label in repeater
+                Label lblConfigurableTitle = (e.Item.FindControl("lblItemConfigurableTitle") as Label);
+                string title = current[3].ToString();
                 //Find the DropDownList in the Repeater Item.
-                DropDownList ddlConfigurableOptions = (e.Item.FindControl("ddlCustomControl") as DropDownList);
-                //ddlConfigurableOptions.DataSource = testConfigurableList;
+                DropDownList ddlConfigurableOptions = (e.Item.FindControl("ddItemConfigurableValues") as DropDownList);
+                string json = current[3].ToString();
+                List<string> values = JsonConvert.DeserializeObject<List<string>>(Server.UrlDecode(json));
+                ddlConfigurableOptions.DataSource = values;
                 ddlConfigurableOptions.DataBind();
-
-                //Add Default Item in the DropDownList.
-                ddlConfigurableOptions.Items.Insert(0, new ListItem("Please select"));
             }
+        }
+
+        protected void btnAddToCart_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
