@@ -29,7 +29,7 @@ namespace PaymentGateway.Controllers
         }
 
         // GET: api/paymentgateway/GetTransactions
-        [HttpGet("GetTransactions/{APIKey}/{MerhchantID}/{VirtualWalletID}/")]
+        [HttpGet("GetTransactions/{APIKey}/{MerchantID}/{VirtualWalletID}/")]
         public List<Transaction> GetTransactions(string APIKey, string MerchantID, string VirtualWalletID)
         {
             //verify there is an account based on parameters
@@ -63,6 +63,23 @@ namespace PaymentGateway.Controllers
             }
 
             return transactions;
+        }
+
+        // GET: api/paymentgateway/GetBalance/4LOX60BD4P7F/Locals123/HoneyGrow
+        [HttpGet("GetBalance/{APIKey}/{MerchantID}/{VirtualWalletID}/")]
+        public decimal GetBalance(string APIKey, string MerchantID, string VirtualWalletID)
+        {
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "PP_GetVirtualWalletBalance";
+            objCommand.Parameters.Clear();
+
+            objCommand.Parameters.AddWithValue("@API_Key", APIKey);
+            objCommand.Parameters.AddWithValue("@MerchantID", MerchantID);
+            objCommand.Parameters.AddWithValue("@VirtualWalletID", VirtualWalletID);
+            DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+            DataTable myDT = myDS.Tables[0];
+            decimal balance = Convert.ToDecimal(myDT.Rows[0]["Balance"].ToString());
+            return balance;
         }
 
         // POST: api/PaymentGateway/ProcessPayment
@@ -212,6 +229,8 @@ namespace PaymentGateway.Controllers
             {
                 return false;
             }
+
+
 
         }
 

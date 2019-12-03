@@ -56,7 +56,7 @@
                             <br />
                             <br />
                             <div>
-                                <asp:Button ID="btnRestaurantRep" runat="server" Text="I am a Restaurant Representative" CssClass="contact-form-button p-5 mr-5" />
+                                <asp:Button ID="btnRestaurantRep" runat="server" OnClick="btnRestaurantRep_Click" Text="I am a Restaurant Representative" CssClass="contact-form-button p-5 mr-5" />
 
                             </div>
 
@@ -66,7 +66,7 @@
                     </div>
                     <div class="col-lg-12 text-center">
                         <div class="mb-1 mt-5">
-                            <asp:LinkButton ID="lbLogin" runat="server" CssClass="mt-5"> Back to Log In >></asp:LinkButton>
+                            <asp:LinkButton ID="lbLogin" runat="server" OnClick="lbLogin_Click" CssClass="mt-5"> Back to Log In >></asp:LinkButton>
                         </div>
                     </div>
                 </div>

@@ -10,7 +10,7 @@
 namespace TermProject {
     
     
-    public partial class RestaurantLanding {
+    public partial class RestaurantAccountSettings {
         
         /// <summary>
         /// form1 control.
@@ -94,21 +94,39 @@ namespace TermProject {
         protected global::System.Web.UI.WebControls.Button btnStartMenu;
         
         /// <summary>
-        /// pnlMenu control.
+        /// pnlAccountSettings control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlMenu;
+        protected global::System.Web.UI.WebControls.Panel pnlAccountSettings;
         
         /// <summary>
-        /// rptMenuItems control.
+        /// rptRestaurantInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptMenuItems;
+        protected global::System.Web.UI.WebControls.Repeater rptRestaurantInfo;
+        
+        /// <summary>
+        /// rptRepInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptRepInfo;
+        
+        /// <summary>
+        /// btnUpdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpdate;
     }
 }

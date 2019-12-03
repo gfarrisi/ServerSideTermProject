@@ -137,6 +137,7 @@
     <Content Include="img\video-bg.jpg" />
     <Content Include="img\zoom.png" />
     <Content Include="index.html" />
+    <Content Include="js\addNewMenuItem.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\jquery-3.3.1.min.js" />
     <Content Include="js\jquery.magnific-popup.min.js" />
@@ -150,9 +151,13 @@
     <Content Include="NewMenu.aspx" />
     <Content Include="ManageRestaurant.aspx" />
     <Content Include="MenuItemControl.ascx" />
+    <Content Include="PaymentInfo.aspx" />
     <Content Include="readme.txt" />
+    <Content Include="RestaurantAccountSettings.aspx" />
     <Content Include="RestaurantControl.ascx" />
+    <Content Include="RestaurantCurrentOrders.aspx" />
     <Content Include="RestaurantLanding.aspx" />
+    <Content Include="RestaurantPaymentInfo.aspx" />
     <Content Include="RestaurantRegistration.aspx" />
     <Content Include="SearchResults.aspx" />
     <Content Include="single-listing.html" />
@@ -246,7 +251,21 @@
     <Compile Include="MenuItemControl.ascx.designer.cs">
       <DependentUpon>MenuItemControl.ascx</DependentUpon>
     </Compile>
+    <Compile Include="PaymentInfo.aspx.cs">
+      <DependentUpon>PaymentInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaymentInfo.aspx.designer.cs">
+      <DependentUpon>PaymentInfo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RestaurantAccountSettings.aspx.cs">
+      <DependentUpon>RestaurantAccountSettings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RestaurantAccountSettings.aspx.designer.cs">
+      <DependentUpon>RestaurantAccountSettings.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RestaurantControl.ascx.cs">
       <DependentUpon>RestaurantControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -254,12 +273,26 @@
     <Compile Include="RestaurantControl.ascx.designer.cs">
       <DependentUpon>RestaurantControl.ascx</DependentUpon>
     </Compile>
+    <Compile Include="RestaurantCurrentOrders.aspx.cs">
+      <DependentUpon>RestaurantCurrentOrders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RestaurantCurrentOrders.aspx.designer.cs">
+      <DependentUpon>RestaurantCurrentOrders.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RestaurantLanding.aspx.cs">
       <DependentUpon>RestaurantLanding.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="RestaurantLanding.aspx.designer.cs">
       <DependentUpon>RestaurantLanding.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RestaurantPaymentInfo.aspx.cs">
+      <DependentUpon>RestaurantPaymentInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RestaurantPaymentInfo.aspx.designer.cs">
+      <DependentUpon>RestaurantPaymentInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="RestaurantRegistration.aspx.cs">
       <DependentUpon>RestaurantRegistration.aspx</DependentUpon>

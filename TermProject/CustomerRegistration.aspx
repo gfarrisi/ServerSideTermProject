@@ -22,7 +22,7 @@
                 </nav>
                 <div class="header-right">
                     <div class="user-access">
-                        <a href="Login.aspx">Register/Login</a>                   
+                        <a href="Default.aspx">Register/Login</a>                   
                     </div>
 
                 </div>
@@ -57,7 +57,7 @@
 
                 </div>
                 <div class="mt-10">
-                    <asp:TextBox CssClass="contact-form-input" ID="txtPassword" runat="server" placeholder="Password" required="true"></asp:TextBox>
+                    <asp:TextBox CssClass="contact-form-input" ID="txtPassword" TextMode="Password" runat="server" placeholder="Password" required="true"></asp:TextBox>
 
                 </div>
                 <div class="mt-10">
