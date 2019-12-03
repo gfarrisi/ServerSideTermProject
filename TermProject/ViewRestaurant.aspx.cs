@@ -36,6 +36,15 @@ namespace TermProject
                 return;
             }
             RestaurantID = res.RestaurantID;
+            //load in restaurant info
+            SqlCommand sqlGetRestaurant = new SqlCommand();
+            sqlGetRestaurant.CommandType = CommandType.StoredProcedure;
+            sqlGetRestaurant.CommandText = "TP_GetRestaurant";
+            sqlGetRestaurant.Parameters.AddWithValue("@RestaurantID", RestaurantID);
+            DataSet dsRes = objDB.GetDataSetUsingCmdObj(sqlGetRestaurant);
+            DataRow drRes = dsRes.Tables[0].Rows[0];
+            res.
+
             if (!IsPostBack)
             {
                 SqlCommand sqlGetMenu = new SqlCommand();

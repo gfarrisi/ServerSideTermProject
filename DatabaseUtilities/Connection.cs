@@ -12,9 +12,9 @@ namespace Utilities
     {
         /*String for accounts database*/
         //Hazel -- work at home
-        String SqlConnectString = "server=127.0.0.1,5555;Database=fa19_3342_tug53772;User id=tug53772;Password=ca9eKaec";
+        //String SqlConnectString = "server=127.0.0.1,5555;Database=fa19_3342_tug53772;User id=tug53772;Password=ca9eKaec";
         //Hazel -- at school
-        //String SqlConnectString = "server=cis-mssql1.temple.edu;Database=fa19_3342_tug53772;User id=tug53772;Password=ca9eKaec";
+        String SqlConnectString = "server=cis-mssql1.temple.edu;Database=fa19_3342_tug53772;User id=tug53772;Password=ca9eKaec";
         
         /*String for payment processor database */
 
