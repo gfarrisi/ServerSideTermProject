@@ -28,7 +28,7 @@
                 </nav>
                 <div class="header-right">
                     <div class="user-access">
-                        <a href="Login.aspx">Register/Login</a>
+                        <a href="Default.aspx">Register/Login</a>
                         
                     </div>
 
@@ -36,25 +36,7 @@
                 <div id="mobile-menu-wrap"></div>
             </div>
         </header>
-        <%-- Header Section --%>
-        <header class="header-section listings">
-            <div class="container-fluid">
-                <div class="logo">
-                    <a href="./index.html">
-                        <img src="img/logo0.png" alt=""></a>
-
-                </div>
-                <nav class="main-menu mobile-menu">
-                </nav>
-                <div class="header-right">
-                    <div class="user-access">
-                        <a href="Login.aspx">Register/Login</a>
-                    </div>
-
-                </div>
-                <div id="mobile-menu-wrap"></div>
-            </div>
-        </header>
+      
 
         <section class="contact-section" style="padding-bottom:0px;" id="secError" runat="server" visible="false">
             <div style="background-color:crimson;">
@@ -185,7 +167,7 @@
                         </div>
                         <div class="mt-10">
                             <label>Password:</label>
-                            <asp:TextBox CssClass="contact-form-input" ID="txtPassword" runat="server" placeholder="Password" required="true"></asp:TextBox>
+                            <asp:TextBox CssClass="contact-form-input" ID="txtPassword" TextMode="Password" runat="server" placeholder="Password" required="true"></asp:TextBox>
 
                         </div>
                         <div class="mt-10">

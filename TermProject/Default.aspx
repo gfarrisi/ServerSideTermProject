@@ -33,8 +33,8 @@
                 </nav>
                 <div class="header-right">
                     <div class="user-access">
-                        <a href="#">Register/</a>
-                        <a href="#">Login</a>
+                        <a href="Default.aspx">Register/Login</a>
+                        
                     </div>
 
                 </div>
@@ -65,9 +65,12 @@
                                     <asp:TextBox CssClass="contact-form-input" ID="txtPassword" TextMode="Password" runat="server" placeholder="Your Password"></asp:TextBox>
                                 </div>
                             </div>
+                            <div class="col-lg-12 pb-3">
+                                    <asp:Label ID="lblError" runat="server" Visible="false" Text="Error"></asp:Label>
+                            </div>
                             <div class="col-lg-12 text-center">
                                 <div class="mb-1">
-                                    <asp:Button ID="Button1" runat="server" Text="Log In" CssClass="contact-form-button" />
+                                    <asp:Button ID="btnLogIn" runat="server" Text="Log In" OnClick="btnLogIn_Click" CssClass="contact-form-button" />
 
                                 </div>
                                 <asp:LinkButton ID="lbForgotEmail" runat="server" OnClick="lbForgotEmail_Click">Forgot Email?</asp:LinkButton><br />

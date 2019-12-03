@@ -39,12 +39,6 @@ namespace TermProject
             lbCurrentOrders.ForeColor = System.Drawing.ColorTranslator.FromHtml("white");
             lbViewAsUser.ForeColor = System.Drawing.ColorTranslator.FromHtml("white");
 
-
-            //lbPhoneNumber.ForeColor = System.Drawing.ColorTranslator.FromHtml("white");
-            //lbEmail.ForeColor = System.Drawing.ColorTranslator.FromHtml("white");
-            //lbAddress.ForeColor = System.Drawing.ColorTranslator.FromHtml("white");
-            //lbCityStateZip.ForeColor = System.Drawing.ColorTranslator.FromHtml("white");
-            //#FF5581
         }
         public void BindContactInfo()
         {
@@ -82,22 +76,12 @@ namespace TermProject
 
         protected void ItemBound(object sender, RepeaterItemEventArgs args)
         {
-            List<string> values = new List<string>();
-           
 
             if (args.Item.ItemType == ListItemType.Item || args.Item.ItemType == ListItemType.AlternatingItem)
             {
                 HiddenField field = args.Item.FindControl("hfMenuItemID") as HiddenField;
                 int menuItemID = Convert.ToInt32(field.Value);
-             
-                JavaScriptSerializer js = new JavaScriptSerializer();
-
-                List<string> deserializedValue = new List<string>();
-                deserializedValue.Add("Small");
-                deserializedValue.Add("Medium");
-                deserializedValue.Add("Large");
-                string json = JsonConvert.SerializeObject(deserializedValue, Formatting.Indented);
-                
+                             
                 objCommand.CommandType = CommandType.StoredProcedure;
                 objCommand.CommandText = "TP_Get_Menu_Item_Configurable";
                 objCommand.Parameters.Clear();
@@ -109,18 +93,64 @@ namespace TermProject
                 Repeater rptItemConfigurableTitle = (Repeater)args.Item.FindControl("rptItemConfigurableTitle");
                 rptItemConfigurableTitle.DataSource = myDT;
                 rptItemConfigurableTitle.DataBind();
+                
+                               
+            }
+        }
 
-                // string json = myDT.Rows[0]["Configurable_Values"].ToString();
-                //   string JSON = "[{\"Small\"},{\"Medium\"}, {\"Large\"}]";
+        protected void ItemBoundConfig(object sender, RepeaterItemEventArgs args)
+        {
+            List<string> values = new List<string>();
 
 
-                values =js.Deserialize<List<string>>(Server.UrlDecode(json));
-                            
+            if (args.Item.ItemType == ListItemType.Item || args.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                HiddenField field = args.Item.FindControl("hfMenuItemIDConf") as HiddenField;
+                int menuItemConfigID = Convert.ToInt32(field.Value);
+                                
+                objCommand.CommandType = CommandType.StoredProcedure;
+                objCommand.CommandText = "TP_Get_Menu_Item_Configurable_With_ConfigID";
+                objCommand.Parameters.Clear();
+                objCommand.Parameters.AddWithValue("@Configurable_ID", menuItemConfigID);
+
+                DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+                DataTable myDT = myDS.Tables[0];
+
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                string json = myDT.Rows[0]["Configurable_Values"].ToString();
+           
+                values = js.Deserialize<List<string>>(Server.UrlDecode(json));
+
                 Repeater configurablesRepeater = (Repeater)args.Item.FindControl("rptItemConfigurables");
                 configurablesRepeater.DataSource = values;
                 configurablesRepeater.DataBind();
-                               
+                
+
             }
+        }
+        protected void btnAddNewItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void lbMenuManagement_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("RestaurantLanding.aspx");
+        }
+
+        protected void lbAccountSettings_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("RestaurantAccountSettings.aspx");
+        }
+
+        protected void lbPaymentInfo_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("RestaurantPaymentInfo.aspx");
+        }
+
+        protected void lbCurrentOrders_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("RestaurantCurrentOrders.aspx");
         }
     }
 }
