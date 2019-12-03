@@ -85,7 +85,32 @@ namespace TermProject
 
         protected void btnAddToCart_Click(object sender, EventArgs e)
         {
-            
+            Order o;
+            if(Session["Order"] == null)
+            {
+                o = new Order();
+            }
+            else
+            {
+                o = (Order)Session["Order"];
+            }
+            OrderItem oi = new OrderItem();
+            oi.MenuItemID = ItemID;
+            List<string> configvalues = new List<string>();
+            foreach(RepeaterItem item in repeaterCustomControls.Items)
+            {
+                if (item.ItemType == ListItemType.Item || item.ItemType == ListItemType.AlternatingItem)
+                {
+                    DropDownList ddl = (DropDownList)item.FindControl("ddItemConfigurableValues");
+                    configvalues.Add(ddl.SelectedValue);
+                }
+            }
+            if(configvalues.Count > 0)
+            {
+                oi.ConfigurablesString = configvalues;
+            }
+            o.OrderItemList.Add(oi);
+            Session.Add("Order", o);
         }
     }
 }
