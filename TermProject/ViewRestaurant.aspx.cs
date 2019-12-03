@@ -68,26 +68,8 @@ namespace TermProject
                 ctrlMIC.ItemDescription = drvCurrent[4].ToString();
                 Decimal price = Decimal.Parse(drvCurrent[5].ToString());
                 ctrlMIC.ItemPrice = price.ToString("C2");
-                if (!drvCurrent[6].ToString().Equals(""))
-                {
-                    string JSON = drvCurrent[9].ToString();
-                    System.Diagnostics.Debug.WriteLine(JSON);
-                    //     List<string> dJSON = JsonConvert.DeserializeObject<List<string>>(JSON);
-                    //     Response.Write(dJSON.ToString());
-
-                    while (i + 1 < ds.Tables[0].Rows.Count)
-                    {
-                        if (currentItemID == int.Parse(ds.Tables[0].Rows[i + 1][0].ToString()))
-                        {
-                            DataRow drvNext = ds.Tables[0].Rows[i + 1];
-                            JSON = drvNext[9].ToString();
-                            System.Diagnostics.Debug.WriteLine(JSON);
-
-                           // ctrlMIC.ItemConfigurableRepeater.DataBind();
-                            i++;
-                        }
-                    }
-                }
+                //get configurables
+                ctrlMIC.GetConfigurables(currentItemID);
                 divMenu.Controls.Add(ctrlMIC);
                 i++;
             }

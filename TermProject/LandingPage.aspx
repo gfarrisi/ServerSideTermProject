@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/FoodOrder.Master" AutoEventWireup="true" CodeBehind="LandingPage.aspx.cs" Inherits="TermProject.WebForm1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UserView.Master" AutoEventWireup="true" CodeBehind="LandingPage.aspx.cs" Inherits="TermProject.WebForm1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript">
@@ -31,43 +31,9 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<<<<<<< HEAD
-    <form id="form1" runat="server">
-        
-        <!-- Page Preloder -->
-        <div id="preloder">
-            <div class="loader"></div>
-        </div>
-
-        <!-- Header Section Begin -->
-        <header class="header-section listings">
-            <div class="container-fluid">
-                <div class="logo">
-                    <a href="./index.html">
-                        <img src="img/logo0.png" alt=""></a>
-
-                </div>
-                <nav class="main-menu mobile-menu">
-                </nav>
-                <div class="header-right">
-                    <div class="user-access">
-                         <a href="Login.aspx" class="mr-3">Explore Locals</a>    
-                           <a href="Login.aspx" class="mr-3">Account Settings</a>                     
-                      
-                        <a href="Login.aspx"  class="mr-3">Logout <i class="fa fa-sign-out"></i></a>
-                          <a href="#" class="primary-btn mr-3">View Cart</a>
-                          
-                    </div>
-
-                </div>
-                <div id="mobile-menu-wrap"></div>
-            </div>
-        </header>
-        <h2 style="text-align: center; padding-top: 10%;">Restaurants List</h2>
-=======
     <%--<form id="form1" runat="server">--%>
+    <section class="contact-section spad" id="secContent" runat="server" visible="true">
         <h2 style="text-align: center;">Restaurants List</h2>
->>>>>>> 529a03c3cb28301d2d3c1d075f5eeb62411d4272
         <br />
         <div class="container">
             <div class="row">
@@ -75,19 +41,12 @@
                 </div>
                 <div class="col-md-8">
                     <div class="input-group md-form form-sm form-2 pl-0">                 
-<<<<<<< HEAD
-                        <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search" id="search" onkeyup="getSearch()">
-                        <div class="input-group-append">
-                            <asp:LinkButton ID="linkBtnSearch" OnClick="linkBtnSearch_Click" runat="server"><span class="input-group-text alert-warning lighten-3 mb-4" id="spnSearch" style="padding: .65rem .75rem"><i class="fa fa-search text-grey"
-                                 aria-hidden="true"></i></span></asp:LinkButton>
-=======
                         <input class="form-control my-0 py-1 red-border" type="text" placeholder="Start typing to search" aria-label="Search" id="search" onkeyup="getSearch()">
                         <script>
                             getSearch();
                         </script>
                         <div class="input-group-append"><span> <i class="fa fa-search text-grey"
                                  aria-hidden="true"></i></span>
->>>>>>> 529a03c3cb28301d2d3c1d075f5eeb62411d4272
                         </div>
                     </div>
                 </div>
@@ -101,9 +60,9 @@
             </div>
             <div class="row">
                 <div class="col-md-12" id="ajaxtest">
-
                 </div>
             </div>
         </div>
+        </section>
     <%--</form>--%>
 </asp:Content>
