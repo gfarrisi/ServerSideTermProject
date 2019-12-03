@@ -19,5 +19,15 @@ namespace TermProject
         {
             Response.Redirect("CustomerRegistration.aspx");
         }
+
+        protected void btnRestaurantRep_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("RestaurantRegistration.aspx");
+        }
+
+        protected void lbLogin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Default.aspx");
+        }
     }
 }
