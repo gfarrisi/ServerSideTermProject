@@ -81,9 +81,6 @@
                                     <div class="col-lg-7">
                                         <asp:TextBox ID="lblName" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Restaurant_Name") %>'></asp:TextBox>
                                     </div>
-                                    <div class="col-lg-2">
-                                        <asp:LinkButton ForeColor="#FF5581" ID="lbUpdateName" runat="server">Update</asp:LinkButton>
-                                    </div>
                                 </div>
                                 <div class="row mt-4">
                                     <div class="col-lg-3">
@@ -91,9 +88,6 @@
                                     </div>
                                     <div class="col-lg-7">
                                         <asp:TextBox ID="txtPhoneNumber" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# !String.IsNullOrEmpty(Convert.ToString(Eval("Restaurant_Phone"))) ? String.Format("{0:(###) ###-####}", Convert.ToInt64(Eval("Restaurant_Phone").ToString())) : String.Empty%>'></asp:TextBox>
-                                    </div>
-                                    <div class="col-lg-2">
-                                        <asp:LinkButton ForeColor="#FF5581" ID="lbUpdatePhone" runat="server">Update</asp:LinkButton>
                                     </div>
                                 </div>
                                 <div class="row mt-4">
@@ -103,19 +97,13 @@
                                     <div class="col-lg-7">
                                         <asp:TextBox ID="lbEmail" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Restaurant_Email") %>'></asp:TextBox>
                                     </div>
-                                    <div class="col-lg-2">
-                                        <asp:LinkButton ForeColor="#FF5581" ID="lbUpdateRestaurantEmail" runat="server">Update</asp:LinkButton>
-                                    </div>
                                 </div>
                                 <div class="row mt-4">
                                     <div class="col-lg-3">
                                         <asp:Label ID="Label10" runat="server" Text="Restaurant Image URL:"></asp:Label>
                                     </div>
                                     <div class="col-lg-7">
-                                        <asp:TextBox ID="TextBox6" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Image_URL") %>'></asp:TextBox>
-                                    </div>
-                                    <div class="col-lg-2">
-                                        <asp:LinkButton ForeColor="#FF5581" ID="LinkButton6" runat="server">Update</asp:LinkButton>
+                                        <asp:TextBox ID="txt" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Image_URL") %>'></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="row mt-4">
@@ -123,10 +111,7 @@
                                         <asp:Label ID="Label3" runat="server" Text="Restaurant Address:"></asp:Label>
                                     </div>
                                     <div class="col-lg-7">
-                                        <asp:TextBox ID="TextBox1" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Restaurant_Address") %>'></asp:TextBox>
-                                    </div>
-                                    <div class="col-lg-2">
-                                        <asp:LinkButton ForeColor="#FF5581" ID="LinkButton1" runat="server">Update</asp:LinkButton>
+                                        <asp:TextBox ID="txtAddress" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Restaurant_Address") %>'></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="row mt-4">
@@ -134,10 +119,7 @@
                                         <asp:Label ID="Label4" runat="server" Text="Restaurant City:"></asp:Label>
                                     </div>
                                     <div class="col-lg-7">
-                                        <asp:TextBox ID="TextBox2" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Restaurant_City") %>'></asp:TextBox>
-                                    </div>
-                                    <div class="col-lg-2">
-                                        <asp:LinkButton ForeColor="#FF5581" ID="LinkButton2" runat="server">Update</asp:LinkButton>
+                                        <asp:TextBox ID="txtCity" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Restaurant_City") %>'></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="row mt-4">
@@ -145,10 +127,7 @@
                                         <asp:Label ID="Label7" runat="server" Text="Restaurant State:"></asp:Label>
                                     </div>
                                     <div class="col-lg-7">
-                                        <asp:TextBox ID="TextBox3" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Restaurant_State") %>'></asp:TextBox>
-                                    </div>
-                                    <div class="col-lg-2">
-                                        <asp:LinkButton ForeColor="#FF5581" ID="LinkButton3" runat="server">Update</asp:LinkButton>
+                                        <asp:TextBox ID="txtState" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Restaurant_State") %>'></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="row mt-4">
@@ -156,10 +135,7 @@
                                         <asp:Label ID="Label8" runat="server" Text="Restaurant Zip:"></asp:Label>
                                     </div>
                                     <div class="col-lg-7">
-                                        <asp:TextBox ID="TextBox4" runat="server" CssClass="form-control" Font-Italic="true" Text='<%# DataBinder.Eval(Container.DataItem, "Restaurant_Zip") %>'></asp:TextBox>
-                                    </div>
-                                    <div class="col-lg-2">
-                                        <asp:LinkButton ForeColor="#FF5581" ID="LinkButton4" runat="server">Update</asp:LinkButton>
+                                        <asp:TextBox ID="txtZip" runat="server" CssClass="form-control" Font-Italic="true" Text='<%# DataBinder.Eval(Container.DataItem, "Restaurant_Zip") %>'></asp:TextBox>
                                     </div>
                                 </div>
 
@@ -178,21 +154,16 @@
                                         <asp:Label ID="Label1" runat="server" Text="First Name:"></asp:Label>
                                     </div>
                                     <div class="col-lg-7">
-                                        <asp:TextBox ID="lblName" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "First_Name") %>'></asp:TextBox>
+                                        <asp:TextBox ID="txtFirstName" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "First_Name") %>'></asp:TextBox>
                                     </div>
-                                    <div class="col-lg-2">
-                                        <asp:LinkButton ForeColor="#FF5581" ID="lbUpdateName" runat="server">Update</asp:LinkButton>
-                                    </div>
+
                                 </div>
                                 <div class="row mt-4">
                                     <div class="col-lg-3">
                                         <asp:Label ID="Label9" runat="server" Text="Last Name:"></asp:Label>
                                     </div>
                                     <div class="col-lg-7">
-                                        <asp:TextBox ID="TextBox5" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Last_Name") %>'></asp:TextBox>
-                                    </div>
-                                    <div class="col-lg-2">
-                                        <asp:LinkButton ForeColor="#FF5581" ID="LinkButton5" runat="server">Update</asp:LinkButton>
+                                        <asp:TextBox ID="txtLastName" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Last_Name") %>'></asp:TextBox>
                                     </div>
                                 </div>
 
@@ -201,10 +172,7 @@
                                         <asp:Label ID="Label5" runat="server" Text="Email:"></asp:Label>
                                     </div>
                                     <div class="col-lg-7">
-                                        <asp:TextBox ID="lbEmail" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Email") %>'></asp:TextBox>
-                                    </div>
-                                    <div class="col-lg-2">
-                                        <asp:LinkButton ForeColor="#FF5581" ID="lbUpdateRestaurantEmail" runat="server">Update</asp:LinkButton>
+                                        <asp:TextBox ID="txtEmail" runat="server" Font-Italic="true" CssClass="form-control" ReadOnly="true" Text='<%# DataBinder.Eval(Container.DataItem, "Email") %>'></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="row mt-4">
@@ -212,10 +180,7 @@
                                         <asp:Label ID="Label3" runat="server" Text="Password:"></asp:Label>
                                     </div>
                                     <div class="col-lg-7">
-                                        <asp:TextBox ID="TextBox1" runat="server" Font-Italic="true" TextMode="Password" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Password") %>'></asp:TextBox>
-                                    </div>
-                                    <div class="col-lg-2">
-                                        <asp:LinkButton ForeColor="#FF5581" ID="LinkButton1" runat="server">Update</asp:LinkButton>
+                                        <asp:TextBox ID="txtPassword" runat="server" Font-Italic="true" TextMode="Password" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Password") %>'></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="row mt-4">
@@ -223,10 +188,7 @@
                                         <asp:Label ID="Label4" runat="server" Text="Backup Email"></asp:Label>
                                     </div>
                                     <div class="col-lg-7">
-                                        <asp:TextBox ID="TextBox2" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Backup_Email") %>'></asp:TextBox>
-                                    </div>
-                                    <div class="col-lg-2">
-                                        <asp:LinkButton ForeColor="#FF5581" ID="LinkButton2" runat="server">Update</asp:LinkButton>
+                                        <asp:TextBox ID="txtBackup" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Backup_Email") %>'></asp:TextBox>
                                     </div>
                                 </div>
                             </ItemTemplate>

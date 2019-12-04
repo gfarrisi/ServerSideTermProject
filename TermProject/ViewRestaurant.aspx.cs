@@ -43,7 +43,7 @@ namespace TermProject
             sqlGetRestaurant.Parameters.AddWithValue("@RestaurantID", RestaurantID);
             DataSet dsRes = objDB.GetDataSetUsingCmdObj(sqlGetRestaurant);
             DataRow drRes = dsRes.Tables[0].Rows[0];
-            res.
+            //res.
 
             if (!IsPostBack)
             {
