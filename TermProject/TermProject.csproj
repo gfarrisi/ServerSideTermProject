@@ -162,6 +162,7 @@
     <Content Include="SearchResults.aspx" />
     <Content Include="single-listing.html" />
     <Content Include="Source\photo credits - directory.txt" />
+    <Content Include="UserAccountSettings.aspx" />
     <Content Include="ViewRestaurant.aspx" />
     <Content Include="Web.config" />
     <Content Include="LandingPage.aspx" />
@@ -321,6 +322,13 @@
     </Compile>
     <Compile Include="SearchResults.aspx.designer.cs">
       <DependentUpon>SearchResults.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserAccountSettings.aspx.cs">
+      <DependentUpon>UserAccountSettings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserAccountSettings.aspx.designer.cs">
+      <DependentUpon>UserAccountSettings.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserView.Master.cs">
       <DependentUpon>UserView.Master</DependentUpon>

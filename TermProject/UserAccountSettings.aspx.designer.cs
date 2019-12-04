@@ -10,7 +10,7 @@
 namespace TermProject {
     
     
-    public partial class RestaurantAccountSettings {
+    public partial class UserAccountSettings {
         
         /// <summary>
         /// form1 control.
@@ -20,15 +20,6 @@ namespace TermProject {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
-        /// <summary>
-        /// lbMenuManagement control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbMenuManagement;
         
         /// <summary>
         /// lbAccountSettings control.
@@ -58,42 +49,6 @@ namespace TermProject {
         protected global::System.Web.UI.WebControls.LinkButton lbCurrentOrders;
         
         /// <summary>
-        /// lbViewAsUser control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbViewAsUser;
-        
-        /// <summary>
-        /// rptContactInfo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptContactInfo;
-        
-        /// <summary>
-        /// pnlNoMenu control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlNoMenu;
-        
-        /// <summary>
-        /// btnStartMenu control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnStartMenu;
-        
-        /// <summary>
         /// pnlAccountSettings control.
         /// </summary>
         /// <remarks>
@@ -101,24 +56,6 @@ namespace TermProject {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlAccountSettings;
-        
-        /// <summary>
-        /// lblError control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblError;
-        
-        /// <summary>
-        /// rptRestaurantInfo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptRestaurantInfo;
         
         /// <summary>
         /// rptRepInfo control.

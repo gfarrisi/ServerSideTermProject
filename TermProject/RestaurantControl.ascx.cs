@@ -39,7 +39,7 @@ namespace TermProject
         protected void btnRegister_Click(object sender, EventArgs e)
         {
             Restaurant res = new Restaurant(ResID);
-            Session.Add("currentRestaurant", res);
+            Session.Add("currentRestaurant", res);  
             Response.Redirect("ViewRestaurant.aspx");
         }
     }

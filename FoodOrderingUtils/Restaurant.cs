@@ -8,18 +8,20 @@ using System.Threading.Tasks;
 
 namespace FoodOrderingUtils
 {
-    public class Restaurant
+    public class Restaurant 
     {
-        public int RestaurantID { get; set; }
-        string RestaurantName { get; set; }
-        string ImageURL { get; set; }
-        string Phone { get; set; }
-        string Email { get; set; }
-        string Address { get; set; }
-        string City { get; set; }
-        string State { get; set; }
-        string Zip { get; set; }
-        string RepresentativeEmailID { get; set; }
+        public int RestaurantID { get; set; } //0 (column in database table)
+        public string RestaurantName { get; set; } //1
+        public string ImageURL { get; set; } //2
+        public string Phone { get; set; } //3
+        public string Email { get; set; } //4
+        public string Address { get; set; } //5
+        public string City { get; set; } //6
+        public string State { get; set; } //7
+        public string Zip { get; set; } //8
+        public string RepresentativeEmailID { get; set; } //9
+        public string PaymentAccountType { get; set; } //10
+        public int PaymentAccountNumber { get; set; } //11
 
         public Restaurant()
         {
