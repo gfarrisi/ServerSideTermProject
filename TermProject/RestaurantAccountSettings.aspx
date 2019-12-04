@@ -39,8 +39,9 @@
                                 <ItemTemplate>
                                     <asp:HiddenField ID="hfRestaurantID" runat="server" Value='<%# DataBinder.Eval(Container.DataItem, "Restaurant_ID") %>' />
                                     <div class="pt-3 pl-2">
-                                        <asp:Label ID="lbPhoneNumber" ForeColor="White" runat="server" CssClass="mt-5" Text=""><%# !String.IsNullOrEmpty(Convert.ToString(Eval("Restaurant_Phone"))) ? String.Format("{0:(###) ###-####}", Convert.ToInt64(Eval("Restaurant_Phone").ToString())) : String.Empty%></asp:Label>
-                                    </div>
+<%--                                        <asp:Label ID="lbPhoneNumber" ForeColor="White" runat="server" CssClass="mt-5" Text=""><%# !String.IsNullOrEmpty(Convert.ToString(Eval("Restaurant_Phone"))) ? String.Format("{0:(###) ###-####}", Convert.ToInt64(Eval("Restaurant_Phone").ToString())) : String.Empty%></asp:Label>--%>
+                                         <asp:Label ID="lbPhoneNumber" ForeColor="White" runat="server" CssClass="mt-5" Text='<%# DataBinder.Eval(Container.DataItem, "Restaurant_Phone")%>'></asp:Label>
+                                        </div>
                                     <div class="pt-3 pl-2">
                                         <asp:Label ID="lbEmail" runat="server" ForeColor="White" CssClass="pt-4" Text='<%# DataBinder.Eval(Container.DataItem, "Restaurant_Email") %>'></asp:Label>
                                     </div>
@@ -70,6 +71,7 @@
                     <!-- Panel for menu items -->
                     <asp:Panel ID="pnlAccountSettings" runat="server" CssClass="pl-5 pr-5">
                         <h4 class="mt-4 mb-4 text-center">Account Settings</h4>
+                        <asp:Label ID ="lblError" runat="server"></asp:Label>
                         <asp:Repeater ID="rptRestaurantInfo" runat="server">
                             <ItemTemplate>
                                 <asp:Label ID="Label6" runat="server" ForeColor="#FF5581" Font-Size="Large" Font-Bold="true" Text="Restaurant Info"></asp:Label>
@@ -79,7 +81,7 @@
                                         <asp:Label ID="Label1" runat="server" Text="Restaurant Name:"></asp:Label>
                                     </div>
                                     <div class="col-lg-7">
-                                        <asp:TextBox ID="lblName" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Restaurant_Name") %>'></asp:TextBox>
+                                        <asp:TextBox ID="txtResName" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Restaurant_Name") %>'></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="row mt-4">
@@ -87,7 +89,7 @@
                                         <asp:Label ID="Label2" runat="server" Text="Restaurant Phone:"></asp:Label>
                                     </div>
                                     <div class="col-lg-7">
-                                        <asp:TextBox ID="txtPhoneNumber" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# !String.IsNullOrEmpty(Convert.ToString(Eval("Restaurant_Phone"))) ? String.Format("{0:(###) ###-####}", Convert.ToInt64(Eval("Restaurant_Phone").ToString())) : String.Empty%>'></asp:TextBox>
+                                        <asp:TextBox ID="txtPhone" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Restaurant_Phone")%>'></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="row mt-4">
@@ -95,7 +97,7 @@
                                         <asp:Label ID="Label5" runat="server" Text="Restaurant Email:"></asp:Label>
                                     </div>
                                     <div class="col-lg-7">
-                                        <asp:TextBox ID="lbEmail" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Restaurant_Email") %>'></asp:TextBox>
+                                        <asp:TextBox ID="txtResEmail" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Restaurant_Email") %>'></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="row mt-4">
@@ -103,7 +105,7 @@
                                         <asp:Label ID="Label10" runat="server" Text="Restaurant Image URL:"></asp:Label>
                                     </div>
                                     <div class="col-lg-7">
-                                        <asp:TextBox ID="txt" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Image_URL") %>'></asp:TextBox>
+                                        <asp:TextBox ID="txtImageURL" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Image_URL") %>'></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="row mt-4">
@@ -125,10 +127,63 @@
                                 <div class="row mt-4">
                                     <div class="col-lg-3">
                                         <asp:Label ID="Label7" runat="server" Text="Restaurant State:"></asp:Label>
-                                    </div>
+                                        </div>
                                     <div class="col-lg-7">
-                                        <asp:TextBox ID="txtState" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Restaurant_State") %>'></asp:TextBox>
-                                    </div>
+              <asp:DropDownList CssClass="nice-select" Style="width: 100%; height: 42px; color: #535353;" ID="txtState" runat="server" SelectedValue='<%# DataBinder.Eval(Container.DataItem,"Restaurant_State") %>'>
+                                            <asp:ListItem Value="AL">Alabama</asp:ListItem>
+                                            <asp:ListItem Value="AK">Alaska</asp:ListItem>
+                                            <asp:ListItem Value="AZ">Arizona</asp:ListItem>
+                                            <asp:ListItem Value="AR">Arkansas</asp:ListItem>
+                                            <asp:ListItem Value="CA">California</asp:ListItem>
+                                            <asp:ListItem Value="CO">Colorado</asp:ListItem>
+                                            <asp:ListItem Value="CT">Connecticut</asp:ListItem>
+                                            <asp:ListItem Value="DC">District of Columbia</asp:ListItem>
+                                            <asp:ListItem Value="DE">Delaware</asp:ListItem>
+                                            <asp:ListItem Value="FL">Florida</asp:ListItem>
+                                            <asp:ListItem Value="GA">Georgia</asp:ListItem>
+                                            <asp:ListItem Value="HI">Hawaii</asp:ListItem>
+                                            <asp:ListItem Value="ID">Idaho</asp:ListItem>
+                                            <asp:ListItem Value="IL">Illinois</asp:ListItem>
+                                            <asp:ListItem Value="IN">Indiana</asp:ListItem>
+                                            <asp:ListItem Value="IA">Iowa</asp:ListItem>
+                                            <asp:ListItem Value="KS">Kansas</asp:ListItem>
+                                            <asp:ListItem Value="KY">Kentucky</asp:ListItem>
+                                            <asp:ListItem Value="LA">Louisiana</asp:ListItem>
+                                            <asp:ListItem Value="ME">Maine</asp:ListItem>
+                                            <asp:ListItem Value="MD">Maryland</asp:ListItem>
+                                            <asp:ListItem Value="MA">Massachusetts</asp:ListItem>
+                                            <asp:ListItem Value="MI">Michigan</asp:ListItem>
+                                            <asp:ListItem Value="MN">Minnesota</asp:ListItem>
+                                            <asp:ListItem Value="MS">Mississippi</asp:ListItem>
+                                            <asp:ListItem Value="MO">Missouri</asp:ListItem>
+                                            <asp:ListItem Value="MT">Montana</asp:ListItem>
+                                            <asp:ListItem Value="NE">Nebraska</asp:ListItem>
+                                            <asp:ListItem Value="NV">Nevada</asp:ListItem>
+                                            <asp:ListItem Value="NH">New Hampshire</asp:ListItem>
+                                            <asp:ListItem Value="NJ">New Jersey</asp:ListItem>
+                                            <asp:ListItem Value="NM">New Mexico</asp:ListItem>
+                                            <asp:ListItem Value="NY">New York</asp:ListItem>
+                                            <asp:ListItem Value="NC">North Carolina</asp:ListItem>
+                                            <asp:ListItem Value="ND">North Dakota</asp:ListItem>
+                                            <asp:ListItem Value="OH">Ohio</asp:ListItem>
+                                            <asp:ListItem Value="OK">Oklahoma</asp:ListItem>
+                                            <asp:ListItem Value="OR">Oregon</asp:ListItem>
+                                            <asp:ListItem Value="PA">Pennsylvania</asp:ListItem>
+                                            <asp:ListItem Value="RI">Rhode Island</asp:ListItem>
+                                            <asp:ListItem Value="SC">South Carolina</asp:ListItem>
+                                            <asp:ListItem Value="SD">South Dakota</asp:ListItem>
+                                            <asp:ListItem Value="TN">Tennessee</asp:ListItem>
+                                            <asp:ListItem Value="TX">Texas</asp:ListItem>
+                                            <asp:ListItem Value="UT">Utah</asp:ListItem>
+                                            <asp:ListItem Value="VT">Vermont</asp:ListItem>
+                                            <asp:ListItem Value="VA">Virginia</asp:ListItem>
+                                            <asp:ListItem Value="WA">Washington</asp:ListItem>
+                                            <asp:ListItem Value="WV">West Virginia</asp:ListItem>
+                                            <asp:ListItem Value="WI">Wisconsin</asp:ListItem>
+                                            <asp:ListItem Value="WY">Wyoming</asp:ListItem>
+                                            <asp:ListItem Value="OTHER">Other US territory</asp:ListItem>
+                                        </asp:DropDownList>
+                                           </div>
                                 </div>
                                 <div class="row mt-4">
                                     <div class="col-lg-3">
@@ -180,7 +235,7 @@
                                         <asp:Label ID="Label3" runat="server" Text="Password:"></asp:Label>
                                     </div>
                                     <div class="col-lg-7">
-                                        <asp:TextBox ID="txtPassword" runat="server" Font-Italic="true" TextMode="Password" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Password") %>'></asp:TextBox>
+                                        <asp:TextBox ID="txtPassword" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Password") %>'></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="row mt-4">
@@ -194,7 +249,7 @@
                             </ItemTemplate>
                         </asp:Repeater>
                         <div class="m-5 text-center">
-                            <asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="contact-form-button" />
+                            <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" CssClass="contact-form-button" />
                         </div>
 
                     </asp:Panel>
