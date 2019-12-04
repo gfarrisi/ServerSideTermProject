@@ -97,6 +97,14 @@
                             <ItemTemplate>
                                 <%--<asp:Label ID="Label6" runat="server" ForeColor="#FF5581" Font-Size="Large" Font-Bold="true" Text="Restaurant Info"></asp:Label>--%>
                                 <asp:HiddenField ID="hfRestaurantID" runat="server" Value='<%# DataBinder.Eval(Container.DataItem, "Restaurant_ID") %>' />
+                                <div class="row mt-4">
+                                    <div class="col-lg-3">
+                                        <asp:Label ID="Label2" runat="server" Text="Restaurant Name:"></asp:Label>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <asp:TextBox ID="txtResName" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Restaurant_Name") %>'></asp:TextBox>
+                                    </div>
+                                </div>
                                 <div class="row mt-5">
                                     <div class="col-lg-3">
                                         <asp:Label ID="Label1" runat="server" Text="Restaurant Payment Account Type:"></asp:Label>

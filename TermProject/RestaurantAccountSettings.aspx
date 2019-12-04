@@ -78,10 +78,10 @@
                                 <asp:HiddenField ID="hfRestaurantID" runat="server" Value='<%# DataBinder.Eval(Container.DataItem, "Restaurant_ID") %>' />
                                 <div class="row mt-4">
                                     <div class="col-lg-3">
-                                        <asp:Label ID="Label1" runat="server" Text="Restaurant Name:"></asp:Label>
+                                        <asp:Label ID="Label5" runat="server" Text="Restaurant Email:"></asp:Label>
                                     </div>
                                     <div class="col-lg-7">
-                                        <asp:TextBox ID="txtResName" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Restaurant_Name") %>'></asp:TextBox>
+                                        <asp:TextBox ID="txtResEmail" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Restaurant_Email") %>' ReadOnly="true"></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="row mt-4">
@@ -92,14 +92,7 @@
                                         <asp:TextBox ID="txtPhone" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Restaurant_Phone")%>'></asp:TextBox>
                                     </div>
                                 </div>
-                                <div class="row mt-4">
-                                    <div class="col-lg-3">
-                                        <asp:Label ID="Label5" runat="server" Text="Restaurant Email:"></asp:Label>
-                                    </div>
-                                    <div class="col-lg-7">
-                                        <asp:TextBox ID="txtResEmail" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Restaurant_Email") %>'></asp:TextBox>
-                                    </div>
-                                </div>
+
                                 <div class="row mt-4">
                                     <div class="col-lg-3">
                                         <asp:Label ID="Label10" runat="server" Text="Restaurant Image URL:"></asp:Label>

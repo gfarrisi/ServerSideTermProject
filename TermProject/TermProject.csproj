@@ -163,6 +163,8 @@
     <Content Include="single-listing.html" />
     <Content Include="Source\photo credits - directory.txt" />
     <Content Include="UserAccountSettings.aspx" />
+    <Content Include="UserOrder.aspx" />
+    <Content Include="UserPaymentInfo.aspx" />
     <Content Include="ViewRestaurant.aspx" />
     <Content Include="Web.config" />
     <Content Include="LandingPage.aspx" />
@@ -329,6 +331,20 @@
     </Compile>
     <Compile Include="UserAccountSettings.aspx.designer.cs">
       <DependentUpon>UserAccountSettings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserOrder.aspx.cs">
+      <DependentUpon>UserOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserOrder.aspx.designer.cs">
+      <DependentUpon>UserOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserPaymentInfo.aspx.cs">
+      <DependentUpon>UserPaymentInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserPaymentInfo.aspx.designer.cs">
+      <DependentUpon>UserPaymentInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserView.Master.cs">
       <DependentUpon>UserView.Master</DependentUpon>
