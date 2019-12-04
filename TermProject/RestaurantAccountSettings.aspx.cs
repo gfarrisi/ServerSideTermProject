@@ -98,14 +98,14 @@ namespace TermProject
             {
                 if (item.ItemType == ListItemType.Item || item.ItemType == ListItemType.AlternatingItem)
                 {
-                    TextBox rname = (TextBox)item.FindControl("txtResName");
-                    sqlUpdate.Parameters.AddWithValue("@Restaurant_Name", rname.Text);
+                    //TextBox rname = (TextBox)item.FindControl("txtResName");
+                    //sqlUpdate.Parameters.AddWithValue("@Restaurant_Name", rname.Text);
                     TextBox rphone = (TextBox)item.FindControl("txtPhone");
                     string phone = rphone.Text;
                     phone.Replace("\\D+", "");
                     sqlUpdate.Parameters.AddWithValue("@Restaurant_Phone", phone);
-                    TextBox remail = (TextBox)item.FindControl("txtResEmail");
-                    sqlUpdate.Parameters.AddWithValue("@Restaurant_Email", remail.Text);
+                    //TextBox remail = (TextBox)item.FindControl("txtResEmail");
+                    //sqlUpdate.Parameters.AddWithValue("@Restaurant_Email", remail.Text);
                     TextBox img = (TextBox)item.FindControl("txtImageURL");
                     sqlUpdate.Parameters.AddWithValue("@Image_URL", img.Text);
                     TextBox raddress = (TextBox)item.FindControl("txtAddress");
