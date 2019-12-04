@@ -82,12 +82,13 @@
                                 <asp:TextBox ID="txtAmount" runat="server" Font-Italic="true" CssClass="form-control" Text=""></asp:TextBox>
                             </div>
                         </div>
-                       
-                        <div class="m-4 text-center">
-                             <div class="pb-4">
-                            <asp:Label ID="lblErrorDisplay" Visible="false" runat="server" Text="Please enter a decimal value"></asp:Label>
 
-                        </div>
+                        <div class="m-4 text-center">
+                            <div class="pb-4">
+                                <asp:Label ID="lblErrorDisplay" Visible="false" runat="server" Text="Please enter a decimal value"></asp:Label>
+                                <asp:Label ID="lblFunded" Visible="false" runat="server" Text="The account was successfully funded"></asp:Label>
+
+                            </div>
                             <asp:Button ID="btnFundAccount" runat="server" Text="Fund Account" OnClick="btnFundAccount_Click" CssClass="contact-form-button" />
                         </div>
                         <hr />
@@ -118,13 +119,17 @@
                                         <asp:LinkButton ForeColor="#FF5581" ID="lbUpdateRestaurantEmail" runat="server">Update</asp:LinkButton>
                                     </div>
                                 </div>
-                        <div class="m-5 text-center">
-                            <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" CssClass="contact-form-button" />
-                        </div>
 
                             </ItemTemplate>
                         </asp:Repeater>
-
+                        <div class=" mt-3 text-center">
+                            <div class="pb-4">
+                                <asp:Label ID="lblPaymentUpdatedMsg" Visible="false" runat="server" Text="Your payment info was successfully updated."></asp:Label>
+                            </div>
+                        </div>
+                        <div class="mb-5 mt-3 text-center">
+                            <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" CssClass="contact-form-button" />
+                        </div>
 
                     </asp:Panel>
                 </div>
