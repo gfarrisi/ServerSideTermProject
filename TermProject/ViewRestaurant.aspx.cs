@@ -72,9 +72,11 @@ namespace TermProject
                 MenuItemControl ctrlMIC = (MenuItemControl)LoadControl("MenuItemControl.ascx");
                 DataRow drvCurrent = ds.Tables[0].Rows[i];
                 int currentItemID = int.Parse(drvCurrent[0].ToString());
+                ctrlMIC.ItemID = currentItemID;
                 ctrlMIC.ItemName = drvCurrent[2].ToString();
                 ctrlMIC.ItemImage = drvCurrent[3].ToString();
                 ctrlMIC.ItemDescription = drvCurrent[4].ToString();
+                ctrlMIC.RestaurantID = RestaurantID;
                 Decimal price = Decimal.Parse(drvCurrent[5].ToString());
                 ctrlMIC.ItemPrice = price.ToString("C2");
                 //get configurables

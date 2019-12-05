@@ -26,6 +26,11 @@ namespace TermProject
             get;set;
         }
 
+        public int RestaurantID
+        {
+            get; set;
+        }
+
         public String ItemName
         {
             get { return txtItemName.InnerText; }
@@ -86,30 +91,94 @@ namespace TermProject
         protected void btnAddToCart_Click(object sender, EventArgs e)
         {
             Order o;
+            bool newOrder;
             if(Session["Order"] == null)
             {
                 o = new Order();
+                newOrder = true;
             }
             else
             {
                 o = (Order)Session["Order"];
+                newOrder = false;
             }
             OrderItem oi = new OrderItem();
             oi.MenuItemID = ItemID;
-            List<string> configvalues = new List<string>();
+            List<OrderConfigurableItem> configvalues = new List<OrderConfigurableItem>();
             foreach(RepeaterItem item in repeaterCustomControls.Items)
             {
                 if (item.ItemType == ListItemType.Item || item.ItemType == ListItemType.AlternatingItem)
                 {
+                    OrderConfigurableItem oci = new OrderConfigurableItem();
+                    Label lbl = (Label)item.FindControl("lblItemConfigurableTitle");
                     DropDownList ddl = (DropDownList)item.FindControl("ddItemConfigurableValues");
-                    configvalues.Add(ddl.SelectedValue);
+                    oci.Title = lbl.Text;
+                    oci.Value = ddl.SelectedValue;
+                    configvalues.Add(oci);
                 }
             }
             if(configvalues.Count > 0)
             {
-                oi.ConfigurablesString = configvalues;
+                oi.Configurables = configvalues;
             }
             o.OrderItemList.Add(oi);
+            o.OrderStatus = "Not Submitted";
+            Session.Add("Order", o);
+            //oh boy let's add the order to the database
+
+            //update order
+            SqlCommand sqlAddOrder = new SqlCommand();
+            sqlAddOrder.CommandType = CommandType.StoredProcedure;
+            if (newOrder)
+            {
+                sqlAddOrder.CommandText = "TP_CreateOrder";
+            }
+            else
+            {
+                sqlAddOrder.CommandText = "TP_UpdateOrder";
+                sqlAddOrder.Parameters.AddWithValue("OrderID", o.OrderID);
+            }
+            sqlAddOrder.Parameters.AddWithValue("@OrderRestaurantID", RestaurantID);
+            string customerEmail = (string)Session["Email"];
+            customerEmail = "gabriellafarrisi@gmail.com";
+            sqlAddOrder.Parameters.AddWithValue("@OrderCustomerEmail", customerEmail);
+            sqlAddOrder.Parameters.AddWithValue("@OrderTotalCost", 0);
+            sqlAddOrder.Parameters.AddWithValue("@OrderStatus", o.OrderStatus);
+            sqlAddOrder.Parameters.AddWithValue("@OrderTime", DateTime.Now);
+            SqlParameter returnParameter = sqlAddOrder.Parameters.Add("RetVal", SqlDbType.Int);
+            returnParameter.Direction = ParameterDirection.ReturnValue;
+            objDB.DoUpdateUsingCmdObj(sqlAddOrder);
+            if (newOrder)
+            {
+                o.OrderID = (int)returnParameter.Value;
+                System.Diagnostics.Debug.WriteLine(o.OrderID + "");
+            }
+            oi.OrderID = o.OrderID;
+            //add order item
+            SqlCommand sqlAddOrderItem = new SqlCommand();
+            sqlAddOrderItem.CommandType = CommandType.StoredProcedure;
+            sqlAddOrderItem.CommandText = "TP_CreateOrderItem";
+            sqlAddOrderItem.Parameters.AddWithValue("@OrderID", o.OrderID);
+            sqlAddOrderItem.Parameters.AddWithValue("@MenuItemID", ItemID);
+            SqlParameter returnParameterItem = sqlAddOrderItem.Parameters.Add("RetVal", SqlDbType.Int);
+            returnParameterItem.Direction = ParameterDirection.ReturnValue;
+            objDB.DoUpdateUsingCmdObj(sqlAddOrderItem);
+            oi.OrderItemID = (int)returnParameterItem.Value;
+            //add any configurables
+            foreach (OrderConfigurableItem oci in oi.Configurables)
+            {
+                oci.OrderItemID = oi.OrderItemID;
+                SqlCommand sqlAddOrderItemConfigurable = new SqlCommand();
+                sqlAddOrderItemConfigurable.CommandType = CommandType.StoredProcedure;
+                sqlAddOrderItemConfigurable.CommandText = "TP_CreateOrderConfigurableItem";
+                sqlAddOrderItemConfigurable.Parameters.AddWithValue("@OrderItemID", oi.OrderItemID);
+                sqlAddOrderItemConfigurable.Parameters.AddWithValue("@OrderItemConfigurableTitle", oci.Title);
+                sqlAddOrderItemConfigurable.Parameters.AddWithValue("@OrderItemConfigurableValue", oci.Value);
+                SqlParameter returnParameterItemConfig = sqlAddOrderItem.Parameters.Add("RetVal", SqlDbType.Int);
+                returnParameterItemConfig.Direction = ParameterDirection.ReturnValue;
+                objDB.DoUpdateUsingCmdObj(sqlAddOrderItemConfigurable);
+                oci.OrderConfigurableID = (int)returnParameterItem.Value;
+            }
             Session.Add("Order", o);
         }
     }
