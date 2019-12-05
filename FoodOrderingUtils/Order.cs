@@ -23,7 +23,15 @@ namespace FoodOrderingUtils
             OrderItemList = new List<OrderItem>();
         }
 
+        public void CalculateCost()
+        {
+            float total;
+            foreach(OrderItem oi in OrderItemList)
+            {
+                //cost
+            }
 
+        }
     }
     
 }
