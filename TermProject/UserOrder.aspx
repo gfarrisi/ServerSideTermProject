@@ -36,7 +36,7 @@
                                         <div class="trend-item">
                                             <div class="row">
                                                 <div class="col-lg-5">
-                                                    <asp:HiddenField ID="hfMenuItemID" runat="server" Value='<%# DataBinder.Eval(Container.DataItem, "Menu_Item_ID") %>' />
+                                                    <asp:HiddenField ID="hfOrderItemID" runat="server" Value='<%# DataBinder.Eval(Container.DataItem, "Order_Item_ID") %>' />
                                                     <div class="trend-pic">
                                                         <asp:Image ID="imgMenuItem" runat="server" ImageUrl='<%# DataBinder.Eval(Container.DataItem, "Item_Image") %>' />
                                                     </div>
@@ -50,28 +50,20 @@
                                                         <asp:Label ID="lblDescription" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Item_Description") %>'></asp:Label>
                                                     </div>
 
-                                                    <asp:Repeater ID="rptItemConfigurableTitles" runat="server" OnItemDataBound="ItemBoundConfig">
+                                                    <asp:Repeater ID="rptItemConfigurables" runat="server" OnItemDataBound="ItemBoundConfig">
                                                         <ItemTemplate>
-                                                            <asp:HiddenField ID="hfMenuItemIDConf" runat="server" Value='<%# DataBinder.Eval(Container.DataItem, "Configurable_ID") %>' />
-                                                            <asp:Label ID="lblItemConfigurableTitle" runat="server" CssClass="pt-4 font" Text='<%# DataBinder.Eval(Container.DataItem, "Configurable_Title") %>'></asp:Label>
-                                                            <asp:Label ID="lblDescriptionLabel" runat="server" Text=": "></asp:Label>
-
-                                                            <div class="row pl-5">
-                                                                <asp:Repeater ID="rptItemConfigurables" runat="server">
-                                                                    <ItemTemplate>
-                                                                        <div class="col-lg-4">
-                                                                            <asp:Label ID="lblItemConfigurables" runat="server" CssClass="pt-4" Text='<%# Container.DataItem.ToString() %>'></asp:Label>
-                                                                        </div>
-                                                                    </ItemTemplate>
-                                                                </asp:Repeater>
-                                                            </div>
+                                                            <asp:HiddenField ID="hfMenuItemIDConf" runat="server" Value='<%# DataBinder.Eval(Container.DataItem, "Order_Item_Configurable_ID") %>' />
+                                                            <asp:Label ID="lblItemConfigurableTitle" runat="server" CssClass="pt-4 font" Text='<%# DataBinder.Eval(Container.DataItem, "Order_Item_Configurable_Title") %>'></asp:Label>
+                                                            <asp:Label ID="lblItemConfigurables" runat="server" CssClass="pt-4" Text='<%# DataBinder.Eval(Container.DataItem, "Order_Item_Configurable_Value") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:Repeater>
                                                 </div>
                                                 <div class="align-bottom float-right">
                                                     <asp:Label ID="lblPrice" runat="server" Text="" ForeColor="#FF5581"><%# Eval("Item_Price", "{0:c}") %></asp:Label>
                                                 </div>
-
+                                                <div class="text-center">
+                                                    <asp:Button ID="btnDelete" CssClass="contact-form-button-timy" runat="server" Text="Delete Item" OnClick="btnDelete_Click" />
+                                                </div>
                                             </div>
                                             <%-- <div class="tic-text">Restaurant</div>--%>
                                         </div>
@@ -80,12 +72,12 @@
                             </ItemTemplate>
                         </asp:Repeater>
 
-                        <%--<div class="text-center">
-                            <asp:Button ID="btnAddNewItem" runat="server" data-toggle="modal" data-target="#mdlAddQuestion" Text="Add new menu item" OnClick="btnAddNewItem_Click" CssClass="contact-form-button" />
-                        </div>--%>
                         <div class="text-center">
-                            <button type="button" class="contact-form-button" data-toggle="modal" data-target="#mdlAddQuestion" data-whatever="@fat">Add Menu Item</button>
+                            <asp:Button ID="btnCheckout" CssClass="contact-form-button" runat="server" Text="Checkout" OnClick="btnCheckout_Click"/>
                         </div>
+<%--                        <div class="text-center">
+                            <button type="button" class="contact-form-button" data-toggle="modal" data-target="#mdlAddQuestion" data-whatever="@fat">Add Menu Item</button>
+                        </div>--%>
 
                         <!-- Modal -->
                         <div class="modal fade" id="mdlAddQuestion" tabindex="-1" role="dialog" aria-labelledby="mdlAddQuestion" aria-hidden="true">

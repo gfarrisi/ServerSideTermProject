@@ -113,7 +113,7 @@ namespace TermProject
                     Label lbl = (Label)item.FindControl("lblItemConfigurableTitle");
                     DropDownList ddl = (DropDownList)item.FindControl("ddItemConfigurableValues");
                     oci.Title = lbl.Text;
-                    oci.Value = ddl.SelectedValue;
+                    oci.Value = ddl.SelectedItem.Text;
                     configvalues.Add(oci);
                 }
             }

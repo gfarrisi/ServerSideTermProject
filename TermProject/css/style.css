@@ -2103,6 +2103,14 @@ ol {
     display: inline-block;
 }
 
+.contact-form-button-timy {
+    color: #fff;
+    border: 1px solid #d84a58;
+    background: #d84a58;
+    padding: 6px;
+    display: inline-block;
+}
+
 .contact-form-button-2 {
     color: #fff;
     font-size: 20px;
