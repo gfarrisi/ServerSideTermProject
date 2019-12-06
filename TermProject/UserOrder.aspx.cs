@@ -11,7 +11,7 @@ using Utilities;
 
 namespace TermProject
 {
-    public partial class UserCart : System.Web.UI.Page
+    public partial class UserOrder : System.Web.UI.Page
     {
         DBConnect objDB = new DBConnect();
         SqlCommand objCommand = new SqlCommand();
@@ -36,6 +36,8 @@ namespace TermProject
             DataTable myDT = myDS.Tables[0];
             rptOrderItems.DataSource = myDT;
             rptOrderItems.DataBind();
+            Decimal total = (Decimal)o.OrderTotalCost;
+            lblTotal.Text = total.ToString("C2");
         }
 
         protected void ItemBound(object sender, RepeaterItemEventArgs args)
@@ -76,25 +78,12 @@ namespace TermProject
 
         protected void btnCheckout_Click(object sender, EventArgs e)
         {
-            Response.Redirect("UserOrder.aspx");
+
         }
 
-        protected void rptOrderItems_ItemCommand(object source, RepeaterCommandEventArgs e)
+        protected void btnOrder_Click(object sender, EventArgs e)
         {
-            if (e.CommandName == "DeleteItem")
-            {
-                HiddenField hfID = (HiddenField)e.Item.FindControl("hfOrderItemID");
-                int itemID = Convert.ToInt32(hfID.Value);
-                objCommand.CommandType = CommandType.StoredProcedure;
-                objCommand.CommandText = "TP_DeleteOrderItem";
-                objCommand.Parameters.Clear();
-                objCommand.Parameters.AddWithValue("@OrderItemID", itemID);
-                int result = objDB.DoUpdateUsingCmdObj(objCommand);
-                if(result > 0)
-                {
-                    GetOrderItems();
-                }
-            }
+
         }
     }
 }

@@ -12,7 +12,7 @@
 
     <!-- Header Section Begin -->
     <!-- Hero Section Begin -->
-    <div class="hero-listing set-bg" data-setbg="img/hero_listing.jpg">
+    <div id="dvImgRes" class="hero-listing set-bg" data-setbg="img/hero_listing.jpg" runat="server">
     </div>
     <!-- Hero Section End -->
 
@@ -30,7 +30,7 @@
                     <div class="col-lg-8">
                         <div class="about-intro">
                             <div class="intro-text">
-                                <h2 id="txtRestaurantTitle">Trocadero Restaurant</h2>
+                                <h2 id="txtRestaurantTitle" runat="server">Trocadero Restaurant</h2>
                             </div>
                         </div>
                     </div>
@@ -68,9 +68,9 @@
                                     <h4>Contact Info</h4>
                                     <span id="txtAddress" runat="server">Main Road , No 25/11</span><br />
                                     <ul>
-                                        <li><label id="txtCity" runat="server">Philadelphia, </label> <label id="txtState">PA </label> <label id="txtZip" runat="server">19100</label></li>
+                                        <li><label id="txtCity" runat="server">Philadelphia, </label>, <label id="txtState" runat="server">PA </label> <label id="txtZip" runat="server">19100</label></li>
                                         <li id="txtPhone" runat="server">+1 556-788-3221</li>
-                                        <li id="txtEmail">restaurantemail@gmail.com</li> 
+                                        <li id="txtEmail" runat="server">restaurantemail@gmail.com</li> 
                                     </ul>
                                 </div>
                             </div>
