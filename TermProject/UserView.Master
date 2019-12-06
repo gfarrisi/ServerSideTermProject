@@ -41,7 +41,7 @@
                     <div class="user-access">
                         <a href="LandingPage.aspx" class="mr-3">Explore Locals</a>
                         <a href="UserAccountSettings.aspx" class="mr-3">Account Settings</a>
-                        <asp:LinkButton ID="logout" runat="server" OnClick="logout_Click" CssClass="mr-3">Log out</asp:LinkButton> 
+                        <a href="Default.aspx" class="mr-3">Logout</a>
                         <a href="UserCart.aspx" class="primary-btn mr-3">View Cart</a>
                     </div>
                 </div>
