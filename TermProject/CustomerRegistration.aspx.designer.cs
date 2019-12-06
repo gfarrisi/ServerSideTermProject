@@ -94,13 +94,13 @@ namespace TermProject {
         protected global::System.Web.UI.WebControls.TextBox txtDeliveryCity;
         
         /// <summary>
-        /// txtDeliveryState control.
+        /// ddDeliveryState control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDeliveryState;
+        protected global::System.Web.UI.WebControls.DropDownList ddDeliveryState;
         
         /// <summary>
         /// txtDeliveryZip control.
@@ -157,13 +157,13 @@ namespace TermProject {
         protected global::System.Web.UI.WebControls.TextBox txtBillingCity;
         
         /// <summary>
-        /// txtBillingState control.
+        /// ddBillingState control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBillingState;
+        protected global::System.Web.UI.WebControls.DropDownList ddBillingState;
         
         /// <summary>
         /// txtBillingZip control.
@@ -173,6 +173,42 @@ namespace TermProject {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtBillingZip;
+        
+        /// <summary>
+        /// Label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
+        
+        /// <summary>
+        /// txtAccountName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAccountName;
+        
+        /// <summary>
+        /// txtAccountType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAccountType;
+        
+        /// <summary>
+        /// txtAccountNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAccountNumber;
         
         /// <summary>
         /// lblError control.

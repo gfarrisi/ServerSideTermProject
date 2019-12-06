@@ -10,7 +10,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" class="contact-form" runat="server">
-        
+
         <!-- Page Preloder -->
         <div id="preloder">
             <div class="loader"></div>
@@ -29,17 +29,17 @@
                 <div class="header-right">
                     <div class="user-access">
                         <a href="Default.aspx">Register/Login</a>
-                        
+
                     </div>
 
                 </div>
                 <div id="mobile-menu-wrap"></div>
             </div>
         </header>
-      
 
-        <section class="contact-section" style="padding-bottom:0px;" id="secError" runat="server" visible="false">
-            <div style="background-color:crimson;">
+
+        <section class="contact-section" style="padding-bottom: 0px;" id="secError" runat="server" visible="false">
+            <div style="background-color: crimson;">
                 <h2 style="color: white;">Error...</h2>
                 <br />
                 <h5 style="color: white;">Something went wrong while creating your account. Did you forget a form? Is your representative account already in use?</h5>
@@ -49,12 +49,18 @@
 
         <!-- Content Section Begin -->
         <section class="contact-section spad" id="secContent" runat="server" visible="true">
-            <h3 class="pt-4">Register your Restaurant</h3>
+            <h3 class="pt-5 pb-4">Register your Restaurant</h3>
             <br />
-            <h4>Restaurant Info</h4>
-            <h6 style="color:deeppink;">These are the details that customers will see when interacting with your restaurant.</h6>
-            <br />
+
             <div class="container">
+                <div class="row">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-8 pb-3">
+                        <h5 style="text-align: left; color: #FF5581;">Restaurant Info</h5>
+                        <span style="text-align: left;">These are the details that customers will see when interacting with your restaurant.</span>
+                        <br />
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-lg-2"></div>
                     <div class="col-lg-8">
@@ -141,16 +147,18 @@
                                 <label>ZIP</label><asp:TextBox CssClass="contact-form-input" ID="txtResZip" placeholder="5-number ZIP code" runat="server" required></asp:TextBox>
                             </div>
                         </div>
+                        <hr />
                         <div class="row">
-                            <div class="col-12">
-                                <hr />
-                                <h4>Representative Account Info</h4>
-                                <h6 style="color:deeppink">These are the account credentials you will use when logging in to manage the restaurant.</h6>
+                            <%--  <div class="col-lg-2"></div>--%>
+                            <div class="col-lg-12 pb-3">
+                                <h5 style="text-align: left; color: #FF5581;">Representative Account Info</h5>
+                                <span style="text-align: left;">These are the account credentials you will use when logging in to manage the restaurant.</span>
                                 <br />
                             </div>
-
+                        </div>
+                        <div class="row">
                             <div class="col-lg-6 mt-10">
-                                                            <label>First Name:</label>
+                                <label>First Name:</label>
                                 <asp:TextBox CssClass="contact-form-input" ID="txtFirstName" runat="server" placeholder="First Name" required="true"></asp:TextBox>
 
                             </div>
@@ -174,27 +182,54 @@
                             <label>Backup Email (For account recovery):</label>
                             <asp:TextBox CssClass="contact-form-input" ID="txtContactEmail" runat="server" placeholder="Backup Email Address" required="true"></asp:TextBox>
                         </div>
-                    </div>
-                    <div class="row text-center">
-                        <div class="col-lg-12">
-                            <hr />
-                            <p style="text-align: center;"> Upon submitting this form, your user account will automatically be set as the representative of this restauraunt.</p>
-                        </div>  
-                        <div class="col-lg-3">
+                       
+                        <hr />
+                        <div class="row">
+                            <%--  <div class="col-lg-2"></div>--%>
+                            <div class="col-lg-12 pb-3">
+                                <h5 style="text-align: left; color: #FF5581;">Payment Account Info</h5>
+                                <span style="text-align: left;">This is the payment accoutn info that will be used to process payments for your restaurant.</span>
+                                <br />
+                            </div>
                         </div>
-                        <div class="col-lg-6">
-                            <asp:Button ID="btnRegister" CssClass="contact-form-button" Text="Register Restaurant" OnClick="btnRegister_Click" runat="server" />
+                       
+                        <div class="mt-10">
+                            <label>Name on Payment Account:</label>
+                            <asp:TextBox CssClass="contact-form-input" ID="txtAccountName" runat="server" placeholder="Account Name" required="true"></asp:TextBox>
+
+                        </div>
+                        <div class="mt-10">
+                            <label>Payment Account Type:</label>
+                            <asp:TextBox CssClass="contact-form-input" ID="txtAccountType" runat="server" placeholder="Account Type" required="true"></asp:TextBox>
+
+                        </div>
+                        <div class="mt-10">
+                            <label>Payment Account Number:</label>
+                            <asp:TextBox CssClass="contact-form-input" ID="txtAccountNumber" runat="server" placeholder="Account Number" required="true"></asp:TextBox>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col-lg-12">
+                                <hr />
+                                <p style="text-align: center;">Upon submitting this form, your user account will automatically be set as the representative of this restauraunt.</p>
+                            </div>
+                            <div class="col-lg-3">
+                            </div>
+                            <div class="col-lg-6">
+                                <asp:Button ID="Button1" CssClass="contact-form-button" Text="Register Restaurant" OnClick="btnRegister_Click" runat="server" />
+                            </div>
                         </div>
                     </div>
+                    </div>
+
                 </div>
             </div>
         </section>
         <section id="secSuccess" class="contact-section spad" runat="server" visible="false">
-            <div style="background-color:mediumseagreen;">
-            <h2 style="color:white;">Success!</h2>
-            <br />
-            <h5 style="color: white;">Your account has now been created. Please <a style="color:aliceblue; text-decoration:underline" href="Login.aspx">log in</a> to manage your restaurant.</h5>
-            <br />
+            <div style="background-color: mediumseagreen;">
+                <h2 style="color: white;">Success!</h2>
+                <br />
+                <h5 style="color: white;">Your account has now been created. Please <a style="color: aliceblue; text-decoration: underline" href="Login.aspx">log in</a> to manage your restaurant.</h5>
+                <br />
             </div>
         </section>
     </form>

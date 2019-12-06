@@ -226,15 +226,6 @@ namespace TermProject
                         // int restaurantID = Convert.ToInt32(Session["RestaurantID"].ToString());
                         int restaurantID = 401;
 
-                        objCommand.CommandType = CommandType.StoredProcedure;
-                        objCommand.CommandText = "TP_GetRestaurant";
-                        objCommand.Parameters.Clear();
-
-                        objCommand.Parameters.AddWithValue("@RestaurantID", restaurantID);
-
-                        myDS = objDB.GetDataSetUsingCmdObj(objCommand);
-                        myDT = myDS.Tables[0];
-
                         float balance = float.Parse(Session["AccountBalace"].ToString());
 
                         AccountHolder accountHolder = new AccountHolder(APIKey, MerchantID, VirtualWalletID, accountName.Text, accountType.Text, Convert.ToInt32(accountNumber.Text), balance);
