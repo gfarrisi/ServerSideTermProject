@@ -36,7 +36,6 @@
                 </div>
                 <nav class="main-menu mobile-menu">
                 </nav>
-                <form id="form2" runat="server">
                 <div class="header-right">
                     <div class="user-access">
                         <a href="LandingPage.aspx" class="mr-3">Explore Locals</a>
@@ -45,7 +44,6 @@
                         <a href="UserCart.aspx" class="primary-btn mr-3">View Cart</a>
                     </div>
                 </div>
-                    </form>
                 <div id="mobile-menu-wrap"></div>
             </div>
         </header>
