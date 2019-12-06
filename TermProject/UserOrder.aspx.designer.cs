@@ -10,7 +10,7 @@
 namespace TermProject {
     
     
-    public partial class ViewRestaurant {
+    public partial class UserOrder {
         
         /// <summary>
         /// form1 control.
@@ -22,93 +22,66 @@ namespace TermProject {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// dvImgRes control.
+        /// lbAccountSettings control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dvImgRes;
+        protected global::System.Web.UI.WebControls.LinkButton lbAccountSettings;
         
         /// <summary>
-        /// txtRestaurantTitle control.
+        /// lbPaymentInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtRestaurantTitle;
+        protected global::System.Web.UI.WebControls.LinkButton lbPaymentInfo;
         
         /// <summary>
-        /// repeaterMenu control.
+        /// lbCurrentOrders control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater repeaterMenu;
+        protected global::System.Web.UI.WebControls.LinkButton lbCurrentOrders;
         
         /// <summary>
-        /// divMenu control.
+        /// pnlMenu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divMenu;
+        protected global::System.Web.UI.WebControls.Panel pnlMenu;
         
         /// <summary>
-        /// txtAddress control.
+        /// rptOrderItems control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtAddress;
+        protected global::System.Web.UI.WebControls.Repeater rptOrderItems;
         
         /// <summary>
-        /// txtCity control.
+        /// lblTotal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtCity;
+        protected global::System.Web.UI.WebControls.Label lblTotal;
         
         /// <summary>
-        /// txtState control.
+        /// btnOrder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtState;
-        
-        /// <summary>
-        /// txtZip control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtZip;
-        
-        /// <summary>
-        /// txtPhone control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtPhone;
-        
-        /// <summary>
-        /// txtEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtEmail;
+        protected global::System.Web.UI.WebControls.Button btnOrder;
     }
 }

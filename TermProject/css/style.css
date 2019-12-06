@@ -558,6 +558,14 @@ ol {
 	position: relative;
 }
 
+.trend-item2 {
+    background: #C4CBE2;
+    padding: 10px 10px 10px 0;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+
 .trend-item.nightlife .tic-text {
 	background: #009CFF;
 }
@@ -599,6 +607,14 @@ ol {
     /*border radius for landing page images*/
 	border-radius: 2.5%;
 }
+
+    .trend-item2 .trend-pic img {
+        height: 100px;
+        width: 100px;
+        object-fit: cover;
+        /*border radius for landing page images*/
+        border-radius: 1.5%;
+    }
 
 .trend-item .trend-pic .rating {
 	position: absolute;

@@ -104,6 +104,7 @@ namespace TermProject
             }
             OrderItem oi = new OrderItem();
             oi.MenuItemID = ItemID;
+            oi.OrderItemPrice = Single.Parse(ItemPrice, System.Globalization.NumberStyles.Currency);
             List<OrderConfigurableItem> configvalues = new List<OrderConfigurableItem>();
             foreach(RepeaterItem item in repeaterCustomControls.Items)
             {
@@ -142,7 +143,8 @@ namespace TermProject
             string customerEmail = (string)Session["Email"];
             customerEmail = "gabriellafarrisi@gmail.com";
             sqlAddOrder.Parameters.AddWithValue("@OrderCustomerEmail", customerEmail);
-            sqlAddOrder.Parameters.AddWithValue("@OrderTotalCost", 0);
+            o.CalculateCost();
+            sqlAddOrder.Parameters.AddWithValue("@OrderTotalCost", o.OrderTotalCost);
             sqlAddOrder.Parameters.AddWithValue("@OrderStatus", o.OrderStatus);
             sqlAddOrder.Parameters.AddWithValue("@OrderTime", DateTime.Now);
             SqlParameter returnParameter = sqlAddOrder.Parameters.Add("RetVal", SqlDbType.Int);
