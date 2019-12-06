@@ -269,12 +269,13 @@ namespace TermProject
                                 //TP_UpdateRestaurantPaymentInfo
 
                                 objCommand.CommandType = CommandType.StoredProcedure;
-                                objCommand.CommandText = "TP_UpdateRestaurantPaymentInfo";
+                                objCommand.CommandText = "TP_UpdateCustomerPaymentInfo";
                                 objCommand.Parameters.Clear();
                                 objCommand.Parameters.AddWithValue("@Payment_Account_Type", accountType.Text);
                                 objCommand.Parameters.AddWithValue("@Payment_Account_Number", Convert.ToInt32(accountNumber.Text));
                                 objCommand.Parameters.AddWithValue("@Restaurant_ID", restaurantID);
-                                objCommand.Parameters.AddWithValue("@Restaurant_Name", accountName.Text);
+                                objCommand.Parameters.AddWithValue("@Email", email);
+                                objCommand.Parameters.AddWithValue("@Payment_Account_Name", accountName.Text);
                                 int returnValue = objDB.DoUpdateUsingCmdObj(objCommand);
 
                                 if (returnValue > 0)

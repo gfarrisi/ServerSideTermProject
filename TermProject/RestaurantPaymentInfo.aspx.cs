@@ -209,7 +209,7 @@ namespace TermProject
                     TextBox accountNumber = (TextBox)item.FindControl("txtAccountNumber");
                     TextBox accountName = (TextBox)item.FindControl("txtAccountName");
                     //Please enter a decimal value
-                    if (accountType.Text.Length > 0 && accountNumber.Text.Length > 0)
+                    if (accountType.Text.Length > 0 && accountNumber.Text.Length > 0 && accountName.Text.Length > 0)
                     {
                         string VirtualWalletID = Session["RestaurantEmail"].ToString();
                         //get api key info
@@ -277,7 +277,7 @@ namespace TermProject
                                 objCommand.Parameters.AddWithValue("@Payment_Account_Type", accountType.Text);
                                 objCommand.Parameters.AddWithValue("@Payment_Account_Number", Convert.ToInt32(accountNumber.Text));
                                 objCommand.Parameters.AddWithValue("@Restaurant_ID", restaurantID);
-                                objCommand.Parameters.AddWithValue("@Restaurant_Name", accountName.Text);
+                                objCommand.Parameters.AddWithValue("@Payment_Account_Name", accountName.Text);
                                 int returnValue = objDB.DoUpdateUsingCmdObj(objCommand);
 
                                 if (returnValue > 0)
