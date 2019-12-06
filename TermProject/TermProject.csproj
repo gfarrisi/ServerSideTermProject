@@ -164,6 +164,7 @@
     <Content Include="Source\photo credits - directory.txt" />
     <Content Include="UserAccountSettings.aspx" />
     <Content Include="UserCart.aspx" />
+    <Content Include="UserOrder.aspx" />
     <Content Include="UserPaymentInfo.aspx" />
     <Content Include="ViewRestaurant.aspx" />
     <Content Include="Web.config" />
@@ -338,6 +339,13 @@
     </Compile>
     <Compile Include="UserCart.aspx.designer.cs">
       <DependentUpon>UserCart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserOrder.aspx.cs">
+      <DependentUpon>UserOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserOrder.aspx.designer.cs">
+      <DependentUpon>UserOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserPaymentInfo.aspx.cs">
       <DependentUpon>UserPaymentInfo.aspx</DependentUpon>

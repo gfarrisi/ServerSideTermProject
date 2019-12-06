@@ -43,8 +43,14 @@ namespace TermProject
             sqlGetRestaurant.Parameters.AddWithValue("@RestaurantID", RestaurantID);
             DataSet dsRes = objDB.GetDataSetUsingCmdObj(sqlGetRestaurant);
             DataRow drRes = dsRes.Tables[0].Rows[0];
-            //res.
-
+            txtRestaurantTitle.InnerText = drRes[1].ToString(); //title
+            dvImgRes.Attributes["data-setbg"] = drRes[2].ToString(); //image
+            txtPhone.InnerText = drRes[3].ToString();
+            txtEmail.InnerText = drRes[4].ToString();
+            txtAddress.InnerText = drRes[5].ToString();
+            txtCity.InnerText = drRes[6].ToString();
+            txtState.InnerText = drRes[7].ToString();
+            txtZip.InnerText = drRes[8].ToString();
             if (!IsPostBack)
             {
                 SqlCommand sqlGetMenu = new SqlCommand();

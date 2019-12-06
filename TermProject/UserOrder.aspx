@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UserView.Master" AutoEventWireup="true" CodeBehind="UserCart.aspx.cs" Inherits="TermProject.UserCart" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UserView.Master" AutoEventWireup="true" CodeBehind="UserOrder.aspx.cs" Inherits="TermProject.UserOrder" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -26,14 +25,15 @@
 
                     <!-- Panel for menu items -->
                     <asp:Panel ID="pnlMenu" runat="server" CssClass="pl-5 pr-5">
-                        <h4 class="mt-4 mb-4 text-center">Your Cart</h4>
-                        <asp:Repeater ID="rptOrderItems" runat="server" OnItemDataBound="ItemBound" OnItemCommand="rptOrderItems_ItemCommand">
+                        <h4 class="mt-4 mb-4 text-center">Review Your Order</h4>
+                        <h6 class="mt-4 mb-4 text-center">Look over your order, then press Buy to pay for it.</h6>
+                        <asp:Repeater ID="rptOrderItems" runat="server" OnItemDataBound="ItemBound">
                             <ItemTemplate>
                                 <div class="row">
                                     <div class="col-md-1"></div>
 
                                     <div class="col-md-10">
-                                        <div class="trend-item">
+                                        <div class="trend-item2">
                                             <div class="row">
                                                 <div class="col-lg-5">
                                                     <asp:HiddenField ID="hfOrderItemID" runat="server" Value='<%# DataBinder.Eval(Container.DataItem, "Order_Item_ID") %>' />
@@ -65,16 +65,14 @@
                                                     <asp:Label ID="lblPrice" runat="server" Text="" ForeColor="#FF5581"><%# Eval("Item_Price", "{0:c}") %></asp:Label>
                                                 </div>
                                             </div>
-                                            <div style="text-align: center;">
-                                                <asp:LinkButton ID="lbDelete" runat="server" CssClass="contact-form-button-timy" CommandName="DeleteItem"><i class="fa fa-remove"></i>Delete</asp:LinkButton>
-                                            </div>
                                         </div>
                                     </div>
                             </ItemTemplate>
                         </asp:Repeater>
 
-                        <div class="text-center">
-                            <asp:Button ID="btnCheckout" CssClass="contact-form-button" runat="server" Text="Checkout" OnClick="btnCheckout_Click" />
+                        <div class="text-center" style="text-align:center;">
+                            <asp:Label ID="lblTotal" runat="server"></asp:Label>
+                            <asp:Button ID="btnOrder" CssClass="contact-form-button" runat="server" Text="Buy" OnClick="btnOrder_Click" />
                         </div>
                         <%--                        <div class="text-center">
                             <button type="button" class="contact-form-button" data-toggle="modal" data-target="#mdlAddQuestion" data-whatever="@fat">Add Menu Item</button>
