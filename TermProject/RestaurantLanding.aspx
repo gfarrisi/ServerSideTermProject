@@ -8,11 +8,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <form id="form1" runat="server">
 
-        <!-- Page Preloder -->
+    <%--    <!-- Page Preloder -->
         <div id="preloder">
             <div class="loader"></div>
 
-        </div>
+        </div>--%>
 
 
         <div class="container pt-5" style="padding-top: 10%;">
@@ -131,6 +131,9 @@
                         <%--<div class="text-center">
                             <asp:Button ID="btnAddNewItem" runat="server" data-toggle="modal" data-target="#mdlAddQuestion" Text="Add new menu item" OnClick="btnAddNewItem_Click" CssClass="contact-form-button" />
                         </div>--%>
+                    
+                    </asp:Panel>
+
                         <div class="text-center">
                             <button type="button" class="contact-form-button" data-toggle="modal" data-target="#mdlAddQuestion" data-whatever="@fat">Add Menu Item</button>
                         </div>
@@ -155,8 +158,6 @@
                                 </div>
                             </div>
                         </div>
-                    </asp:Panel>
-
                 </div>
             </div>
         </div>

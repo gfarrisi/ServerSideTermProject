@@ -58,17 +58,17 @@ namespace TermProject
 
         protected void lbMenuManagement_Click(object sender, EventArgs e)
         {
-            Response.Redirect("RestaurantLanding.aspx");
+            Response.Redirect("LandingPage.aspx");
         }
 
         protected void lbAccountSettings_Click(object sender, EventArgs e)
         {
-            Response.Redirect("RestaurantAccountSettings.aspx");
+            Response.Redirect("UserAccountSettings.aspx");
         }
 
         protected void lbPaymentInfo_Click(object sender, EventArgs e)
         {
-            Response.Redirect("RestaurantPaymentInfo.aspx");
+            Response.Redirect("PaymentInfo.aspx");
         }
 
         protected void lbCurrentOrders_Click(object sender, EventArgs e)

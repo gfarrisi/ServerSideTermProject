@@ -39,7 +39,7 @@
                 <div class="header-right">
                     <div class="user-access">
                          <a href="Login.aspx" class="mr-3">Explore Locals</a>    
-                           <a href="Login.aspx" class="mr-3">Account Settings</a>                     
+                           <a href="UserAccountSettings.aspx" class="mr-3">Account Settings</a>                     
                       
                         <a href="Login.aspx"  class="mr-3">Logout <i class="fa fa-sign-out"></i></a>
                           <a href="#" class="primary-btn mr-3">View Cart</a>
