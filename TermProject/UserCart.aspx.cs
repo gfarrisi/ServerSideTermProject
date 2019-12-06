@@ -11,7 +11,7 @@ using Utilities;
 
 namespace TermProject
 {
-    public partial class UserOrder : System.Web.UI.Page
+    public partial class UserCart : System.Web.UI.Page
     {
         DBConnect objDB = new DBConnect();
         SqlCommand objCommand = new SqlCommand();
@@ -60,14 +60,6 @@ namespace TermProject
             }
         }
 
-        protected void ItemBoundConfig(object sender, RepeaterItemEventArgs args)
-        {
-                if (args.Item.ItemType == ListItemType.Item || args.Item.ItemType == ListItemType.AlternatingItem)
-                {
-                System.Diagnostics.Debug.WriteLine("Configurable!");
-            }
-            }
-
 
         protected void lbAccountSettings_Click(object sender, EventArgs e)
         {
@@ -89,9 +81,14 @@ namespace TermProject
 
         }
 
-        protected void btnDelete_Click(object sender, EventArgs e)
+        protected void rptOrderItems_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
+            if (e.CommandName == "DeleteItem")
+            {
+                HiddenField hfID = (HiddenField)e.Item.FindControl("hfOrderItemID");
+                int itemID = Convert.ToInt32(hfID.Value);
 
+            }
         }
     }
 }

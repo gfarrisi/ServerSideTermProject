@@ -11,8 +11,9 @@ namespace FoodOrderingUtils
     {
         public int OrderID { get; set; }
         public string OrderStatus { get; set; }
-        public Decimal OrderTotalCost { get; set; }
+        public float OrderTotalCost { get; set; }
         public int OrderRestaurant { get; set; }
+
         public List<OrderItem> OrderItemList {
             get;
             set;
@@ -25,12 +26,12 @@ namespace FoodOrderingUtils
 
         public void CalculateCost()
         {
-            float total;
+            float total = 0;
             foreach(OrderItem oi in OrderItemList)
             {
-                //cost
+                total += oi.OrderItemPrice;
             }
-
+            OrderTotalCost = total;
         }
     }
     

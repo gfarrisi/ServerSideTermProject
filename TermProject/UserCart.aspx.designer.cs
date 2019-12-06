@@ -10,7 +10,7 @@
 namespace TermProject {
     
     
-    public partial class UserOrder {
+    public partial class UserCart{
         
         /// <summary>
         /// form1 control.
