@@ -22,7 +22,6 @@ namespace Utilities
       
         //String APIConnectString = "server=cis-mssql1.temple.edu;Database=FA19_3342_tug35007;User id=tug35007;Password=ZaiRi7ae";
 
-
         SqlConnection myConnectionSql;
         SqlCommand objCmd;
         SqlDataReader objDataReader;
