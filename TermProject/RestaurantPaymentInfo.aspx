@@ -99,23 +99,15 @@
                                 <asp:HiddenField ID="hfRestaurantID" runat="server" Value='<%# DataBinder.Eval(Container.DataItem, "Restaurant_ID") %>' />
                                 <div class="row mt-4">
                                     <div class="col-lg-3">
-                                        <asp:Label ID="Label2" runat="server" Text="Wallet Account Holder Name"></asp:Label>
+                                        <asp:Label ID="lblAccountName" runat="server" Text="Payment Account Holder Name:"></asp:Label>
                                     </div>
                                     <div class="col-lg-7">
-                                        <asp:TextBox ID="txtUpdateWalletName" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "AccountHolder_Name") %>'></asp:TextBox>
+                                        <asp:TextBox ID="txtAccountName" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Payment_Account_Name") %>'></asp:TextBox>
                                     </div>
-                                </div>
+                                </div>                               
                                 <div class="row mt-5">
                                     <div class="col-lg-3">
-                                        <asp:Label ID="Label2" runat="server" Text="Restaurant Name / Account Name:"></asp:Label>
-                                    </div>
-                                    <div class="col-lg-7">
-                                        <asp:TextBox ID="txtAccountName" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Restaurant_Name") %>'></asp:TextBox>
-                                    </div>                                  
-                                </div>
-                                <div class="row mt-5">
-                                    <div class="col-lg-3">
-                                        <asp:Label ID="Label1" runat="server" Text="Restaurant Payment Account Type:"></asp:Label>
+                                        <asp:Label ID="Label1" runat="server" Text="Payment Account Type:"></asp:Label>
                                     </div>
                                     <div class="col-lg-7">
                                         <asp:TextBox ID="txtAccountType" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Payment_Account_Type") %>'></asp:TextBox>
@@ -123,7 +115,7 @@
                                 </div>
                                 <div class="row mt-4">
                                     <div class="col-lg-3">
-                                        <asp:Label ID="Label5" runat="server" Text="Restaurant Payment Account Number:"></asp:Label>
+                                        <asp:Label ID="Label5" runat="server" Text="Payment Account Number:"></asp:Label>
                                     </div>
                                     <div class="col-lg-7">
                                         <asp:TextBox ID="txtAccountNumber" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Payment_Account_Number") %>'></asp:TextBox>

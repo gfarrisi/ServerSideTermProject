@@ -208,7 +208,8 @@ namespace TermProject
                     //Please enter a decimal value
                     if (accountType.Text.Length > 0 && accountNumber.Text.Length > 0)
                     {
-                        string VirtualWalletID = Session["RestaurantEmail"].ToString();
+                        //string VirtualWalletID = Session["Email"].ToString();
+                        string VirtualWalletID = "gabriellafarrisi@gmail.com";
                         //get api key info
                         objCommand.CommandType = CommandType.StoredProcedure;
                         objCommand.CommandText = "TP_GetAPIKey";
@@ -219,18 +220,6 @@ namespace TermProject
 
                         string APIKey = myDT.Rows[0]["API_Key"].ToString();
                         string MerchantID = myDT.Rows[0]["ID"].ToString();
-
-                        // int restaurantID = Convert.ToInt32(Session["RestaurantID"].ToString());
-                        int restaurantID = 401;
-
-                        objCommand.CommandType = CommandType.StoredProcedure;
-                        objCommand.CommandText = "TP_GetRestaurant";
-                        objCommand.Parameters.Clear();
-
-                        objCommand.Parameters.AddWithValue("@RestaurantID", restaurantID);
-
-                        myDS = objDB.GetDataSetUsingCmdObj(objCommand);
-                        myDT = myDS.Tables[0];
 
                         float balance = float.Parse(Session["AccountBalace"].ToString());
 
@@ -269,12 +258,12 @@ namespace TermProject
                                 //TP_UpdateRestaurantPaymentInfo
 
                                 objCommand.CommandType = CommandType.StoredProcedure;
-                                objCommand.CommandText = "TP_UpdateRestaurantPaymentInfo";
+                                objCommand.CommandText = "TP_UpdateCustomerPaymentInfo";
                                 objCommand.Parameters.Clear();
                                 objCommand.Parameters.AddWithValue("@Payment_Account_Type", accountType.Text);
                                 objCommand.Parameters.AddWithValue("@Payment_Account_Number", Convert.ToInt32(accountNumber.Text));
-                                objCommand.Parameters.AddWithValue("@Restaurant_ID", restaurantID);
-                                objCommand.Parameters.AddWithValue("@Restaurant_Name", accountName.Text);
+                                objCommand.Parameters.AddWithValue("@Email", VirtualWalletID);
+                                objCommand.Parameters.AddWithValue("@Payment_Account_Name", accountName.Text);
                                 int returnValue = objDB.DoUpdateUsingCmdObj(objCommand);
 
                                 if (returnValue > 0)
