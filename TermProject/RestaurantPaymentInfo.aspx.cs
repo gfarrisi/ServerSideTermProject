@@ -207,7 +207,7 @@ namespace TermProject
                 {
                     TextBox accountType = (TextBox)item.FindControl("txtAccountType");
                     TextBox accountNumber = (TextBox)item.FindControl("txtAccountNumber");
-
+                    TextBox accountName = (TextBox)item.FindControl("txtAccountName");
                     //Please enter a decimal value
                     if (accountType.Text.Length > 0 && accountNumber.Text.Length > 0)
                     {
@@ -235,10 +235,9 @@ namespace TermProject
                         myDS = objDB.GetDataSetUsingCmdObj(objCommand);
                         myDT = myDS.Tables[0];
 
-                        string restaurantName = myDT.Rows[0]["Restaurant_Name"].ToString();
                         float balance = float.Parse(Session["AccountBalace"].ToString());
 
-                        AccountHolder accountHolder = new AccountHolder(APIKey, MerchantID, VirtualWalletID, restaurantName, accountType.Text, Convert.ToInt32(accountNumber.Text), balance);
+                        AccountHolder accountHolder = new AccountHolder(APIKey, MerchantID, VirtualWalletID, accountName.Text, accountType.Text, Convert.ToInt32(accountNumber.Text), balance);
                         // Serialize a Customer object into a JSON string.
                         JavaScriptSerializer js = new JavaScriptSerializer();
                         String jsonAccountHolder = js.Serialize(accountHolder);
@@ -278,7 +277,7 @@ namespace TermProject
                                 objCommand.Parameters.AddWithValue("@Payment_Account_Type", accountType.Text);
                                 objCommand.Parameters.AddWithValue("@Payment_Account_Number", Convert.ToInt32(accountNumber.Text));
                                 objCommand.Parameters.AddWithValue("@Restaurant_ID", restaurantID);
-
+                                objCommand.Parameters.AddWithValue("@Restaurant_Name", accountName.Text);
                                 int returnValue = objDB.DoUpdateUsingCmdObj(objCommand);
 
                                 if (returnValue > 0)

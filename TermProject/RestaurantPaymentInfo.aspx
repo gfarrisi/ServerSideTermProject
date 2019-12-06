@@ -99,13 +99,18 @@
                                 <asp:HiddenField ID="hfRestaurantID" runat="server" Value='<%# DataBinder.Eval(Container.DataItem, "Restaurant_ID") %>' />
                                 <div class="row mt-5">
                                     <div class="col-lg-3">
+                                        <asp:Label ID="Label2" runat="server" Text="Restaurant Name / Account Name:"></asp:Label>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <asp:TextBox ID="txtAccountName" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Restaurant_Name") %>'></asp:TextBox>
+                                    </div>                                  
+                                </div>
+                                <div class="row mt-5">
+                                    <div class="col-lg-3">
                                         <asp:Label ID="Label1" runat="server" Text="Restaurant Payment Account Type:"></asp:Label>
                                     </div>
                                     <div class="col-lg-7">
                                         <asp:TextBox ID="txtAccountType" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Payment_Account_Type") %>'></asp:TextBox>
-                                    </div>
-                                    <div class="col-lg-2">
-                                        <asp:LinkButton ForeColor="#FF5581" ID="lbUpdateName" runat="server">Update</asp:LinkButton>
                                     </div>
                                 </div>
                                 <div class="row mt-4">
@@ -114,9 +119,6 @@
                                     </div>
                                     <div class="col-lg-7">
                                         <asp:TextBox ID="txtAccountNumber" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Payment_Account_Number") %>'></asp:TextBox>
-                                    </div>
-                                    <div class="col-lg-2">
-                                        <asp:LinkButton ForeColor="#FF5581" ID="lbUpdateRestaurantEmail" runat="server">Update</asp:LinkButton>
                                     </div>
                                 </div>
 
