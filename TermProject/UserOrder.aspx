@@ -34,6 +34,9 @@
 
                                     <div class="col-md-10">
                                         <div class="trend-item2">
+                                                                                            <div class="align-bottom float-right">
+                                                    <asp:Label ID="Label1" runat="server" Text="" ForeColor="#FF5581"><%# Eval("Item_Price", "{0:c}") %></asp:Label>
+                                                </div>
                                             <div class="row">
                                                 <div class="col-lg-5">
                                                     <asp:HiddenField ID="hfOrderItemID" runat="server" Value='<%# DataBinder.Eval(Container.DataItem, "Order_Item_ID") %>' />
@@ -41,7 +44,7 @@
                                                         <asp:Image ID="imgMenuItem" runat="server" ImageUrl='<%# DataBinder.Eval(Container.DataItem, "Item_Image") %>' />
                                                     </div>
                                                 </div>
-                                                <div class="pt-4" style="display: inline-block;">
+                                                <div class="col-lg-7 pt-4" style="display: inline-block;">
                                                     <div>
                                                         <asp:Label ID="lblTitle" Font-Bold="true" runat="server" CssClass="pt-3" Text='<%# DataBinder.Eval(Container.DataItem, "Item_Title") %>'></asp:Label>
                                                     </div>
@@ -61,44 +64,24 @@
                                                         </ItemTemplate>
                                                     </asp:Repeater>
                                                 </div>
-                                                <div class="align-bottom float-right">
-                                                    <asp:Label ID="lblPrice" runat="server" Text="" ForeColor="#FF5581"><%# Eval("Item_Price", "{0:c}") %></asp:Label>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
                             </ItemTemplate>
-                        </asp:Repeater>
-
-                        <div class="text-center" style="text-align:center;">
-                            <asp:Label ID="lblTotal" runat="server"></asp:Label>
-                            <asp:Button ID="btnOrder" CssClass="contact-form-button" runat="server" Text="Buy" OnClick="btnOrder_Click" />
-                        </div>
-                        <%--                        <div class="text-center">
-                            <button type="button" class="contact-form-button" data-toggle="modal" data-target="#mdlAddQuestion" data-whatever="@fat">Add Menu Item</button>
-                        </div>--%>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="mdlAddQuestion" tabindex="-1" role="dialog" aria-labelledby="mdlAddQuestion" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        ...
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        </asp:Repeater>      
                     </asp:Panel>
+                    <br />
+
+                </div>
+                <div class="col-md-11">
+                    <div style="text-align: center;">
+                        <b style="color:darkslategray"><asp:Label ID="lblTotal" runat="server"></asp:Label></b><br/>
+                        <asp:Button ID="btnOrder" CssClass="contact-form-button-2" runat="server" Text="Buy" OnClick="btnOrder_Click" />
+                    </div>
+                </div>
+                <div class="pb-4">
+                    <asp:Label ID="lblErrorDisplay" Visible="false" runat="server" Text="You screwed up"></asp:Label>
+                    <asp:Label ID="lblFunded" Visible="false" runat="server" Text="The account was successfully funded"></asp:Label>
                 </div>
             </div>
         </div>

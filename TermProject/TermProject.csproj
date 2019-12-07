@@ -149,7 +149,6 @@
     <Content Include="listings.html" />
     <Content Include="main.html" />
     <Content Include="NewMenu.aspx" />
-    <Content Include="ManageRestaurant.aspx" />
     <Content Include="MenuItemControl.ascx" />
     <Content Include="PaymentInfo.aspx" />
     <Content Include="readme.txt" />
@@ -240,13 +239,6 @@
     </Compile>
     <Compile Include="NewMenu.aspx.designer.cs">
       <DependentUpon>NewMenu.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ManageRestaurant.aspx.cs">
-      <DependentUpon>ManageRestaurant.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ManageRestaurant.aspx.designer.cs">
-      <DependentUpon>ManageRestaurant.aspx</DependentUpon>
     </Compile>
     <Compile Include="MenuItemControl.ascx.cs">
       <DependentUpon>MenuItemControl.ascx</DependentUpon>
