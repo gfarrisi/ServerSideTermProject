@@ -181,6 +181,7 @@ namespace TermProject
                 sqlAddOrderItemConfigurable.Parameters.AddWithValue("@OrderItemID", oi.OrderItemID);
                 sqlAddOrderItemConfigurable.Parameters.AddWithValue("@OrderItemConfigurableTitle", oci.Title);
                 sqlAddOrderItemConfigurable.Parameters.AddWithValue("@OrderItemConfigurableValue", oci.Value);
+                sqlAddOrderItemConfigurable.Parameters.AddWithValue("@MenuItemID", ItemID);
                 SqlParameter returnParameterItemConfig = sqlAddOrderItem.Parameters.Add("RetVal", SqlDbType.Int);
                 returnParameterItemConfig.Direction = ParameterDirection.ReturnValue;
                 objDB.DoUpdateUsingCmdObj(sqlAddOrderItemConfigurable);
