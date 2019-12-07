@@ -10,6 +10,7 @@ using System.Data.SqlClient;
 using Utilities;
 using Newtonsoft.Json;
 using System.Web.Script.Serialization;
+//using FoodOrderingUtils;
 
 namespace TermProject
 {
@@ -131,11 +132,6 @@ namespace TermProject
 
             }
         }
-        protected void btnAddNewItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         protected void lbMenuManagement_Click(object sender, EventArgs e)
         {
             Response.Redirect("RestaurantLanding.aspx");
@@ -154,6 +150,100 @@ namespace TermProject
         protected void lbCurrentOrders_Click(object sender, EventArgs e)
         {
             Response.Redirect("RestaurantCurrentOrders.aspx");
+        }
+
+        protected void btnAddMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Session["item"] != null)
+            {
+                Session.Remove("item");
+            }
+            Response.Redirect("AddItem.aspx");
+        }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            //TP_DeleteMenuItem
+          
+            //@OrderItemID
+        }
+
+        protected void btnEdit_Click(object sender, EventArgs e)
+        {
+
+        }
+       
+        protected void rptMenuItems_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "DeleteItem")
+            {
+                HiddenField hfID = (HiddenField)e.Item.FindControl("hfMenuItemID");
+                int itemID = Convert.ToInt32(hfID.Value);
+                objCommand.CommandType = CommandType.StoredProcedure;
+                objCommand.CommandText = "TP_DeleteMenuItem";
+                objCommand.Parameters.Clear();
+                objCommand.Parameters.AddWithValue("@MenuItemID", itemID);
+                int result = objDB.DoUpdateUsingCmdObj(objCommand);
+                if (result > 0)
+                {
+                    GetMenuItmes();
+                }
+            }
+            else if (e.CommandName == "EditItem")
+            {
+                //int restaurantID = Session["RestaurantID"].ToString();
+                int restaurantID = 400;
+                HiddenField hfID = (HiddenField)e.Item.FindControl("hfMenuItemID");
+                int itemID = Convert.ToInt32(hfID.Value);
+                Image img = (Image)e.Item.FindControl("imgMenuItem");
+                string imgUrl = img.ImageUrl;
+                Label lbTitle = (Label)e.Item.FindControl("lblTitle");
+                string title = lbTitle.Text;
+                Label lblDescription = (Label)e.Item.FindControl("lblDescription");
+                string description = lblDescription.Text;
+                Label lblPrice = (Label)e.Item.FindControl("lblPrice");
+                string price = lblPrice.Text;
+
+                FoodOrderingUtils.MenuItem menuItem = new FoodOrderingUtils.MenuItem();
+                menuItem.ID = Convert.ToInt32(hfID.Value);
+                menuItem.RestaurantID = restaurantID;
+                menuItem.Image = imgUrl;
+                menuItem.Title = title;
+                menuItem.Description = description;
+                menuItem.Price = Single.Parse(price, System.Globalization.NumberStyles.Currency);
+
+                List<FoodOrderingUtils.MenuConfigurableItem> configvalues = new List<FoodOrderingUtils.MenuConfigurableItem>();
+                Repeater rptConf = (Repeater)e.Item.FindControl("rptItemConfigurableTitle");
+                foreach (RepeaterItem item in rptConf.Items)
+                {
+                    if (item.ItemType == ListItemType.Item || item.ItemType == ListItemType.AlternatingItem)
+                    {
+                        FoodOrderingUtils.MenuConfigurableItem mic = new FoodOrderingUtils.MenuConfigurableItem();
+                        Label lblItemConfigurableTitle = (Label)item.FindControl("lblItemConfigurableTitle");
+                        string itemConfigurableTitle = lblItemConfigurableTitle.Text;
+
+
+                        List<string> values = new List<string>();
+                        Repeater rptConfValues = (Repeater)item.FindControl("rptItemConfigurables");
+                        foreach (RepeaterItem ri in rptConfValues.Items)
+                        {
+                            if (ri.ItemType == ListItemType.Item || ri.ItemType == ListItemType.AlternatingItem)
+                            {                               
+                                Label lblItemConfigurables = (Label)ri.FindControl("lblItemConfigurables");
+                                string itemConfigurableValues = lblItemConfigurables.Text;
+                                values.Add(itemConfigurableValues);
+                            }
+                        }
+
+                        mic.Title = itemConfigurableTitle;
+                        mic.Values = values;
+                        configvalues.Add(mic);
+                    }
+                }
+                menuItem.Configurables = configvalues;
+                Session.Add("item", menuItem);
+                Response.Redirect("AddItem.aspx");
+            }
         }
     }
 }
