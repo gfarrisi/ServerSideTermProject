@@ -71,28 +71,36 @@
                         <asp:Button ID="btnStartMenu" runat="server" Text="Start New Menu" CssClass="contact-form-button m-4" />
                     </asp:Panel>
 
+
                     <!-- Panel for menu items -->
                     <asp:Panel ID="pnlMenu" runat="server" CssClass="pl-5 pr-5">
+
                         <div>
 
                             <h4 class="mt-4 mb-4 text-center" id="MenuTitle" runat="server">Menu</h4>
                         </div>
-                        <asp:Repeater ID="rptMenuItems" runat="server" OnItemDataBound="ItemBound">
+                        <div class="text-center">
+                            <asp:Button ID="btnAddMenuItem" runat="server" Text="Add Menu Item" OnClick="btnAddMenuItem_Click" CssClass="contact-form-button m-4" />
+                        </div>
+                        <asp:Repeater ID="rptMenuItems" runat="server" OnItemDataBound="ItemBound" OnItemCommand="rptMenuItems_ItemCommand">
                             <ItemTemplate>
                                 <div class="row">
                                     <div class="col-md-1"></div>
 
                                     <div class="col-md-10">
                                         <div class="trend-item">
+                                            <div class="align-bottom float-right">
+                                                <asp:Label ID="lblPrice" runat="server" Text='<%# Eval("Item_Price", "{0:c}") %>' ForeColor="#FF5581" ></asp:Label>
+                                            </div>
                                             <div class="row">
-                                                <div class="col-lg-5">
+                                                <div class="col-lg-5 pt-2">
                                                     <asp:HiddenField ID="hfMenuItemID" runat="server" Value='<%# DataBinder.Eval(Container.DataItem, "Menu_Item_ID") %>' />
                                                     <div class="trend-pic">
                                                         <asp:Image ID="imgMenuItem" runat="server" ImageUrl='<%# DataBinder.Eval(Container.DataItem, "Item_Image") %>' />
                                                     </div>
                                                 </div>
 
-                                                <div class="pt-4" style="display: inline-block;">
+                                                <div class="col-lg-7 pt-2" style="display: inline-block;">
                                                     <div>
                                                         <asp:Label ID="lblTitle" Font-Bold="true" runat="server" CssClass="pt-3" Text='<%# DataBinder.Eval(Container.DataItem, "Item_Title") %>'></asp:Label>
                                                     </div>
@@ -105,7 +113,7 @@
                                                         <ItemTemplate>
                                                             <asp:HiddenField ID="hfMenuItemIDConf" runat="server" Value='<%# DataBinder.Eval(Container.DataItem, "Configurable_ID") %>' />
                                                             <asp:Label ID="lblItemConfigurableTitle" runat="server" CssClass="pt-4 font" Text='<%# DataBinder.Eval(Container.DataItem, "Configurable_Title") %>'></asp:Label>
-                                                            <asp:Label ID="lblDescriptionLabel" runat="server" Text=": "></asp:Label>
+                                                            <asp:Label ID="lbl1" runat="server" Text=": "></asp:Label>
 
                                                             <div class="row pl-5">
                                                                 <asp:Repeater ID="rptItemConfigurables" runat="server">
@@ -121,8 +129,18 @@
                                                         </ItemTemplate>
                                                     </asp:Repeater>
                                                 </div>
-                                                <div class="align-bottom float-right">
-                                                    <asp:Label ID="lblPrice" runat="server" Text="" ForeColor="#FF5581"><%# Eval("Item_Price", "{0:c}") %></asp:Label>
+
+
+                                            </div>
+                                            <div class="row pt-3">
+                                                <div class="col-lg-6"></div>
+                                                <div class="col-lg-3">
+                                                    <asp:Button ID="btnEdit" OnClick="btnEdit_Click" CommandName="EditItem" CssClass="btn btn-secondary" Text="Edit" Style="width: 100%; background: #1d1d1d; opacity: 0.79" runat="server" />
+
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <asp:Button ID="btnDelete" OnClick="btnDelete_Click" CommandName="DeleteItem" CssClass="btn btn-secondary" Text="Delete" Style="width: 100%; background: #1d1d1d; opacity: 0.79" runat="server" />
+
                                                 </div>
 
                                             </div>
@@ -138,30 +156,7 @@
                         </div>--%>
                     </asp:Panel>
 
-                    <div class="text-center">
-                        <button type="button" class="contact-form-button" data-toggle="modal" data-target="#mdlAddQuestion" data-whatever="@fat">Add Menu Item</button>
-                    </div>
 
-                    <!-- Modal -->
-                    <div class="modal fade" id="mdlAddQuestion" tabindex="-1" role="dialog" aria-labelledby="mdlAddQuestion" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    ...
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
