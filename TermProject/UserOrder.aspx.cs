@@ -100,7 +100,7 @@ namespace TermProject
             string MerchantID = myDT.Rows[0]["ID"].ToString();
 
 
-            //string email = Session["Email"].ToString();
+            //string userEmail = Session["Email"].ToString();
             string userEmail = "gabriellafarrisi@gmail.com";
 
             string restaurantEmail = (string)Session["orderRes"];
@@ -137,8 +137,25 @@ namespace TermProject
 
                 if (data == "true")
                 {
+                    Decimal total = (Decimal)o.OrderTotalCost;   //cost in $$$
                     lblFunded.Visible = true;
-                    lblFunded.Text = "Order successful!";
+                    lblFunded.Text = "Order successful! Head on over to the <a href='OrderStatus.aspx'>order status page</a> to view the deets.";
+                    Email objEmail = new Email();
+                    //string emailTo = Session["Email"].ToString();
+                    string emailTo = "hazel@temple.edu";
+                    String strTO = emailTo;
+                    String strFROM = "noreply@locals.com";
+                    String strSubject = "Your Order Confirmation";
+                    String strMessage = "This is a receipt from your Locals order at " + DateTime.Now.ToLongDateString() + "\n Items: " + o.OrderItemList.Count + "\n Cost: " + total.ToString("C2");
+
+                    try
+                    {
+                        objEmail.SendMail(strTO, strFROM, strSubject, strMessage);
+                    }
+                    catch (Exception ex)
+                    {
+                        Response.Write("Email machine broke");
+                    }
                 }
 
                 else
