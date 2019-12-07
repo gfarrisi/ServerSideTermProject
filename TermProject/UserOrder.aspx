@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UserView.Master" AutoEventWireup="true" CodeBehind="UserOrder.aspx.cs" Inherits="TermProject.UserOrder" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -34,9 +35,9 @@
 
                                     <div class="col-md-10">
                                         <div class="trend-item2">
-                                                                                            <div class="align-bottom float-right">
-                                                    <asp:Label ID="Label1" runat="server" Text="" ForeColor="#FF5581"><%# Eval("Item_Price", "{0:c}") %></asp:Label>
-                                                </div>
+                                            <div class="align-bottom float-right">
+                                                <asp:Label ID="Label1" runat="server" Text="" ForeColor="#FF5581"><%# Eval("Item_Price", "{0:c}") %></asp:Label>
+                                            </div>
                                             <div class="row">
                                                 <div class="col-lg-5">
                                                     <asp:HiddenField ID="hfOrderItemID" runat="server" Value='<%# DataBinder.Eval(Container.DataItem, "Order_Item_ID") %>' />
@@ -67,15 +68,16 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
                             </ItemTemplate>
-                        </asp:Repeater>      
+                        </asp:Repeater>
                     </asp:Panel>
                     <br />
-
                 </div>
                 <div class="col-md-11">
                     <div style="text-align: center;">
-                        <b style="color:darkslategray"><asp:Label ID="lblTotal" runat="server"></asp:Label></b><br/>
+                        <b style="color: darkslategray">
+                            <asp:Label ID="lblTotal" runat="server"></asp:Label></b><br />
                         <asp:Button ID="btnOrder" CssClass="contact-form-button-2" runat="server" Text="Buy" OnClick="btnOrder_Click" />
                     </div>
                 </div>

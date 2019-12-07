@@ -114,7 +114,7 @@ namespace TermProject
             {
                 // Send the Transaction object to the Web API that will be used to store a new customer record in the database.
                 // Setup an HTTP POST Web Request and get the HTTP Web Response from the server.
-                String webApiUrl = "http://cis-iis2.temple.edu/Fall2019/CIS3342_tug35007/WebAPI/api/service/paymentgateway/";
+                String webApiUrl = "http://cis-iis2.temple.edu/Fall2019/CIS3342_tug53772/WebAPI/api/service/paymentgateway/";
 
                 WebRequest request = WebRequest.Create(webApiUrl + "ProcessPayment/");
                 request.Method = "POST";
@@ -148,6 +148,21 @@ namespace TermProject
                     String strSubject = "Your Order Confirmation";
                     String strMessage = "This is a receipt from your Locals order at " + DateTime.Now.ToLongDateString() + "\n Items: " + o.OrderItemList.Count + "\n Cost: " + total.ToString("C2");
 
+                    objCommand.CommandType = CommandType.StoredProcedure;
+                    objCommand.CommandText = "TP_UpdateOrderStatus";
+                    objCommand.Parameters.Clear();
+                    objCommand.Parameters.AddWithValue("@OrderID", o.OrderID);
+                    objCommand.Parameters.AddWithValue("@OrderStatus", "Submitted");
+                    int result = objDB.DoUpdateUsingCmdObj(objCommand);
+                    if(result > 0)
+                    {
+                        //success
+                    }
+                    else
+                    {
+                        Response.Write("Error setting order status");
+                    }
+
                     try
                     {
                         objEmail.SendMail(strTO, strFROM, strSubject, strMessage);
@@ -157,11 +172,16 @@ namespace TermProject
                         Response.Write("Email machine broke");
                     }
                 }
+                else if(data == "Insufficiant Funds")
+                {
+                    lblErrorDisplay.Visible = true;
+                    lblErrorDisplay.Text = "You don't have enough funds in your account to complete this transaction. Go to your Account Settings page and Payment Info section to add more.";
+                }
 
                 else
                 {
-                    lblFunded.Visible = true;
-                    lblFunded.Text = "A problem occurred while adding the funds to the account. The data wasn't recorded.";
+                    lblErrorDisplay.Visible = true;
+                    lblErrorDisplay.Text = "Something unknowable went wrong with this transaction. Good luck.";
                 }
 
 

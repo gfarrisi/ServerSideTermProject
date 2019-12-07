@@ -560,7 +560,7 @@ ol {
 
 .trend-item2 {
     background: #E4EBF2;
-    padding: 10px 10px 10px 5px;
+    padding: 5px 5px 5px 2px;
     margin-bottom: 15px;
 }
 
@@ -607,11 +607,12 @@ ol {
 	border-radius: 2.5%;
 }
 
-    .trend-item2 .trend-pic img {
-        width: 100%;
-        /*border radius for landing page images*/
-        border-radius: 1.5%;
-    }
+.trend-item2 .trend-pic img {
+    width: 25%;
+    /*border radius for landing page images*/
+    border-radius: 1.5%;
+    filter: grayscale(100%);
+}
 
 .trend-item .trend-pic .rating {
 	position: absolute;
@@ -633,6 +634,14 @@ ol {
 	padding-top: 20px;
 	padding-bottom: 15px;
 	float:right;
+}
+
+.trend-item .trend-textnew {
+    color: #FF5581;
+    font-size: 16px;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 6px;
 }
 
 

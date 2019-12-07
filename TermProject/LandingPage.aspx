@@ -13,7 +13,7 @@
         xmlhttp.onreadystatechange = onComplete;
         xmlhttp.send(); 
         }
-
+            
         // Callback function used to update the page when the server completes a response
 
         // to an asynchronous request.

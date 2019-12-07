@@ -10,69 +10,60 @@
 namespace TermProject {
     
     
-    public partial class MenuItemControl {
+    public partial class RestaurantOrderStatus {
         
         /// <summary>
-        /// imgMenuItem control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage imgMenuItem;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// txtPrice control.
+        /// scriptman control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtPrice;
+        protected global::System.Web.UI.ScriptManager scriptman;
         
         /// <summary>
-        /// hfMenuItemID control.
+        /// upOrder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hfMenuItemID;
+        protected global::System.Web.UI.UpdatePanel upOrder;
         
         /// <summary>
-        /// txtItemName control.
+        /// tmOrderStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtItemName;
+        protected global::System.Web.UI.Timer tmOrderStatus;
         
         /// <summary>
-        /// txtItemDescription control.
+        /// rptOrders control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtItemDescription;
+        protected global::System.Web.UI.WebControls.Repeater rptOrders;
         
         /// <summary>
-        /// repeaterCustomControls control.
+        /// gvOrders control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater repeaterCustomControls;
-        
-        /// <summary>
-        /// btnAddToCart control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddToCart;
+        protected global::System.Web.UI.WebControls.GridView gvOrders;
     }
 }
