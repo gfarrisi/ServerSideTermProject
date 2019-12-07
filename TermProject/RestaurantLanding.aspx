@@ -8,7 +8,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <form id="form1" runat="server">
 
-    <%--    <!-- Page Preloder -->
+        <%--    <!-- Page Preloder -->
         <div id="preloder">
             <div class="loader"></div>
 
@@ -61,7 +61,7 @@
                 <div class="col-md-8 ml-3  mt-5">
                     <!-- Header Section Begin -->
                     <!-- Hero Section Begin -->
-                    <div class="hero-listing set-bg" style="height: 200px;" data-setbg="img/hero_listing.jpg">
+                    <div class="hero-listing set-bg" id="divHero" style="height: 200px;" runat="server" data-setbg="img/hero_listing.jpg">
                     </div>
 
 
@@ -73,7 +73,10 @@
 
                     <!-- Panel for menu items -->
                     <asp:Panel ID="pnlMenu" runat="server" CssClass="pl-5 pr-5">
-                        <h4 class="mt-4 mb-4 text-center">Menu</h4>
+                        <div>
+
+                            <h4 class="mt-4 mb-4 text-center" id="MenuTitle" runat="server">Menu</h4>
+                        </div>
                         <asp:Repeater ID="rptMenuItems" runat="server" OnItemDataBound="ItemBound">
                             <ItemTemplate>
                                 <div class="row">
@@ -107,9 +110,11 @@
                                                             <div class="row pl-5">
                                                                 <asp:Repeater ID="rptItemConfigurables" runat="server">
                                                                     <ItemTemplate>
-                                                                        <div class="col-lg-4">
+                                                                        <div class="col-12">
                                                                             <asp:Label ID="lblItemConfigurables" runat="server" CssClass="pt-4" Text='<%# Container.DataItem.ToString() %>'></asp:Label>
+
                                                                         </div>
+
                                                                     </ItemTemplate>
                                                                 </asp:Repeater>
                                                             </div>
@@ -131,33 +136,32 @@
                         <%--<div class="text-center">
                             <asp:Button ID="btnAddNewItem" runat="server" data-toggle="modal" data-target="#mdlAddQuestion" Text="Add new menu item" OnClick="btnAddNewItem_Click" CssClass="contact-form-button" />
                         </div>--%>
-                    
                     </asp:Panel>
 
-                        <div class="text-center">
-                            <button type="button" class="contact-form-button" data-toggle="modal" data-target="#mdlAddQuestion" data-whatever="@fat">Add Menu Item</button>
-                        </div>
-                        
-                        <!-- Modal -->
-                        <div class="modal fade" id="mdlAddQuestion" tabindex="-1" role="dialog" aria-labelledby="mdlAddQuestion" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        ...
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
-                                    </div>
+                    <div class="text-center">
+                        <button type="button" class="contact-form-button" data-toggle="modal" data-target="#mdlAddQuestion" data-whatever="@fat">Add Menu Item</button>
+                    </div>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="mdlAddQuestion" tabindex="-1" role="dialog" aria-labelledby="mdlAddQuestion" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
                                 </div>
                             </div>
                         </div>
+                    </div>
                 </div>
             </div>
         </div>

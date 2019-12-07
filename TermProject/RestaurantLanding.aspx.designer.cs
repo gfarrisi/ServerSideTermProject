@@ -76,6 +76,15 @@ namespace TermProject {
         protected global::System.Web.UI.WebControls.Repeater rptContactInfo;
         
         /// <summary>
+        /// divHero control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divHero;
+        
+        /// <summary>
         /// pnlNoMenu control.
         /// </summary>
         /// <remarks>
@@ -101,6 +110,15 @@ namespace TermProject {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlMenu;
+        
+        /// <summary>
+        /// MenuTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl MenuTitle;
         
         /// <summary>
         /// rptMenuItems control.

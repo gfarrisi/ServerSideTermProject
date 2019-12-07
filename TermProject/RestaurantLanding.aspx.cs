@@ -42,25 +42,28 @@ namespace TermProject
         }
         public void BindContactInfo()
         {
-            //get restaurant rep email from session
-            string restaurantRepEmail = "janebackup@gmail.com";
+            // int restaurantID = Convert.ToInt32(Session["RestaurantID"].ToString());
+            int restaurantID = 400;
 
             objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "TP_GetRestaurantFromRep";
+            objCommand.CommandText = "TP_GetRestaurant";
             objCommand.Parameters.Clear();
 
-            objCommand.Parameters.AddWithValue("@Representative_Email", restaurantRepEmail);
+            objCommand.Parameters.AddWithValue("@RestaurantID", restaurantID);
 
             DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
             DataTable myDT = myDS.Tables[0];
             rptContactInfo.DataSource = myDT;
             rptContactInfo.DataBind();
+
+            divHero.Attributes["data-setbg"] = myDT.Rows[0]["Image_URL"].ToString(); //image
+            MenuTitle.InnerText = myDT.Rows[0]["Restaurant_Name"].ToString() + " - Menu"; 
         }
 
         public void GetMenuItmes()
         {
             // int restaurantID = Convert.ToInt32(Session["RestaurantID"].ToString());
-            int restaurantID = 401;
+            int restaurantID = 400;
 
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "TP_GetMenuItems";
