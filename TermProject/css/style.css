@@ -559,10 +559,9 @@ ol {
 }
 
 .trend-item2 {
-    background: #C4CBE2;
-    padding: 10px 10px 10px 0;
-    margin-bottom: 25px;
-    position: relative;
+    background: #E4EBF2;
+    padding: 10px 10px 10px 5px;
+    margin-bottom: 15px;
 }
 
 
@@ -590,7 +589,7 @@ ol {
 	display: inline-block;
 	position: relative;
 	margin-left: 10px;
-	margin-right: 20px;
+	margin-right: 1px;
 }
 
     .trend-item .trend-cat {
@@ -609,9 +608,7 @@ ol {
 }
 
     .trend-item2 .trend-pic img {
-        height: 100px;
-        width: 100px;
-        object-fit: cover;
+        width: 100%;
         /*border radius for landing page images*/
         border-radius: 1.5%;
     }
@@ -637,6 +634,7 @@ ol {
 	padding-bottom: 15px;
 	float:right;
 }
+
 
 .trend-item .trend-text h4 {
 	color: #242424;

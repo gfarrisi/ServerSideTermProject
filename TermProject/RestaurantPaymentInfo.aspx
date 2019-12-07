@@ -66,8 +66,6 @@
                             <div class="col-lg-12">
                                 <h4 class="mt-4 mb-4">Account Balance</h4>
                                 <asp:Label ID="Label1" runat="server" Text="Current Balance:"></asp:Label>
-
-
                                 <div class="col-lg-12">
                                     <asp:Label ID="lblBalance" Font-Bold="true" runat="server" Text=""></asp:Label>
                                     <%--<asp:LinkButton ForeColor="#FF5581" ID="lbUpdateName" runat="server">Update</asp:LinkButton>--%>

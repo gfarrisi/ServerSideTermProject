@@ -30,6 +30,11 @@ namespace TermProject
         {
             get; set;
         }
+        //for transactions
+        public string RestaurantEmail
+        {
+            get; set;
+        }
 
         public String ItemName
         {
@@ -182,6 +187,10 @@ namespace TermProject
                 oci.OrderConfigurableID = (int)returnParameterItem.Value;
             }
             Session.Add("Order", o);
+            if (Session["orderRes"] == null)
+            {
+                Session["orderRes"] = RestaurantEmail;
+            }
         }
     }
 }
