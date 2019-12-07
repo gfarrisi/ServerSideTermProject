@@ -100,8 +100,8 @@ namespace PaymentGateway.Controllers
             if(myDS.Tables[0].Rows.Count > 0)
             {
                 string balancestring = myDS.Tables[0].Rows[0]["Balance"].ToString();
-                decimal balance = Convert.ToDecimal(balancestring);
-                if (balance < 0)
+                float balance = Convert.ToSingle(balancestring);
+                if (balance < transaction.Transaction_Amount)
                 {
                     return "Insufficiant Funds";
                 }

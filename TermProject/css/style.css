@@ -635,6 +635,14 @@ ol {
 	float:right;
 }
 
+.trend-item .trend-textnew {
+    color: #FF5581;
+    font-size: 16px;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 6px;
+}
+
 
 .trend-item .trend-text h4 {
 	color: #242424;

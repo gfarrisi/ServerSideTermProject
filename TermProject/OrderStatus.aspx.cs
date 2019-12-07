@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FoodOrderingUtils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,9 +10,10 @@ namespace TermProject
 {
     public partial class OrderStatus : System.Web.UI.Page
     {
+        Order o;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
