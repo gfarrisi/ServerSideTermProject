@@ -13,15 +13,6 @@ namespace TermProject {
     public partial class RestaurantAccountSettings {
         
         /// <summary>
-        /// form1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
-        /// <summary>
         /// lbMenuManagement control.
         /// </summary>
         /// <remarks>
@@ -56,15 +47,6 @@ namespace TermProject {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lbCurrentOrders;
-        
-        /// <summary>
-        /// lbViewAsUser control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbViewAsUser;
         
         /// <summary>
         /// rptContactInfo control.

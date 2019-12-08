@@ -43,6 +43,9 @@ namespace TermProject
             DataTable myDT = myDS.Tables[0];
             rptRestaurantInfo.DataSource = myDT;
             rptRestaurantInfo.DataBind();
+
+            rptContactInfo.DataSource = myDT;
+            rptContactInfo.DataBind();
         }
 
         public void BindRepInfo()

@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">--%>
 <div class="trend-item">
-    <div class="trend-pic">
+    <div class="trend-pic" style="margin-left: 40px;">
         <img id="imgRestaurant" src="img/trending/trending-1.jpg" alt="" runat="server">
     </div>
-    <div class="trend-text">
+    <div class="trend-text pt-0" style="float: none; margin-left: 40px;">
         <h4 id="txtRestaurantName" runat="server">New Place Restaurant</h4>
         <span id="txtAddress" runat="server">Main Road , No 25/11</span> <br />
     <asp:Button ID="btnRegister" CssClass="contact-form-button" Text="View" runat="server" OnClick="btnRegister_Click" />

@@ -4,12 +4,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
   <form id="form1" runat="server">
 
-        <!-- Page Preloder -->
+    <%--    <!-- Page Preloder -->
         <div id="preloder">
             <div class="loader"></div>
 
         </div>
-
+--%>
 
         <div class="container pt-5" style="padding-top: 10%;">
             <div class="row pt-5">

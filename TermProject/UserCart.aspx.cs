@@ -61,17 +61,17 @@ namespace TermProject
 
         protected void lbAccountSettings_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("UserAccountSettings.aspx");
         }
 
         protected void lbPaymentInfo_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("PaymentInfo.aspx");
         }
 
         protected void lbCurrentOrders_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("OrderStatus.aspx");
         }
 
         protected void btnCheckout_Click(object sender, EventArgs e)

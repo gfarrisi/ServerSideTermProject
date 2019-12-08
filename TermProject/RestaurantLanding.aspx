@@ -6,7 +6,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <form id="form1" runat="server">
+  
 
         <%--    <!-- Page Preloder -->
         <div id="preloder">
@@ -32,10 +32,7 @@
                         </div>
                         <div class="pt-3 pl-2">
                             <asp:LinkButton ID="lbCurrentOrders" ForeColor="White" OnClick="lbCurrentOrders_Click" runat="server">Current Orders</asp:LinkButton>
-                        </div>
-                        <div class="pt-3 pl-2">
-                            <asp:LinkButton ID="lbViewAsUser" ForeColor="White" runat="server">View As User</asp:LinkButton>
-                        </div>
+                        </div>                       
                         <hr style="background-color: #FF5581" />
                         <div>
                             <asp:Repeater ID="rptContactInfo" runat="server">
@@ -161,5 +158,5 @@
             </div>
         </div>
 
-    </form>
+  
 </asp:Content>

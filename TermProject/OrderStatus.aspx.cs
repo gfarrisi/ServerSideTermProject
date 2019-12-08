@@ -19,8 +19,9 @@ namespace TermProject
         protected void Page_Load(object sender, EventArgs e)
         {
             o = (Order)Session["Order"];
-            OrderID = o.OrderID;
-            SqlCommand objCommand = new SqlCommand();
+            // OrderID = o.OrderID;
+            OrderID = 39;
+             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "TP_GetCurrentOrder";
             objCommand.Parameters.Clear();
@@ -51,5 +52,21 @@ namespace TermProject
                 lblStatus.Text = drMyOrder[3].ToString();
             }
         }
+
+        protected void lbAccountSettings_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("UserAccountSettings.aspx");
+        }
+
+        protected void lbPaymentInfo_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PaymentInfo.aspx");
+        }
+
+        protected void lbCurrentOrders_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("OrderStatus.aspx");
+        }
+
     }
 }
