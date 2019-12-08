@@ -10,14 +10,20 @@
         <div class="loader"></div>
     </div>
 
-    <!-- Header Section Begin -->
+         <div class="alert alert-danger" id="warning" runat="server" visible="false">
+             <div style="margin-top:10%"></div>
+             Error! Please select a restaurant first.
+              
+         </div>
+
+         <!-- Header Section Begin -->
     <!-- Hero Section Begin -->
     <div id="dvImgRes" class="hero-listing set-bg" data-setbg="img/hero_listing.jpg" runat="server">
     </div>
     <!-- Hero Section End -->
 
     <!-- About Secton Begin -->
-    <section class="about-section">
+    <section class="about-section" id="abt" runat="server">
         <div class="intro-item">
             <div class="container">
                 <div class="row">

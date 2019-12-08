@@ -21,40 +21,35 @@ namespace TermProject
         string Remail = "";
         //will be account object
         Restaurant res = new Restaurant();
-        List<string> testConfigurableList = new List<string>
-        {
-            "Small",
-            "Medium",
-            "Large",
-        };
         protected void Page_Load(object sender, EventArgs e)
         {
             res = (Restaurant)Session["currentRestaurant"];
             if(res == null)
             {
-                Response.Write("404: Please go back and select a restaurant.");
-                form1.Visible = false;
-                return;
+                warning.Visible = true;
+                abt.Visible = false;
+                dvImgRes.Visible = false;
             }
-            RestaurantID = res.RestaurantID;
-            //load in restaurant info
-            SqlCommand sqlGetRestaurant = new SqlCommand();
-            sqlGetRestaurant.CommandType = CommandType.StoredProcedure;
-            sqlGetRestaurant.CommandText = "TP_GetRestaurant";
-            sqlGetRestaurant.Parameters.AddWithValue("@RestaurantID", RestaurantID);
-            DataSet dsRes = objDB.GetDataSetUsingCmdObj(sqlGetRestaurant);
-            DataRow drRes = dsRes.Tables[0].Rows[0];
-            txtRestaurantTitle.InnerText = drRes[1].ToString(); //title
-            dvImgRes.Attributes["data-setbg"] = drRes[2].ToString(); //image
-            txtPhone.InnerText = drRes[3].ToString();
-            Remail = drRes[4].ToString(); //for menu item controls
-            txtEmail.InnerText = drRes[4].ToString();
-            txtAddress.InnerText = drRes[5].ToString();
-            txtCity.InnerText = drRes[6].ToString();
-            txtState.InnerText = drRes[7].ToString();
-            txtZip.InnerText = drRes[8].ToString();
-            if (!IsPostBack)
+            else if (!IsPostBack)
             {
+                RestaurantID = res.RestaurantID;
+                //load in restaurant info
+                SqlCommand sqlGetRestaurant = new SqlCommand();
+                sqlGetRestaurant.CommandType = CommandType.StoredProcedure;
+                sqlGetRestaurant.CommandText = "TP_GetRestaurant";
+                sqlGetRestaurant.Parameters.AddWithValue("@RestaurantID", RestaurantID);
+                DataSet dsRes = objDB.GetDataSetUsingCmdObj(sqlGetRestaurant);
+                DataRow drRes = dsRes.Tables[0].Rows[0];
+                txtRestaurantTitle.InnerText = drRes[1].ToString(); //title
+                dvImgRes.Attributes["data-setbg"] = drRes[2].ToString(); //image
+                txtPhone.InnerText = drRes[3].ToString();
+                Remail = drRes[4].ToString(); //for menu item controls
+                txtEmail.InnerText = drRes[4].ToString();
+                txtAddress.InnerText = drRes[5].ToString();
+                txtCity.InnerText = drRes[6].ToString();
+                txtState.InnerText = drRes[7].ToString();
+                txtZip.InnerText = drRes[8].ToString();
+                //get menu items
                 SqlCommand sqlGetMenu = new SqlCommand();
                 sqlGetMenu.CommandType = CommandType.StoredProcedure;
                 sqlGetMenu.CommandText = "TP_GetMenuItems";

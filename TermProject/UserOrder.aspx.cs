@@ -21,9 +21,15 @@ namespace TermProject
         Order o;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["Order"] != null)
             {
                 GetOrderItems();
+            }
+            else
+            {
+                warning.Visible = true;
+                btnOrder.Visible = false;
+                pnlMenu.Visible = false;
             }
         }
 
