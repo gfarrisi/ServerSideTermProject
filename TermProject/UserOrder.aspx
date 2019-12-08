@@ -23,7 +23,9 @@
                     </div>
                 </div>
                 <div class="col-md-8 ml-3  mt-5">
-
+                    <div class="alert alert-danger" id="warning" runat="server" visible="false">
+                        Your cart is empty! Please go to a restaurant and add some items.
+                    </div>
                     <!-- Panel for menu items -->
                     <asp:Panel ID="pnlMenu" runat="server" CssClass="pl-5 pr-5">
                         <h4 class="mt-4 mb-4 text-center">Review Your Order</h4>
@@ -73,14 +75,15 @@
                         </asp:Repeater>
                     </asp:Panel>
                     <br />
-                </div>
-                <div class="col-md-11">
+                    <div class="col-md-11">
                     <div style="text-align: center;">
                         <b style="color: darkslategray">
                             <asp:Label ID="lblTotal" runat="server"></asp:Label></b><br />
                         <asp:Button ID="btnOrder" CssClass="contact-form-button-2" runat="server" Text="Buy" OnClick="btnOrder_Click" />
                     </div>
                 </div>
+                </div>
+                
                 <div class="pb-4">
                     <asp:Label ID="lblErrorDisplay" Visible="false" runat="server" Text="You screwed up"></asp:Label>
                     <asp:Label ID="lblFunded" Visible="false" runat="server" Text="The account was successfully funded"></asp:Label>

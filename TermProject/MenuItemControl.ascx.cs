@@ -107,6 +107,13 @@ namespace TermProject
                 o = (Order)Session["Order"];
                 newOrder = false;
             }
+            if (Session["orderRes"] != null)
+            {
+                if ((string)Session["orderRes"] != RestaurantEmail)
+                {
+                    Response.Write("You already have items from another restaurant in your cart. Delete those before you order from this place.");
+                }
+            }
             OrderItem oi = new OrderItem();
             oi.MenuItemID = ItemID;
             oi.OrderItemPrice = Single.Parse(ItemPrice, System.Globalization.NumberStyles.Currency);

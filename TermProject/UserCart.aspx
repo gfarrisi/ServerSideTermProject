@@ -23,7 +23,9 @@
                     </div>
                 </div>
                 <div class="col-md-8 ml-3  mt-5">
-
+                    <div class="alert alert-danger" id="warning" runat="server" visible="false">
+                        Your cart is empty! Please go to a restaurant and add some items.
+                    </div>
                     <!-- Panel for menu items -->
                     <asp:Panel ID="pnlMenu" runat="server" CssClass="pl-5 pr-5">
                         <h4 class="mt-4 mb-4 text-center">Your Cart</h4>

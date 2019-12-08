@@ -20,7 +20,20 @@ namespace TermProject
             if (!IsPostBack)
             {
                 GetOrderStatus();
+                DrawContactInfo();
             }
+        }
+
+        public void DrawContactInfo() {
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_GetRestaurant";
+            objCommand.Parameters.Clear();
+            objCommand.Parameters.AddWithValue("@RestaurantID", restaurantID);
+            DataSet DS2 = objDB.GetDataSetUsingCmdObj(objCommand);
+            DataTable myDT = DS2.Tables[0];
+            rptContactInfo.DataSource = myDT;
+            rptContactInfo.DataBind();
         }
 
         public void GetOrderStatus()
@@ -69,7 +82,7 @@ namespace TermProject
                 Response.Write("Error setting order status");
             }
            // gvOrders.DataBind();
-            //GetOrderStatus();
+           //GetOrderStatus();
         }
    
 
