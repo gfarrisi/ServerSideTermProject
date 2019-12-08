@@ -55,12 +55,7 @@ namespace TermProject
                 }
             }
         }
-
-        protected void lbMenuManagement_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("LandingPage.aspx");
-        }
-
+              
         protected void lbAccountSettings_Click(object sender, EventArgs e)
         {
             Response.Redirect("UserAccountSettings.aspx");
@@ -73,7 +68,7 @@ namespace TermProject
 
         protected void lbCurrentOrders_Click(object sender, EventArgs e)
         {
-            Response.Redirect("RestaurantCurrentOrders.aspx");
+            Response.Redirect("OrderStatus.aspx");
         }
 
         protected void btnUpdate_Click(object sender, EventArgs e)

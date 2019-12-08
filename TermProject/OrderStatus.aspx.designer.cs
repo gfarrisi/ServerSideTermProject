@@ -31,6 +31,33 @@ namespace TermProject {
         protected global::System.Web.UI.ScriptManager scriptman;
         
         /// <summary>
+        /// lbAccountSettings control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbAccountSettings;
+        
+        /// <summary>
+        /// lbPaymentInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbPaymentInfo;
+        
+        /// <summary>
+        /// lbCurrentOrders control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbCurrentOrders;
+        
+        /// <summary>
         /// upOrder control.
         /// </summary>
         /// <remarks>

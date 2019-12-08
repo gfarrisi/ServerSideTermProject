@@ -67,8 +67,8 @@
                                                 </div>
 
                                             </div>
-                                            <div style="text-align:center;">
-                                                <asp:LinkButton ID="lbDelete" runat="server" CssClass="contact-form-button-timy" CommandName="DeleteItem"><i class="fa fa-remove"></i>Delete</asp:LinkButton>
+                                            <div style="text-align:right;">
+                                                <asp:LinkButton ID="lbDelete" runat="server" CssClass="contact-form-button-timy btn-secondary" CommandName="DeleteItem"><i class="fa fa-remove"></i>Delete</asp:LinkButton>
                                             </div>
                                         </div>
                                     </div>
@@ -76,7 +76,7 @@
                             </ItemTemplate>
                         </asp:Repeater>
                         <div class="col-md-11">
-                            <div class="text-center">
+                            <div class="text-center pb-5">
                                 <asp:Button ID="btnCheckout" CssClass="contact-form-button" runat="server" Text="Checkout" OnClick="btnCheckout_Click" />
                             </div>
                         </div>

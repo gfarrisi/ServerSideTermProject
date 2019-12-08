@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 <body>
+      <form id="form1" runat="server">
     <!-- Header Section Begin -->
     <header class="header-section listings">
         <div class="container-fluid">
@@ -42,7 +43,8 @@
                     <%--<a href="Login.aspx" class="mr-3">Explore Locals</a>    
                            <a href="Login.aspx" class="mr-3">Account Settings</a>     --%>
                     <a href="#" class="primary-btn mr-3">View Orders</a>
-                    <a href="Default.aspx" class="mr-3">Logout <i class="fa fa-sign-out"></i></a>
+                    <asp:LinkButton ID="lbLogout" OnClick="lbLogout_Click" CssClass="mr-3" runat="server">Logout <i class="fa fa-sign-out"></i></asp:LinkButton>
+                   <%-- <a href="Default.aspx" class="mr-3"></a>--%>
 
                 </div>
 
@@ -57,17 +59,11 @@
 
     </div>
 
+
     <!-- Footer Section Begin -->
     <footer class="footer-section spad">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <form action="#" class="newslatter-form">
-                        <input type="text" placeholder="Your email address">
-                        <button type="submit">Subscribe to our Newsletter</button>
-                    </form>
-                </div>
-            </div>
+
             <div class="row">
                 <div class="col-lg-3 col-sm-6">
                     <div class="footer-widget">
@@ -140,19 +136,12 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-7 text-center text-lg-right order-1 order-lg-2">
-                    <div class="footer-menu">
-                        <a href="#">Home</a>
-                        <a href="#">Explore</a>
-                        <a href="#">More Cities</a>
-                        <a href="#">News</a>
-                        <a href="#">Contact</a>
-                    </div>
-                </div>
+
             </div>
         </div>
     </footer>
     <!-- Footer Section End -->
+          </form>
 
     <script src="js/addNewMenuItem.js"></script>
     <!-- Js Plugins -->
