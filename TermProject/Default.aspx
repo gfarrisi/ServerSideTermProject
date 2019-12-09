@@ -34,7 +34,7 @@
                 <div class="header-right">
                     <div class="user-access">
                         <a href="Default.aspx">Register/Login</a>
-                        
+
                     </div>
 
                 </div>
@@ -56,19 +56,26 @@
                         </div>
                         <div class="contact-form">
                             <div class="row">
-
-
                                 <div class="col-lg-12">
                                     <asp:TextBox CssClass="contact-form-input" ID="txtEmail" runat="server" placeholder="Your Email"></asp:TextBox>
                                 </div>
                                 <div class="col-lg-12">
                                     <asp:TextBox CssClass="contact-form-input" ID="txtPassword" TextMode="Password" runat="server" placeholder="Your Password"></asp:TextBox>
                                 </div>
+                                <div class="col-lg-12">
+                                    <div class="form-check">
+                                        <asp:CheckBox ID="chkRemeberMe" CssClass="form-check-input" runat="server" />
+                                        <asp:Label ID="lblRemeberMe" CssClass="form-check-label" runat="server" Text="Remember Me"></asp:Label>
+                                    </div>
+                                </div>
+
                             </div>
                             <div class="col-lg-12 pb-3">
-                                    <asp:Label ID="lblError" runat="server" Visible="false" Text="Error"></asp:Label>
+
+                                <asp:Label ID="lblError" runat="server" Visible="false" Text="Error"></asp:Label>
                             </div>
                             <div class="col-lg-12 text-center">
+
                                 <div class="mb-1">
                                     <asp:Button ID="btnLogIn" runat="server" Text="Log In" OnClick="btnLogIn_Click" CssClass="contact-form-button" />
 

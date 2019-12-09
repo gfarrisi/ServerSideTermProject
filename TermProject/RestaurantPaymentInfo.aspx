@@ -3,14 +3,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form id="form1" runat="server">
+   
 
-        <!-- Page Preloder -->
+<%--        <!-- Page Preloder -->
         <div id="preloder">
             <div class="loader"></div>
 
         </div>
-
+--%>
 
         <div class="container pt-5" style="padding-top: 10%;">
             <div class="row pt-5">
@@ -29,9 +29,6 @@
                         </div>
                         <div class="pt-3 pl-2">
                             <asp:LinkButton ID="lbCurrentOrders" ForeColor="White" OnClick="lbCurrentOrders_Click" runat="server">Current Orders</asp:LinkButton>
-                        </div>
-                        <div class="pt-3 pl-2">
-                            <asp:LinkButton ID="lbViewAsUser" ForeColor="White" runat="server">View As User</asp:LinkButton>
                         </div>
                         <hr style="background-color: #FF5581" />
                         <div>
@@ -135,5 +132,4 @@
                 </div>
             </div>
         </div>
-    </form>
 </asp:Content>

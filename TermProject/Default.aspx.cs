@@ -20,8 +20,51 @@ namespace TermProject
         protected void Page_Load(object sender, EventArgs e)
         {
             UpdateLinkColors();
+            CheckCookieStatus();
         }
 
+        public void CheckCookieStatus()
+        {
+            HttpCookie cookie = Request.Cookies["VisitorSessionID"];
+            if (cookie != null)
+            {
+                string email = cookie.Value.ToString();
+
+                objCommand.CommandType = CommandType.StoredProcedure;
+                objCommand.CommandText = "TP_GetUser";
+                objCommand.Parameters.Clear();
+
+                objCommand.Parameters.AddWithValue("@Email", email);
+
+                DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+                DataTable myDT = myDS.Tables[0];
+
+                string type = myDT.Rows[0]["Account_Type"].ToString();
+                Session["Email"] = email;
+                Session["AccountType"] = type;
+
+                if (type.Equals("Customer"))
+                {
+                    Response.Redirect("LandingPage.aspx");
+                }
+                else if (type.Equals("Rep"))
+                {
+                    //get restaurant id and add to session storage
+
+                    objCommand.CommandType = CommandType.StoredProcedure;
+                    objCommand.CommandText = "TP_GetRestaurantFromRep";
+                    objCommand.Parameters.Clear();
+
+                    objCommand.Parameters.AddWithValue("@Representative_Email", email);
+
+                    DataSet DS = objDB.GetDataSetUsingCmdObj(objCommand);
+                    string restaurantID = DS.Tables[0].Rows[0]["Restaurant_ID"].ToString();
+                    Session["RestaurantID"] = restaurantID;
+                    Response.Redirect("RestaurantLanding.aspx");
+                }
+            }
+
+        }
 
         public void UpdateLinkColors()
         {
@@ -86,6 +129,14 @@ namespace TermProject
 
                     lblError.Visible = false;
                     string type = myDS.Tables[0].Rows[0]["Account_Type"].ToString();
+                    if (chkRemeberMe.Checked)
+                    {
+                        HttpCookie cookie = new HttpCookie("VisitorSessionID", email);
+                        cookie.Expires = new DateTime(2025, 1, 1);
+                        Response.Cookies.Add(cookie);
+                        // HttpCookie cookie = Request.Cookies["MySiteCookie"];      
+                    }
+
                     Session["Email"] = email;
                     Session["AccountType"] = type;
                     if (type.Equals("Customer"))

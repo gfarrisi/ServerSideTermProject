@@ -25,26 +25,62 @@ namespace TermProject
 
             if (!IsPostBack)
             {
+                GetCookieData();
                 UpdateLinkColors();
                 BindContactInfo();
-                GetMenuItmes();
+                GetMenuItmes();             
             }
 
         }
+        public void GetCookieData()
+        {
+            HttpCookie cookie = Request.Cookies["VisitorSessionID"];
+            if(cookie != null)
+            {
+                string restaurantRepEmail = cookie.Value.ToString();
+                objCommand.CommandType = CommandType.StoredProcedure;
+                objCommand.CommandText = "TP_GetUser";
+                objCommand.Parameters.Clear();
 
+                objCommand.Parameters.AddWithValue("@Email", restaurantRepEmail);
+
+                DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+                DataTable myDT = myDS.Tables[0];
+
+                string type = myDT.Rows[0]["Account_Type"].ToString();
+                Session["Email"] = restaurantRepEmail;
+                Session["AccountType"] = type;
+
+
+                objCommand.CommandType = CommandType.StoredProcedure;
+                objCommand.CommandText = "TP_GetRestaurantFromRep";
+                objCommand.Parameters.Clear();
+
+                objCommand.Parameters.AddWithValue("@Representative_Email", restaurantRepEmail);
+
+                myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+                myDT = myDS.Tables[0];
+
+                int restaurantID = Convert.ToInt32(myDT.Rows[0]["Restaurant_ID"].ToString());
+                Session["RestaurantID"] = restaurantID;
+            }
+            else
+            {
+                Response.Redirect("Default.aspx");
+            }
+           
+        }
 
         public void UpdateLinkColors()
         {
             lbAccountSettings.ForeColor = System.Drawing.ColorTranslator.FromHtml("white");
             lbMenuManagement.ForeColor = System.Drawing.ColorTranslator.FromHtml("white");
-            lbCurrentOrders.ForeColor = System.Drawing.ColorTranslator.FromHtml("white");
-            lbViewAsUser.ForeColor = System.Drawing.ColorTranslator.FromHtml("white");
-
+            lbCurrentOrders.ForeColor = System.Drawing.ColorTranslator.FromHtml("white");        
         }
         public void BindContactInfo()
         {
-            // int restaurantID = Convert.ToInt32(Session["RestaurantID"].ToString());
-            int restaurantID = 400;
+            int restaurantID = Convert.ToInt32(Session["RestaurantID"].ToString());
+            //int restaurantID = 400;
 
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "TP_GetRestaurant";
@@ -63,8 +99,8 @@ namespace TermProject
 
         public void GetMenuItmes()
         {
-            // int restaurantID = Convert.ToInt32(Session["RestaurantID"].ToString());
-            int restaurantID = 400;
+            int restaurantID = Convert.ToInt32(Session["RestaurantID"].ToString());
+            //int restaurantID = 400;
 
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "TP_GetMenuItems";
@@ -191,8 +227,8 @@ namespace TermProject
             }
             else if (e.CommandName == "EditItem")
             {
-                //int restaurantID = Session["RestaurantID"].ToString();
-                int restaurantID = 400;
+                int restaurantID = Convert.ToInt32(Session["RestaurantID"].ToString());
+                //int restaurantID = 400;
                 HiddenField hfID = (HiddenField)e.Item.FindControl("hfMenuItemID");
                 int itemID = Convert.ToInt32(hfID.Value);
                 Image img = (Image)e.Item.FindControl("imgMenuItem");

@@ -3,7 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form id="form1" runat="server">
         <div class="container pt-5" style="padding-top: 10%;">
             <div class="row pt-5">
                 <div class="col-md-3 mt-5" style="background-color: #4D4D4D; display: table;">
@@ -69,8 +68,8 @@
                                                 </div>
 
                                             </div>
-                                            <div style="text-align:center;">
-                                                <asp:LinkButton ID="lbDelete" runat="server" CssClass="contact-form-button-timy" CommandName="DeleteItem"><i class="fa fa-remove"></i>Delete</asp:LinkButton>
+                                            <div style="text-align:right;">
+                                                <asp:LinkButton ID="lbDelete" runat="server" CssClass="contact-form-button-timy btn-secondary" CommandName="DeleteItem"><i class="fa fa-remove"></i>Delete</asp:LinkButton>
                                             </div>
                                         </div>
                                     </div>
@@ -78,7 +77,7 @@
                             </ItemTemplate>
                         </asp:Repeater>
                         <div class="col-md-11">
-                            <div class="text-center">
+                            <div class="text-center pb-5">
                                 <asp:Button ID="btnCheckout" CssClass="contact-form-button" runat="server" Text="Checkout" OnClick="btnCheckout_Click" />
                             </div>
                         </div>
@@ -86,5 +85,5 @@
                 </div>
             </div>
         </div>
-    </form>
+ 
 </asp:Content>
