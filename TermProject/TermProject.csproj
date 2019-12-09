@@ -157,7 +157,6 @@
     <Content Include="RestaurantControl.ascx" />
     <Content Include="RestaurantCurrentOrders.aspx" />
     <Content Include="RestaurantLanding.aspx" />
-    <Content Include="RestaurantOrderStatus.aspx" />
     <Content Include="RestaurantPaymentInfo.aspx" />
     <Content Include="RestaurantRegistration.aspx" />
     <Content Include="SearchResults.aspx" />
@@ -291,13 +290,6 @@
     </Compile>
     <Compile Include="RestaurantLanding.aspx.designer.cs">
       <DependentUpon>RestaurantLanding.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="RestaurantOrderStatus.aspx.cs">
-      <DependentUpon>RestaurantOrderStatus.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="RestaurantOrderStatus.aspx.designer.cs">
-      <DependentUpon>RestaurantOrderStatus.aspx</DependentUpon>
     </Compile>
     <Compile Include="RestaurantPaymentInfo.aspx.cs">
       <DependentUpon>RestaurantPaymentInfo.aspx</DependentUpon>
