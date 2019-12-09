@@ -13,9 +13,14 @@ namespace TermProject
     public partial class WebForm1 : System.Web.UI.Page
     {
         DBConnect objDB = new DBConnect();
+        SqlCommand objCommand = new SqlCommand();
         DataSet ds;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                GetCookieData();
+            }
             if (!String.IsNullOrEmpty(Request.QueryString["search"]))
             {
                 String strName = Request.QueryString["search"];
@@ -33,7 +38,32 @@ namespace TermProject
             }
            // DrawSearchResults();
         }
+        public void GetCookieData()
+        {
+            HttpCookie cookie = Request.Cookies["VisitorSessionID"];
+            if (cookie != null)
+            {
+                string email = cookie.Value.ToString();
+                objCommand.CommandType = CommandType.StoredProcedure;
+                objCommand.CommandText = "TP_GetUser";
+                objCommand.Parameters.Clear();
 
+                objCommand.Parameters.AddWithValue("@Email", email);
+
+                DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+                DataTable myDT = myDS.Tables[0];
+
+                string type = myDT.Rows[0]["Account_Type"].ToString();
+                Session["Email"] = email;
+                Session["AccountType"] = type;          
+
+            }
+            else
+            {
+                Response.Redirect("Default.aspx");
+            }
+
+        }
         /* 
         void DrawSearchResults()
         {

@@ -31,8 +31,9 @@ namespace TermProject
                 Response.SetCookie(cookie);
             }
             //clear session
-            Session.Clear();
-            Session.Abandon();
+            Session.Remove("Email");
+            Session.Remove("AccountType");
+            Session.Remove("RestaurantID");
 
             Response.Redirect("Default.aspx");
         }
