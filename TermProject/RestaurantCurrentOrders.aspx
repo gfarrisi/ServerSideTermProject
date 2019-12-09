@@ -52,7 +52,6 @@
                     <asp:UpdatePanel ID="upOrder" style="width: 100%" runat="server">
                         <ContentTemplate>
                             <asp:Timer ID="tmOrderStatus" OnTick="tmOrderStatus_Tick" runat="server" Interval="35000" />
-
                             <asp:GridView ID="gvOrders" runat="server" CssClass="table table-borderless table-striped" AutoGenerateColumns="false">
                                 <Columns>
                                     <asp:BoundField DataField="Order_ID" HeaderText="Order ID" />
