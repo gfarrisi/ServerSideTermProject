@@ -78,6 +78,8 @@
                         </asp:Repeater>
                         <div class="col-md-11">
                             <div class="text-center pb-5">
+                                <b style="color: darkslategray">
+                                    <asp:Label ID="lblTotal" runat="server"></asp:Label></b><br />
                                 <asp:Button ID="btnCheckout" CssClass="contact-form-button" runat="server" Text="Checkout" OnClick="btnCheckout_Click" />
                             </div>
                         </div>

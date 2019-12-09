@@ -14,7 +14,7 @@ namespace TermProject
     {
         DBConnect objDB = new DBConnect();
         // int restaurantID = Convert.ToInt32(Session["RestaurantID"].ToString());
-        int restaurantID = 401;
+        int restaurantID = 400;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

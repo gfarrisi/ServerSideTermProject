@@ -39,8 +39,8 @@
                     <hr style="background-color: #FF5581" />
                 </div>
             </div>
-            <div class="col-3"></div>
-            <div class="col-4 pt-4">
+            <div class="col-2"></div>
+            <div class="col-6 pt-4" style="text-align:center;">
                 <h4 class="text-center pb-5">Order Status</h4>
                 <div class="pl-5 pt-3 pb-3 pr-5 shadow" style="background: #F7F8FB;">
 
@@ -64,6 +64,7 @@
                                 <asp:Label ID="Label3" CssClass="lbl" runat="server" Text="Status: "></asp:Label>
                                 <b style="color: seagreen; font-size: 1.5em;">
                                     <asp:Label ID="lblStatus" runat="server"></asp:Label></b>
+                                <img id="imgStatus" runat="server" src="" style="width:150px;height:150px;object-fit:cover" />
                             </div>
                         </ContentTemplate>
                         <Triggers>
