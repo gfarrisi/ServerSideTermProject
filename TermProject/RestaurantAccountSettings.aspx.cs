@@ -23,11 +23,48 @@ namespace TermProject
         {
             if (!IsPostBack)
             {
+                GetCookieData();
                 BindContactInfo();
                 BindRepInfo();
             }
         }
+        public void GetCookieData()
+        {
+            HttpCookie cookie = Request.Cookies["VisitorSessionID"];
+            if (Session["Email"] == null || Session["AccountType"].ToString() != "Rep")
+            {
+                Response.Redirect("Default.aspx");
+            }
+            else if (cookie != null)
+            {
+                string restaurantRepEmail = cookie.Value.ToString();
+                objCommand.CommandType = CommandType.StoredProcedure;
+                objCommand.CommandText = "TP_GetUser";
+                objCommand.Parameters.Clear();
 
+                objCommand.Parameters.AddWithValue("@Email", restaurantRepEmail);
+
+                DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+                DataTable myDT = myDS.Tables[0];
+
+                string type = myDT.Rows[0]["Account_Type"].ToString();
+                Session["Email"] = restaurantRepEmail;
+                Session["AccountType"] = type;
+
+
+                objCommand.CommandType = CommandType.StoredProcedure;
+                objCommand.CommandText = "TP_GetRestaurantFromRep";
+                objCommand.Parameters.Clear();
+
+                objCommand.Parameters.AddWithValue("@Representative_Email", restaurantRepEmail);
+
+                myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+                myDT = myDS.Tables[0];
+
+                int restaurantID = Convert.ToInt32(myDT.Rows[0]["Restaurant_ID"].ToString());
+                Session["RestaurantID"] = restaurantID;
+            }
+        }
         public void BindContactInfo()
         {
             // int restaurantID = Convert.ToInt32(Session["RestaurantID"].ToString());
@@ -137,13 +174,27 @@ namespace TermProject
                 }
             }
             int success = objDB.DoUpdateUsingCmdObj(sqlUpdate);
-                if(success < 1)
+            if (success < 1)
             {
                 lblError.Text = "Error: your information failed to update.";
             }
             else
             {
-                lblError.Text = "";
+                if (chkDeleteCookie.Checked)
+                {
+                    HttpCookie cookie = Request.Cookies["VisitorSessionID"];
+
+                    if (cookie != null)
+                    {
+                        Response.Cookies.Remove("VisitorSessionID");
+                        cookie.Value = null;
+                        cookie.Values["Email"] = null;
+                        cookie.Expires = DateTime.Now.AddDays(-30);
+                        Response.SetCookie(cookie);
+                    }
+                }
+
+                lblError.Text = "Your account was successfully updated.";
             }
             BindContactInfo();
             BindRepInfo();

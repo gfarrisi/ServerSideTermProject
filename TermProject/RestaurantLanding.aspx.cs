@@ -35,7 +35,11 @@ namespace TermProject
         public void GetCookieData()
         {
             HttpCookie cookie = Request.Cookies["VisitorSessionID"];
-            if(cookie != null)
+            if (Session["Email"] == null || Session["AccountType"].ToString() != "Rep")
+            {
+                Response.Redirect("Default.aspx");
+            }
+            else if (cookie != null)
             {
                 string restaurantRepEmail = cookie.Value.ToString();
                 objCommand.CommandType = CommandType.StoredProcedure;
@@ -64,11 +68,7 @@ namespace TermProject
                 int restaurantID = Convert.ToInt32(myDT.Rows[0]["Restaurant_ID"].ToString());
                 Session["RestaurantID"] = restaurantID;
             }
-            else if(Session["Email"] == null && Session["AccountType"].ToString() != "Rep")
-            {
-                Response.Redirect("Default.aspx");
-            }
-           
+
         }
 
         public void UpdateLinkColors()
@@ -239,6 +239,8 @@ namespace TermProject
                 string description = lblDescription.Text;
                 Label lblPrice = (Label)e.Item.FindControl("lblPrice");
                 string price = lblPrice.Text;
+                Label lblCategory = (Label)e.Item.FindControl("lblCategory");
+                string category = lblCategory.Text;
 
                 FoodOrderingUtils.MenuItem menuItem = new FoodOrderingUtils.MenuItem();
                 menuItem.ID = Convert.ToInt32(hfID.Value);
@@ -247,6 +249,7 @@ namespace TermProject
                 menuItem.Title = title;
                 menuItem.Description = description;
                 menuItem.Price = Single.Parse(price, System.Globalization.NumberStyles.Currency);
+                menuItem.Category = category;
 
                 List<FoodOrderingUtils.MenuConfigurableItem> configvalues = new List<FoodOrderingUtils.MenuConfigurableItem>();
                 Repeater rptConf = (Repeater)e.Item.FindControl("rptItemConfigurableTitle");

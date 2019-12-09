@@ -13,17 +13,55 @@ namespace TermProject
     public partial class RestaurantCurrentOrders : System.Web.UI.Page
     {
         DBConnect objDB = new DBConnect();
+        SqlCommand objCommand = new SqlCommand();
         // int restaurantID = Convert.ToInt32(Session["RestaurantID"].ToString());
         int restaurantID = 400;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                GetCookieData();
                 GetOrderStatus();
                 DrawContactInfo();
             }
         }
+        public void GetCookieData()
+        {
+            HttpCookie cookie = Request.Cookies["VisitorSessionID"];
+            if (Session["Email"] == null || Session["AccountType"].ToString() != "Rep")
+            {
+                Response.Redirect("Default.aspx");
+            }
+            else if (cookie != null)
+            {
+                string restaurantRepEmail = cookie.Value.ToString();
+                objCommand.CommandType = CommandType.StoredProcedure;
+                objCommand.CommandText = "TP_GetUser";
+                objCommand.Parameters.Clear();
 
+                objCommand.Parameters.AddWithValue("@Email", restaurantRepEmail);
+
+                DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+                DataTable myDT = myDS.Tables[0];
+
+                string type = myDT.Rows[0]["Account_Type"].ToString();
+                Session["Email"] = restaurantRepEmail;
+                Session["AccountType"] = type;
+
+
+                objCommand.CommandType = CommandType.StoredProcedure;
+                objCommand.CommandText = "TP_GetRestaurantFromRep";
+                objCommand.Parameters.Clear();
+
+                objCommand.Parameters.AddWithValue("@Representative_Email", restaurantRepEmail);
+
+                myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+                myDT = myDS.Tables[0];
+
+                int restaurantID = Convert.ToInt32(myDT.Rows[0]["Restaurant_ID"].ToString());
+                Session["RestaurantID"] = restaurantID;
+            }
+        }
         public void DrawContactInfo() {
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
