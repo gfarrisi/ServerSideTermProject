@@ -147,6 +147,7 @@
     <Content Include="js\mixitup.min.js" />
     <Content Include="js\owl.carousel.min.js" />
     <Content Include="listings.html" />
+    <Content Include="Logout.aspx" />
     <Content Include="main.html" />
     <Content Include="NewMenu.aspx" />
     <Content Include="MenuItemControl.ascx" />
@@ -233,6 +234,13 @@
     </Compile>
     <Compile Include="FoodOrder.Master.designer.cs">
       <DependentUpon>FoodOrder.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="NewMenu.aspx.cs">
       <DependentUpon>NewMenu.aspx</DependentUpon>
@@ -354,6 +362,13 @@
     <Compile Include="UserPaymentInfo.aspx.designer.cs">
       <DependentUpon>UserPaymentInfo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UserViewNoForm.Master.cs">
+      <DependentUpon>UserViewNoForm.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserViewNoForm.Master.designer.cs">
+      <DependentUpon>UserViewNoForm.Master</DependentUpon>
+    </Compile>
     <Compile Include="UserView.Master.cs">
       <DependentUpon>UserView.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -392,6 +407,7 @@
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="RestaurantRepView.Master" />
     <Content Include="UserView.Master" />
+    <Content Include="UserViewNoForm.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
