@@ -9,7 +9,7 @@
                     <div class="pt-5 pb-5 pl-4 pr-4">
                         <h4 class="" style="color: white">Options</h4>
                         <hr style="background-color: #FF5581" />
-                        <div class="pt-3 pl-2">
+                                                <div class="pt-3 pl-2">
                             <asp:LinkButton ID="lbAccountSettings" runat="server" OnClick="lbAccountSettings_Click" ForeColor="White" CssClass="mt-5">Account Settings</asp:LinkButton>
                         </div>
                         <div class="pt-3 pl-2">

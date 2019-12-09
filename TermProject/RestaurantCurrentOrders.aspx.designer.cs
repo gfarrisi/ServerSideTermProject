@@ -58,12 +58,30 @@ namespace TermProject {
         protected global::System.Web.UI.WebControls.Repeater rptContactInfo;
         
         /// <summary>
-        /// pnlAccountSettings control.
+        /// upOrder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlAccountSettings;
+        protected global::System.Web.UI.UpdatePanel upOrder;
+        
+        /// <summary>
+        /// tmOrderStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.Timer tmOrderStatus;
+        
+        /// <summary>
+        /// gvOrders control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvOrders;
     }
 }
