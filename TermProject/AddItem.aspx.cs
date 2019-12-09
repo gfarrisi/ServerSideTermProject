@@ -103,8 +103,8 @@ namespace TermProject
             string itemDesc = txtItemDescription.Text;
             float price = float.Parse(txtItemPrice.Text);
 
-            // int restaurantID = Convert.ToInt32(Session["RestaurantID"].ToString());
-            int restaurantID = 400;
+            int restaurantID = Convert.ToInt32(Session["RestaurantID"].ToString());
+           // int restaurantID = 400;
             //create menu item objects
 
             //FoodOrderingUtils.MenuItem menuItem = new FoodOrderingUtils.MenuItem();

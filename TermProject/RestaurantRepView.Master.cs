@@ -13,5 +13,29 @@ namespace TermProject
         {
 
         }
+
+        protected void lbLogout_Click(object sender, EventArgs e)
+        {
+
+            //remove cookies
+            //HttpCookie cookie = Request.Cookies["VisitorSessionID"];
+
+            HttpCookie cookie = Request.Cookies["VisitorSessionID"];
+           
+            if (cookie != null)
+            {
+                Response.Cookies.Remove("VisitorSessionID");
+                cookie.Value = null;
+                cookie.Values["Email"] = null;
+                cookie.Expires = DateTime.Now.AddDays(-30);
+                Response.SetCookie(cookie);
+            }
+            //clear session
+            Session.Remove("Email");
+            Session.Remove("AccountType");
+            Session.Remove("RestaurantID");
+
+            Response.Redirect("Default.aspx");
+        }
     }
 }

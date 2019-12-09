@@ -8,7 +8,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form id="form1" runat="server">
+  
 
         <div class="container mb-5" style="padding-top: 8%;">
             <h2 class="pb-3">Add/Edit a Menu Item</h2>
@@ -72,5 +72,5 @@
                 </div>
             </div>
         </div>
-    </form>
+   
 </asp:Content>

@@ -33,7 +33,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <%--<form id="form1" runat="server">--%>
     <section class="contact-section spad" id="secContent" runat="server" visible="true">
-        <h2 style="text-align: center;">Restaurants List</h2>
+        <h2 style="text-align: center; padding-top: 3%; padding-bottom: 2%;">Restaurants List</h2>
         <br />
         <div class="container">
             <div class="row">
@@ -45,7 +45,7 @@
                         <script>
                             getSearch();
                         </script>
-                        <div class="input-group-append"><span> <i class="fa fa-search text-grey"
+                        <div class="input-group-append"><span> <i class="fa fa-search text-grey ml-2 mt-2"
                                  aria-hidden="true"></i></span>
                         </div>
                     </div>

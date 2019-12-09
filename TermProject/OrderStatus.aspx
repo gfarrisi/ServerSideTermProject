@@ -16,17 +16,34 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form id="form1" runat="server">
-        <asp:ScriptManager ID="scriptman" runat="server">
-        </asp:ScriptManager>
+
+    <asp:ScriptManager ID="scriptman" runat="server">
+    </asp:ScriptManager>
 
 
-        <div class="container" style="padding-top: 10%;">
-            <div class="row">
-                <div class="col-1">
+    <div class="container" style="padding-top: 10%; height: 90vh;">
+        <div class="row">
+            <div class="col-md-3" style="background-color: #4D4D4D; display: table;">
+                <div class="pt-5 pb-5 pl-4 pr-4">
+                    <h4 class="" style="color: white">Options</h4>
+                    <hr style="background-color: #FF5581" />
+                    <div class="pt-3 pl-2">
+                        <asp:LinkButton ID="lbAccountSettings" runat="server" OnClick="lbAccountSettings_Click" ForeColor="White" CssClass="mt-5">Account Settings</asp:LinkButton>
+                    </div>
+                    <div class="pt-3 pl-2">
+                        <asp:LinkButton ID="lbPaymentInfo" runat="server" OnClick="lbPaymentInfo_Click" ForeColor="White" CssClass="pt-4">Payment Info</asp:LinkButton>
+                    </div>
+                    <div class="pt-3 pl-2">
+                        <asp:LinkButton ID="lbCurrentOrders" ForeColor="White" OnClick="lbCurrentOrders_Click" runat="server">My Order</asp:LinkButton>
+                    </div>
+                    <hr style="background-color: #FF5581" />
                 </div>
-                <div class="col-10" style="text-align:center;">
-                    <h2>Order Status</h2>
+            </div>
+            <div class="col-3"></div>
+            <div class="col-4 pt-4">
+                <h4 class="text-center pb-5">Order Status</h4>
+                <div class="pl-5 pt-3 pb-3 pr-5 shadow" style="background: #F7F8FB;">
+
                     <br />
                     <asp:UpdatePanel ID="upOrder" style="width: 100%" runat="server">
                         <ContentTemplate>
@@ -45,7 +62,8 @@
                             </div>
                             <div>
                                 <asp:Label ID="Label3" CssClass="lbl" runat="server" Text="Status: "></asp:Label>
-                                <b style="color:seagreen;font-size:1.5em;"><asp:Label ID="lblStatus" runat="server"></asp:Label></b>
+                                <b style="color: seagreen; font-size: 1.5em;">
+                                    <asp:Label ID="lblStatus" runat="server"></asp:Label></b>
                             </div>
                         </ContentTemplate>
                         <Triggers>
@@ -55,6 +73,7 @@
                 </div>
             </div>
         </div>
-        <br />
-    </form>
+    </div>
+    <br />
+
 </asp:Content>
