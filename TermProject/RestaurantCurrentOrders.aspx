@@ -3,7 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:ScriptManager runat="server">
 
+    </asp:ScriptManager>
    
         <div class="container pt-5" style="padding-top: 10%;">
             <div class="row pt-5">

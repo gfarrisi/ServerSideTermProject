@@ -19,8 +19,8 @@ namespace TermProject
         protected void Page_Load(object sender, EventArgs e)
         {
             o = (Order)Session["Order"];
-            // OrderID = o.OrderID;
-            OrderID = 39;
+            OrderID = o.OrderID;
+            //OrderID = 39;
              SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "TP_GetCurrentOrder";
