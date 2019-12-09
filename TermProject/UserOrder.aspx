@@ -92,7 +92,7 @@
                     </div>
                 </asp:Panel>
                 <br />
-                <div class="col-md-11">
+                <div class="col-md-11" id="divButtons" runat="server">
                     <div style="text-align: center;">
                         <b style="color: darkslategray">
                             <asp:Label ID="lblTotal" runat="server"></asp:Label></b><br />

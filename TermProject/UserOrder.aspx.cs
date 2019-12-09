@@ -188,6 +188,7 @@ namespace TermProject
                     Decimal total = (Decimal)o.OrderTotalCost;   //cost in $$$
 
                     pnlMenu.Visible = false;
+                    divButtons.Visible = false;
                     //write confirmation email
                     Email objEmail = new Email();
                     string emailTo = Session["Email"].ToString();

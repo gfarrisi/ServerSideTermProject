@@ -79,8 +79,9 @@
                     </asp:UpdatePanel>
                 </div>
                 <br />
-                <h6>My Order</h6>
+
                 <asp:Panel ID="pnlMenu" runat="server" CssClass="pl-5 pr-5">
+                    <h6>My Order</h6>
                     <asp:Repeater ID="rptOrderItems" runat="server" OnItemDataBound="ItemBound">
                         <ItemTemplate>
                             <div class="row">

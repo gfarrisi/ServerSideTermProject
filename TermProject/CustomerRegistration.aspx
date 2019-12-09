@@ -230,7 +230,7 @@
                     <asp:TextBox CssClass="contact-form-input" ID="txtAccountType" runat="server" placeholder="Account Type" required="true"></asp:TextBox>
                 </div>
                 <div class="mt-10">
-                    <asp:TextBox CssClass="contact-form-input" ID="txtAccountNumber" runat="server" placeholder="Account Number" required="true"></asp:TextBox>
+                    <asp:TextBox CssClass="contact-form-input" ID="txtAccountNumber" runat="server" placeholder="Account Number (Max legnth of 9)" required="true"></asp:TextBox>
 
                 </div>
                 <div class="col-lg-12 text-center">
