@@ -20,7 +20,7 @@
         <header class="header-section listings">
             <div class="container-fluid">
                 <div class="logo">
-                    <a href="./index.html">
+                    <a href="Default.aspx">
                         <img src="img/logo0.png" alt=""></a>
 
                 </div>
@@ -69,9 +69,14 @@
                                 <label>Restaurant Name:</label><asp:TextBox CssClass="contact-form-input" ID="txtResName" placeholder="Restaurant Name" runat="server" required></asp:TextBox>
                             </div>
                             <div class="col-lg-6">
+                                <label>Restaurant Category</label>
+                                <asp:TextBox CssClass="contact-form-input" ID="txtResCategory" placeholder="Italian, diner, etc" runat="server" required></asp:TextBox>
+                            </div>
+                            <div class="col-lg-12">
                                 <label>Restaurant Graphic (URL Format)</label>
                                 <asp:TextBox CssClass="contact-form-input" ID="txtResImg" placeholder="Image URL" runat="server" required></asp:TextBox>
                             </div>
+
                             <div class="col-lg-6">
                                 <label>Contact Phone:</label><asp:TextBox CssClass="contact-form-input" ID="txtResPhone" placeholder="Phone" runat="server" required></asp:TextBox>
                             </div>
@@ -222,7 +227,6 @@
                     </div>
 
                 </div>
-            </div>
         </section>
         <section id="secSuccess" class="contact-section spad" runat="server" visible="false">
             <div style="background-color: mediumseagreen;">

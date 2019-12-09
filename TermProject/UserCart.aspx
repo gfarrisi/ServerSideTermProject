@@ -28,7 +28,10 @@
                     <!-- Panel for menu items -->
                     <asp:Panel ID="pnlMenu" runat="server" CssClass="pl-5 pr-5">
                         <h4 class="mt-4 mb-4 text-center">Your Cart</h4>
-                        <asp:Repeater ID="rptOrderItems" runat="server" OnItemDataBound="ItemBound" OnItemCommand="rptOrderItems_ItemCommand">
+                        <div style="text-align:center">
+                             <asp:Button ID="btnClearOrder" CssClass="btn btn-danger" runat="server" Text="Clear Order" OnClick="btnClearOrder_Click" />
+                        </div>
+                            <asp:Repeater ID="rptOrderItems" runat="server" OnItemDataBound="ItemBound" OnItemCommand="rptOrderItems_ItemCommand">
                             <ItemTemplate>
                                 <div class="row">
                                     <div class="col-md-1"></div>
@@ -80,7 +83,8 @@
                             <div class="text-center pb-5">
                                 <b style="color: darkslategray">
                                     <asp:Label ID="lblTotal" runat="server"></asp:Label></b><br />
-                                <asp:Button ID="btnCheckout" CssClass="contact-form-button" runat="server" Text="Checkout" OnClick="btnCheckout_Click" />
+                                <asp:Button ID="btnCheckout" CssClass="contact-form-button" runat="server" Text="Checkout" OnClick="btnCheckout_Click" /> <br />
+                                
                             </div>
                         </div>
                     </asp:Panel>

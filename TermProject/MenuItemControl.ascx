@@ -28,7 +28,7 @@
                 <br />
                 <asp:Button ID="btnAddToCart" CssClass="contact-form-button" Text="Add To Cart" OnClick="btnAddToCart_Click" runat="server" />
             </div>
-            <div class="tic-text">Menu Item</div>
+            <div class="tic-text" id="txtCategory" runat="server">Menu Item</div>
         </div>
     </div>
 </div>

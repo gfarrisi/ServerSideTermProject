@@ -49,6 +49,24 @@ namespace TermProject {
         protected global::System.Web.UI.WebControls.LinkButton lbCurrentOrders;
         
         /// <summary>
+        /// warning control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl warning;
+        
+        /// <summary>
+        /// dvPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dvPanel;
+        
+        /// <summary>
         /// upOrder control.
         /// </summary>
         /// <remarks>

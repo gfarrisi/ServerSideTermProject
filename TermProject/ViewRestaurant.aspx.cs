@@ -18,12 +18,17 @@ namespace TermProject
         DBConnect objDB = new DBConnect();
         DataSet ds;
         int RestaurantID = 400;
-        string Remail = "";
+        string Remail;
         //will be account object
         Restaurant res = new Restaurant();
         protected void Page_Load(object sender, EventArgs e)
         {
             res = (Restaurant)Session["currentRestaurant"];
+            if (res != null)
+            {
+                Remail = res.Email;
+            }
+
             if(res == null)
             {
                 warning.Visible = true;
@@ -43,7 +48,7 @@ namespace TermProject
                 txtRestaurantTitle.InnerText = drRes[1].ToString(); //title
                 dvImgRes.Attributes["data-setbg"] = drRes[2].ToString(); //image
                 txtPhone.InnerText = drRes[3].ToString();
-                Remail = drRes[4].ToString(); //for menu item controls
+                Remail = res.Email; //for menu item controls
                 txtEmail.InnerText = drRes[4].ToString();
                 txtAddress.InnerText = drRes[5].ToString();
                 txtCity.InnerText = drRes[6].ToString();
@@ -79,6 +84,7 @@ namespace TermProject
                 ctrlMIC.ItemName = drvCurrent[2].ToString();
                 ctrlMIC.ItemImage = drvCurrent[3].ToString();
                 ctrlMIC.ItemDescription = drvCurrent[4].ToString();
+                ctrlMIC.ItemCategory = drvCurrent[6].ToString();
                 ctrlMIC.RestaurantID = RestaurantID;
                 ctrlMIC.RestaurantEmail = Remail;
                 Decimal price = Decimal.Parse(drvCurrent[5].ToString());

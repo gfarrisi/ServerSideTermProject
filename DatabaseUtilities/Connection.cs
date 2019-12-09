@@ -13,15 +13,15 @@ namespace Utilities
         /*String for accounts database*/
         //Hazel -- work at home
 
-       String SqlConnectString = "server=127.0.0.1,5555;Database=fa19_3342_tug53772;User id=tug53772;Password=ca9eKaec";
+       //String SqlConnectString = "server=127.0.0.1,5555;Database=fa19_3342_tug53772;User id=tug53772;Password=ca9eKaec";
      //Hazel -- at school
-        //String SqlConnectString = "server=cis-mssql1.temple.edu;Database=fa19_3342_tug53772;User id=tug53772;Password=ca9eKaec";
+        String SqlConnectString = "server=cis-mssql1.temple.edu;Database=fa19_3342_tug53772;User id=tug53772;Password=ca9eKaec";
         
         /*String for payment processor database */
 
-        String APIConnectString = "server=127.0.0.1,5555;Database=FA19_3342_tug35007;User id=tug35007;Password=ZaiRi7ae";      
+        //String APIConnectString = "server=127.0.0.1,5555;Database=FA19_3342_tug35007;User id=tug35007;Password=ZaiRi7ae";      
       
-        //String APIConnectString = "server=cis-mssql1.temple.edu;Database=FA19_3342_tug35007;User id=tug35007;Password=ZaiRi7ae";
+        String APIConnectString = "server=cis-mssql1.temple.edu;Database=FA19_3342_tug35007;User id=tug35007;Password=ZaiRi7ae";
 
         SqlConnection myConnectionSql;
         SqlCommand objCmd;
