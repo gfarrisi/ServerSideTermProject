@@ -81,7 +81,6 @@
     <Content Include="css\slicknav.min.css" />
     <Content Include="css\style.css" />
     <Content Include="CustomerRegistration.aspx" />
-    <Content Include="Home.aspx" />
     <Content Include="ForgotEmail.aspx" />
     <Content Include="ForgotPassword.aspx" />
     <Content Include="Default.aspx" />
@@ -142,7 +141,6 @@
     <Content Include="js\mixitup.min.js" />
     <Content Include="js\owl.carousel.min.js" />
     <Content Include="Logout.aspx" />
-    <Content Include="NewMenu.aspx" />
     <Content Include="MenuItemControl.ascx" />
     <Content Include="OrderStatus.aspx" />
     <Content Include="PaymentInfo.aspx" />
@@ -185,13 +183,6 @@
     <Compile Include="CustomerRegistration.aspx.designer.cs">
       <DependentUpon>CustomerRegistration.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Home.aspx.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Home.aspx.designer.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ForgotEmail.aspx.cs">
       <DependentUpon>ForgotEmail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -226,13 +217,6 @@
     </Compile>
     <Compile Include="Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="NewMenu.aspx.cs">
-      <DependentUpon>NewMenu.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="NewMenu.aspx.designer.cs">
-      <DependentUpon>NewMenu.aspx</DependentUpon>
     </Compile>
     <Compile Include="MenuItemControl.ascx.cs">
       <DependentUpon>MenuItemControl.ascx</DependentUpon>
