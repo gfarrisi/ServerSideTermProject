@@ -44,7 +44,11 @@ namespace TermProject
         public void GetCookieData()
         {
             HttpCookie cookie = Request.Cookies["VisitorSessionID"];
-            if (cookie != null)
+            if (Session["Email"] == null || Session["AccountType"].ToString() != "Customer")
+            {
+                Response.Redirect("Default.aspx");
+            }
+            else if (cookie != null)
             {
                 string email = cookie.Value.ToString();
                 objCommand.CommandType = CommandType.StoredProcedure;
@@ -58,12 +62,7 @@ namespace TermProject
 
                 string type = myDT.Rows[0]["Account_Type"].ToString();
                 Session["Email"] = email;
-                Session["AccountType"] = type;          
-
-            }
-            else
-            {
-                Response.Redirect("Default.aspx");
+                Session["AccountType"] = type;
             }
 
         }

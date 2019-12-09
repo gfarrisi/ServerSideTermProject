@@ -158,7 +158,6 @@
     <Content Include="UserAccountSettings.aspx" />
     <Content Include="UserCart.aspx" />
     <Content Include="UserOrder.aspx" />
-    <Content Include="UserPaymentInfo.aspx" />
     <Content Include="ViewAllTransactions.aspx" />
     <Content Include="ViewRestaurant.aspx" />
     <Content Include="Web.config" />
@@ -340,13 +339,6 @@
     </Compile>
     <Compile Include="UserOrder.aspx.designer.cs">
       <DependentUpon>UserOrder.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="UserPaymentInfo.aspx.cs">
-      <DependentUpon>UserPaymentInfo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserPaymentInfo.aspx.designer.cs">
-      <DependentUpon>UserPaymentInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserView.Master.cs">
       <DependentUpon>UserView.Master</DependentUpon>

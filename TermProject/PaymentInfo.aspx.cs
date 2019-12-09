@@ -27,6 +27,31 @@ namespace TermProject
             if (!IsPostBack)
             {
                 BindPaymentInfo();
+                GetCookieData();
+            }
+        }
+        public void GetCookieData()
+        {
+            HttpCookie cookie = Request.Cookies["VisitorSessionID"];
+            if (Session["Email"] == null || Session["AccountType"].ToString() != "Customer")
+            {
+                Response.Redirect("Default.aspx");
+            }
+            else if (cookie != null)
+            {
+                string email = cookie.Value.ToString();
+                objCommand.CommandType = CommandType.StoredProcedure;
+                objCommand.CommandText = "TP_GetUser";
+                objCommand.Parameters.Clear();
+
+                objCommand.Parameters.AddWithValue("@Email", email);
+
+                DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+                DataTable myDT = myDS.Tables[0];
+
+                string type = myDT.Rows[0]["Account_Type"].ToString();
+                Session["Email"] = email;
+                Session["AccountType"] = type;
             }
         }
         public void BindPaymentInfo()

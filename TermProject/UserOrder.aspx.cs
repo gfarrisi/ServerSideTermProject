@@ -21,6 +21,10 @@ namespace TermProject
         Order o;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                GetCookieData();
+            }                      
             if (Session["Order"] != null)
             {
                 GetOrderItems();
@@ -32,7 +36,30 @@ namespace TermProject
                 pnlMenu.Visible = false;
             }
         }
+        public void GetCookieData()
+        {
+            HttpCookie cookie = Request.Cookies["VisitorSessionID"];
+            if (Session["Email"] == null || Session["AccountType"].ToString() != "Customer")
+            {
+                Response.Redirect("Default.aspx");
+            }
+            else if (cookie != null)
+            {
+                string email = cookie.Value.ToString();
+                objCommand.CommandType = CommandType.StoredProcedure;
+                objCommand.CommandText = "TP_GetUser";
+                objCommand.Parameters.Clear();
 
+                objCommand.Parameters.AddWithValue("@Email", email);
+
+                DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+                DataTable myDT = myDS.Tables[0];
+
+                string type = myDT.Rows[0]["Account_Type"].ToString();
+                Session["Email"] = email;
+                Session["AccountType"] = type;
+            }
+        }
         private void GetOrderItems()
         {
             o = (Order)Session["Order"];
@@ -148,13 +175,12 @@ namespace TermProject
                 if (data == "true")
                 {
                     Decimal total = (Decimal)o.OrderTotalCost;   //cost in $$$
-                    lblFunded.Visible = true;
-                    lblFunded.Text = "Order successful! Head on over to the <a href='OrderStatus.aspx'>order status page</a> to view the deets.";
+                   
                     pnlMenu.Visible = false;
                     //write confirmation email
                     Email objEmail = new Email();
-                    //string emailTo = Session["Email"].ToString();
-                    string emailTo = "hazel@temple.edu";
+                    string emailTo = Session["Email"].ToString();
+                    //string emailTo = "hazel@temple.edu";
                     String strTO = emailTo;
                     String strFROM = "noreply@locals.com";
                     String strSubject = "Your Order Confirmation";
@@ -169,10 +195,13 @@ namespace TermProject
                     if(result > 0)
                     {
                         //success
+                        lblFunded.Visible = true;
+                        lblFunded.Text = "Order successful! Head on over to the <a href='OrderStatus.aspx'>order status page</a> to view the deets.";
                     }
                     else
                     {
-                        Response.Write("Error setting order status");
+                        lblErrorDisplay.Visible = true;
+                        lblErrorDisplay.Text = "Error setting order status";
                     }
 
                     try
@@ -181,7 +210,8 @@ namespace TermProject
                     }
                     catch (Exception ex)
                     {
-                        Response.Write("Email machine broke");
+                        lblErrorDisplay.Visible = true;
+                        lblErrorDisplay.Text = "Email machine broke";
                     }
                 }
                 else if(data == "Insufficiant Funds")

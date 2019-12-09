@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -118,7 +118,8 @@ namespace TermProject
                 string orderRes = (string)Session["orderRes"];
                 if (orderRes != RestaurantEmail)
                 {
-                    Response.Write("You already have items from another restaurant in your cart. Delete those before you order from this place.");
+                    Response.Write("<script>alert('You already have items from another restaurant in your cart. Delete those before you order from this place.');</script>");
+                    //Response.Write("You already have items from another restaurant in your cart. Delete those before you order from this place.");
                     return;
                 }
             }
@@ -204,7 +205,11 @@ namespace TermProject
             }
             Session["orderRes"] = RestaurantEmail;
             Session.Add("Order", o);
-            Response.Write(ItemName + " added to order.");
+            //Response.Write("<script>alert('" + ItemName + "' added to order."');</script>");
+
+                 Response.Write("<script>alert('" + ItemName +" added to order. " + "');</script>");
+
+           // Response.Write(ItemName + " added to order.");
         }
     }
 }
