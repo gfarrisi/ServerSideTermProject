@@ -36,7 +36,7 @@
                                 <ItemTemplate>
                                     <asp:HiddenField ID="hfRestaurantID" runat="server" Value='<%# DataBinder.Eval(Container.DataItem, "Restaurant_ID") %>' />
                                     <div class="pt-3 pl-2">
-                                        <asp:Label ID="lbPhoneNumber" ForeColor="White" runat="server" CssClass="mt-5" Text=""><%# !String.IsNullOrEmpty(Convert.ToString(Eval("Restaurant_Phone"))) ? String.Format("{0:(###) ###-####}", Convert.ToInt64(Eval("Restaurant_Phone").ToString())) : String.Empty%></asp:Label>
+                                        <asp:Label ID="lbPhoneNumber" ForeColor="White" runat="server" CssClass="mt-5" Text='<%# DataBinder.Eval(Container.DataItem, "Restaurant_Phone") %>'></asp:Label>
                                     </div>
                                     <div class="pt-3 pl-2">
                                         <asp:Label ID="lbEmail" runat="server" ForeColor="White" CssClass="pt-4" Text='<%# DataBinder.Eval(Container.DataItem, "Restaurant_Email") %>'></asp:Label>
@@ -127,7 +127,6 @@
                         <div class="mb-5 mt-3 text-center">
                             <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" CssClass="contact-form-button" />
                         </div>
-
                     </asp:Panel>
                 </div>
             </div>

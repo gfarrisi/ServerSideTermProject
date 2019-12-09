@@ -148,8 +148,7 @@ namespace TermProject
             string MerchantID = myDT.Rows[0]["ID"].ToString();
 
 
-            //string userEmail = Session["Email"].ToString();
-            string userEmail = "gabriellafarrisi@gmail.com";
+            string userEmail = Session["Email"].ToString();
 
             string restaurantEmail = (string)Session["orderRes"];
             //make transaction
@@ -191,7 +190,6 @@ namespace TermProject
                     //write confirmation email
                     Email objEmail = new Email();
                     string emailTo = Session["Email"].ToString();
-                    //string emailTo = "hazel@temple.edu";
                     String strTO = emailTo;
                     String strFROM = "noreply@locals.com";
                     String strSubject = "Your Order Confirmation";
