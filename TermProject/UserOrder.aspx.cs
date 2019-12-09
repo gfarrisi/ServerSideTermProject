@@ -27,6 +27,17 @@ namespace TermProject
             }                      
             if (Session["Order"] != null)
             {
+                if (!IsPostBack)
+                {
+                    o = (Order)Session["Order"];
+                    if (o.OrderStatus != ("Not Submitted"))
+                    {
+                        Session.Remove("Order");
+                        warning.Visible = true;
+                        pnlMenu.Visible = false;
+                        return;
+                    }
+                }
                 GetOrderItems();
             }
             else

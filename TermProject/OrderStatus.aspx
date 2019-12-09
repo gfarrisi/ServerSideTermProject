@@ -36,7 +36,7 @@
                     <div class="pt-3 pl-2">
                         <asp:LinkButton ID="lbCurrentOrders" ForeColor="White" OnClick="lbCurrentOrders_Click" runat="server">My Order</asp:LinkButton>
                     </div>
-                     <div class="pt-3 pl-2">
+                    <div class="pt-3 pl-2">
                         <asp:LinkButton ID="lbTransactions" ForeColor="White" OnClick="lbTransactions_Click" runat="server">View All Transactions</asp:LinkButton>
                     </div>
                     <hr style="background-color: #FF5581" />
@@ -78,6 +78,55 @@
                         </Triggers>
                     </asp:UpdatePanel>
                 </div>
+                <br />
+                <h4>My Order</h4>
+                <asp:Panel ID="pnlMenu" runat="server" CssClass="pl-5 pr-5">
+                    <h4 class="mt-4 mb-4 text-center">Review Your Order</h4>
+                    <h6 class="mt-4 mb-4 text-center">Look over your order, then press Buy to pay for it.</h6>
+                    <asp:Repeater ID="rptOrderItems" runat="server" OnItemDataBound="ItemBound">
+                        <ItemTemplate>
+                            <div class="row">
+                                <div class="col-md-1"></div>
+
+                                <div class="col-md-10">
+                                    <div class="trend-item2">
+                                        <div class="align-bottom float-right">
+                                            <asp:Label ID="Label1" runat="server" Text="" ForeColor="#FF5581"><%# Eval("Item_Price", "{0:c}") %></asp:Label>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-5">
+                                                <asp:HiddenField ID="hfOrderItemID" runat="server" Value='<%# DataBinder.Eval(Container.DataItem, "Order_Item_ID") %>' />
+                                                <div class="trend-pic">
+                                                    <asp:Image ID="imgMenuItem" runat="server" ImageUrl='<%# DataBinder.Eval(Container.DataItem, "Item_Image") %>' />
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-7 pt-4" style="display: inline-block;">
+                                                <div>
+                                                    <asp:Label ID="lblTitle" Font-Bold="true" runat="server" CssClass="pt-3" Text='<%# DataBinder.Eval(Container.DataItem, "Item_Title") %>'></asp:Label>
+                                                </div>
+                                                <div>
+                                                    <asp:Label ID="lblDescriptionLabel" runat="server" Text="Description: "></asp:Label>
+                                                    <asp:Label ID="lblDescription" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Item_Description") %>'></asp:Label>
+                                                </div>
+
+                                                <asp:Repeater ID="rptItemConfigurables" runat="server">
+                                                    <ItemTemplate>
+                                                        <asp:HiddenField ID="hfMenuItemIDConf" runat="server" Value='<%# DataBinder.Eval(Container.DataItem, "Order_Item_Configurable_ID") %>' />
+                                                        <asp:Label ID="lblItemConfigurableTitle" runat="server" CssClass="pt-4 font" Text='<%# DataBinder.Eval(Container.DataItem, "Order_Item_Configurable_Title") %>'></asp:Label>
+                                                        <label>: </label>
+                                                        <b>
+                                                            <asp:Label ID="lblItemConfigurables" runat="server" CssClass="pt-4" Text='<%# DataBinder.Eval(Container.DataItem, "Order_Item_Configurable_Value") %>'></asp:Label></b>
+                                                        <br />
+                                                    </ItemTemplate>
+                                                </asp:Repeater>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </asp:Panel>
             </div>
         </div>
     </div>

@@ -23,6 +23,15 @@ namespace TermProject
                 GetCookieData();
                 if (Session["Order"] != null)
                 {
+                    o = (Order)Session["Order"];
+                    if (o.OrderStatus != ("Not Submitted"))
+                    {
+                        Session.Remove("Order");
+                        warning.Visible = true;
+                        pnlMenu.Visible = false;
+                        return;
+                    }
+
                     GetOrderItems();
                 }
                 else
@@ -68,6 +77,7 @@ namespace TermProject
             DataTable myDT = myDS.Tables[0];
             rptOrderItems.DataSource = myDT;
             rptOrderItems.DataBind();
+            o.CalculateCost();
             Decimal total = (Decimal)o.OrderTotalCost;
             lblTotal.Text = "Total: " + total.ToString("C2");
             if (myDT.Rows.Count == 0)
@@ -134,7 +144,17 @@ namespace TermProject
                 objCommand.Parameters.Clear();
                 objCommand.Parameters.AddWithValue("@OrderItemID", itemID);
                 int result = objDB.DoUpdateUsingCmdObj(objCommand);
-                    GetOrderItems();
+                o = (Order)Session["Order"];
+                foreach (OrderItem oi in o.OrderItemList)
+                {
+                    if(oi.OrderItemID == itemID)
+                    {
+                        o.OrderItemList.Remove(oi);
+                        break;
+                    }
+                }
+                Session.Add("Order", o);
+                GetOrderItems();
             }
         }
 
@@ -154,6 +174,8 @@ namespace TermProject
                 }
             }
             Session.Remove("orderRes");
+            o = (Order)Session["Order"];
+            o.OrderItemList.Clear();
             GetOrderItems();
         }
     }
