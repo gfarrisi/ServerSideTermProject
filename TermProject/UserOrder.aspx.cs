@@ -187,7 +187,7 @@ namespace TermProject
                 {
                     Decimal total = (Decimal)o.OrderTotalCost;   //cost in $$$
                    
-                    pnlMenu.Visible = false;
+                    rptOrderItems.Visible = false;
                     //write confirmation email
                     Email objEmail = new Email();
                     string emailTo = Session["Email"].ToString();
@@ -208,6 +208,9 @@ namespace TermProject
                         //success
                         lblFunded.Visible = true;
                         lblFunded.Text = "Order successful! Head on over to the <a href='OrderStatus.aspx'>order status page</a> to view the deets.";
+                        Session.Remove("Order");
+                        Session.Remove("OrderRes");
+                        Session.Add("OrderConfirmed", o);
                     }
                     else
                     {

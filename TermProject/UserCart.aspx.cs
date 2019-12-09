@@ -126,7 +126,15 @@ namespace TermProject
 
         protected void btnCheckout_Click(object sender, EventArgs e)
         {
-            Response.Redirect("UserOrder.aspx");
+            if (Session["OrderConfirmed"] != null)
+            {
+                warning.Visible = true;
+                warning.InnerHtml = "Please make sure your current order has been completed before starting a new one!";
+            }
+            else
+            {
+                Response.Redirect("UserOrder.aspx");
+            }
         }
         protected void lbTransactions_Click(object sender, EventArgs e)
         {

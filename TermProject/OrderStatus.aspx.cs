@@ -19,7 +19,7 @@ namespace TermProject
         SqlCommand objCommand = new SqlCommand();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Session["Order"] == null)
+            if(Session["OrderConfirmed"] == null)
             {
                 warning.Visible = true;
                 dvPanel.Visible = false;
@@ -30,9 +30,8 @@ namespace TermProject
                 GetCookieData();
                 GetOrderItems();
             }
-            o = (Order)Session["Order"];
+            o = (Order)Session["OrderConfirmed"];
             OrderID = o.OrderID;
-            //OrderID = 39;
              SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "TP_GetCurrentOrder";
@@ -77,7 +76,7 @@ namespace TermProject
 
         private void GetOrderItems()
         {
-            o = (Order)Session["Order"];
+            o = (Order)Session["OrderConfirmed"];
             int orderID = o.OrderID;
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "TP_GetAllOrderItemsFromOrder";
@@ -141,6 +140,7 @@ namespace TermProject
                 else if (status.Equals("Completed"))
                 {
                     imgStatus.Src = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Filet_de_b%C5%93uf.jpg/640px-Filet_de_b%C5%93uf.jpg";
+                    Session.Remove("OrderConfirmed");
                 }
                 else if (status.Equals("Problem"))
                 {

@@ -21,7 +21,7 @@
     </asp:ScriptManager>
 
 
-    <div class="container" style="padding-top: 10%; height: 90vh;">
+    <div class="container" style="padding-top: 10%;">
         <div class="row">
             <div class="col-md-3" style="background-color: #4D4D4D; display: table;">
                 <div class="pt-5 pb-5 pl-4 pr-4">
@@ -81,8 +81,6 @@
                 <br />
                 <h4>My Order</h4>
                 <asp:Panel ID="pnlMenu" runat="server" CssClass="pl-5 pr-5">
-                    <h4 class="mt-4 mb-4 text-center">Review Your Order</h4>
-                    <h6 class="mt-4 mb-4 text-center">Look over your order, then press Buy to pay for it.</h6>
                     <asp:Repeater ID="rptOrderItems" runat="server" OnItemDataBound="ItemBound">
                         <ItemTemplate>
                             <div class="row">
