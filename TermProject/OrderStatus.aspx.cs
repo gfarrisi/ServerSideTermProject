@@ -23,6 +23,7 @@ namespace TermProject
             {
                 warning.Visible = true;
                 dvPanel.Visible = false;
+                pnlMenu.Visible = false;
                 return;
             }
             if (!IsPostBack)

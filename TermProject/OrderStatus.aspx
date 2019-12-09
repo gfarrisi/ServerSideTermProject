@@ -53,7 +53,7 @@
                     <br />
                     <asp:UpdatePanel ID="upOrder" style="width: 100%" runat="server">
                         <ContentTemplate>
-                            <asp:Timer ID="tmOrderStatus" OnTick="tmOrderStatus_Tick" runat="server" Interval="5000" />
+                            <asp:Timer ID="tmOrderStatus" OnTick="tmOrderStatus_Tick" runat="server" Interval="3000" />
                             <div>
                                 <asp:Label runat="server" CssClass="lbl" Text="Order ID: "></asp:Label>
                                 <asp:Label ID="lblID" runat="server"></asp:Label>
@@ -79,8 +79,8 @@
                     </asp:UpdatePanel>
                 </div>
                 <br />
-                <h6>My Order</h6>
                 <asp:Panel ID="pnlMenu" runat="server" CssClass="pl-5 pr-5">
+                                    <h6>My Order</h6>
                     <asp:Repeater ID="rptOrderItems" runat="server" OnItemDataBound="ItemBound">
                         <ItemTemplate>
                             <div class="row">
