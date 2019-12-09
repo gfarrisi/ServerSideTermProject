@@ -33,12 +33,13 @@
                 <asp:Panel ID="pnlMenu" runat="server" CssClass="pl-5 pr-5">
                     <h4 class="mt-4 mb-4 text-center">Review Your Order</h4>
                     <h6 class="mt-4 mb-4 text-center">Look over your order, then press Buy to pay for it.</h6>
-                    <asp:Repeater ID="rptOrderItems" runat="server" OnItemDataBound="ItemBound">
-                        <ItemTemplate>
-                            <div class="row">
-                                <div class="col-md-1"></div>
+                    <div class="row">
+                        <div class="col-md-1"></div>
 
-                                <div class="col-md-10">
+                        <div class="col-md-10">
+                            <asp:Repeater ID="rptOrderItems" runat="server" OnItemDataBound="ItemBound">
+                                <ItemTemplate>
+
                                     <div class="trend-item2">
                                         <div class="align-bottom float-right">
                                             <asp:Label ID="Label1" runat="server" Text="" ForeColor="#FF5581"><%# Eval("Item_Price", "{0:c}") %></asp:Label>
@@ -72,10 +73,15 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+
+                                </ItemTemplate>
+                            </asp:Repeater>
+                            <div class="pb-4">
+                                <asp:Label ID="lblErrorDisplay" Visible="false" runat="server" Text="You screwed up"></asp:Label>
+                                <asp:Label ID="lblFunded" Visible="false" runat="server" Text="The payment was sucessfully process"></asp:Label>
                             </div>
-                        </ItemTemplate>
-                    </asp:Repeater>
+                        </div>
+                    </div>
                 </asp:Panel>
                 <br />
                 <div class="col-md-11">
@@ -87,10 +93,7 @@
                 </div>
             </div>
 
-            <div class="pb-4">
-                <asp:Label ID="lblErrorDisplay" Visible="false" runat="server" Text="You screwed up"></asp:Label>
-                <asp:Label ID="lblFunded" Visible="false" runat="server" Text="The account was successfully funded"></asp:Label>
-            </div>
+
         </div>
     </div>
     <%--    </form>--%>

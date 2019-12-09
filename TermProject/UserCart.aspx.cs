@@ -20,6 +20,7 @@ namespace TermProject
         {
             if (!IsPostBack)
             {
+                GetCookieData();
                 if (Session["Order"] != null)
                 {
                     o = (Order)Session["Order"];
@@ -40,7 +41,30 @@ namespace TermProject
                 }
             }
         }
+        public void GetCookieData()
+        {
+            HttpCookie cookie = Request.Cookies["VisitorSessionID"];
+            if (Session["Email"] == null || Session["AccountType"].ToString() != "Customer")
+            {
+                Response.Redirect("Default.aspx");
+            }
+            else if (cookie != null)
+            {
+                string email = cookie.Value.ToString();
+                objCommand.CommandType = CommandType.StoredProcedure;
+                objCommand.CommandText = "TP_GetUser";
+                objCommand.Parameters.Clear();
 
+                objCommand.Parameters.AddWithValue("@Email", email);
+
+                DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+                DataTable myDT = myDS.Tables[0];
+
+                string type = myDT.Rows[0]["Account_Type"].ToString();
+                Session["Email"] = email;
+                Session["AccountType"] = type;
+            }
+        }
         private void GetOrderItems()
         {
             o = (Order)Session["Order"];
@@ -103,6 +127,10 @@ namespace TermProject
         protected void btnCheckout_Click(object sender, EventArgs e)
         {
             Response.Redirect("UserOrder.aspx");
+        }
+        protected void lbTransactions_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ViewAllTransactions.aspx");
         }
 
         protected void rptOrderItems_ItemCommand(object source, RepeaterCommandEventArgs e)
