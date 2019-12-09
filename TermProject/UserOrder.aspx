@@ -76,6 +76,14 @@
 
                                 </ItemTemplate>
                             </asp:Repeater>
+                        </div>
+                    </div>
+                </asp:Panel>
+                <asp:Panel ID="pnlMessage" runat="server" CssClass="pl-5 pr-5">
+                    <div class="row">
+                        <div class="col-md-1"></div>
+
+                        <div class="col-md-10">
                             <div class="pb-4">
                                 <asp:Label ID="lblErrorDisplay" Visible="false" runat="server" Text="You screwed up"></asp:Label>
                                 <asp:Label ID="lblFunded" Visible="false" runat="server" Text="The payment was sucessfully process"></asp:Label>

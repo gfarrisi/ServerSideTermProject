@@ -118,7 +118,7 @@ namespace TermProject
 
         protected void lbCurrentOrders_Click(object sender, EventArgs e)
         {
-            Response.Redirect("UserOrder.aspx");
+            Response.Redirect("OrderStatus.aspx");
         }
 
         protected void lbTransactions_Click(object sender, EventArgs e)
@@ -186,7 +186,7 @@ namespace TermProject
                 if (data == "true")
                 {
                     Decimal total = (Decimal)o.OrderTotalCost;   //cost in $$$
-                   
+
                     pnlMenu.Visible = false;
                     //write confirmation email
                     Email objEmail = new Email();
@@ -206,13 +206,15 @@ namespace TermProject
                     if(result > 0)
                     {
                         //success
+                        pnlMessage.Visible = true;
                         lblFunded.Visible = true;
                         lblFunded.Text = "Order successful! Head on over to the <a href='OrderStatus.aspx'>order status page</a> to view the deets.";
                     }
                     else
                     {
+                        pnlMessage.Visible = true;
                         lblErrorDisplay.Visible = true;
-                        lblErrorDisplay.Text = "Error setting order status";
+                        lblErrorDisplay.Text = "Error setting order status. ";
                     }
 
                     try
@@ -221,18 +223,21 @@ namespace TermProject
                     }
                     catch (Exception ex)
                     {
+                        pnlMessage.Visible = true;
                         lblErrorDisplay.Visible = true;
-                        lblErrorDisplay.Text = "Email machine broke";
+                        lblErrorDisplay.Text = "Email machine broke. ";
                     }
                 }
                 else if(data == "Insufficiant Funds")
                 {
+                    pnlMessage.Visible = true;
                     lblErrorDisplay.Visible = true;
                     lblErrorDisplay.Text = "You don't have enough funds in your account to complete this transaction. Go to your Account Settings page and Payment Info section to add more.";
                 }
 
                 else
                 {
+                    pnlMessage.Visible = true;
                     lblErrorDisplay.Visible = true;
                     lblErrorDisplay.Text = "Something unknowable went wrong with this transaction. Good luck.";
                 }
@@ -240,8 +245,8 @@ namespace TermProject
 
             }
             catch (Exception ex)
-
             {
+                pnlMessage.Visible = true;
                 lblErrorDisplay.Visible = true;
                 lblErrorDisplay.Text = "Error: " + ex.Message;
 
