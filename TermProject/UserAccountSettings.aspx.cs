@@ -69,7 +69,7 @@ namespace TermProject
 
         protected void lbCurrentOrders_Click(object sender, EventArgs e)
         {
-            Response.Redirect("OrderStatus.aspx");
+            Response.Redirect("UserOrder.aspx");
         }
 
         protected void btnUpdate_Click(object sender, EventArgs e)

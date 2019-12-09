@@ -20,7 +20,15 @@ namespace TermProject
         {
             if (!IsPostBack)
             {
-                GetOrderItems();
+                if (Session["Order"] != null)
+                {
+                    GetOrderItems();
+                }
+                else
+                {
+                    warning.Visible = true;
+                    pnlMenu.Visible = false;
+                }
             }
         }
 
@@ -36,6 +44,10 @@ namespace TermProject
             DataTable myDT = myDS.Tables[0];
             rptOrderItems.DataSource = myDT;
             rptOrderItems.DataBind();
+            if(myDT.Rows.Count == 0)
+            {
+                Session.Remove("orderRes");
+            }
         }
 
         protected void ItemBound(object sender, RepeaterItemEventArgs args)

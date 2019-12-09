@@ -3,7 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
         <div class="container pt-5" style="padding-top: 10%;">
             <div class="row pt-5">
                 <div class="col-md-3 mt-5" style="background-color: #4D4D4D; display: table;">
@@ -23,7 +22,9 @@
                     </div>
                 </div>
                 <div class="col-md-8 ml-3  mt-5">
-
+                    <div class="alert alert-danger" id="warning" runat="server" visible="false">
+                        Your cart is empty! Please go to a restaurant and add some items.
+                    </div>
                     <!-- Panel for menu items -->
                     <asp:Panel ID="pnlMenu" runat="server" CssClass="pl-5 pr-5">
                         <h4 class="mt-4 mb-4 text-center">Your Cart</h4>
