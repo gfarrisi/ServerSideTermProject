@@ -44,7 +44,9 @@ namespace TermProject
             DataTable myDT = myDS.Tables[0];
             rptOrderItems.DataSource = myDT;
             rptOrderItems.DataBind();
-            if(myDT.Rows.Count == 0)
+            Decimal total = (Decimal)o.OrderTotalCost;
+            lblTotal.Text = "Total: " + total.ToString("C2");
+            if (myDT.Rows.Count == 0)
             {
                 Session.Remove("orderRes");
             }
