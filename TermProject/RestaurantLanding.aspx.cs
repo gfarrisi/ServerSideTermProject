@@ -64,7 +64,7 @@ namespace TermProject
                 int restaurantID = Convert.ToInt32(myDT.Rows[0]["Restaurant_ID"].ToString());
                 Session["RestaurantID"] = restaurantID;
             }
-            else
+            else if(Session["Email"] == null && Session["AccountType"].ToString() != "Rep")
             {
                 Response.Redirect("Default.aspx");
             }
