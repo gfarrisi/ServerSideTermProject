@@ -47,7 +47,7 @@ namespace TermProject
                 }
                 catch (Exception ex)
                 {
-                    //lblDisplay.Text = "The email wasn't sent because one of the required fields was missing.";
+                    lblSent.Text = ex + ". Please try agan later.";
                 }
 
             }

@@ -560,8 +560,9 @@ ol {
 
 .trend-item2 {
     background: #E4EBF2;
-    padding: 5px 5px 5px 2px;
+    padding: 8px 5px 5px 1px;
     margin-bottom: 15px;
+    font-size:12px;
 }
 
 
@@ -608,10 +609,11 @@ ol {
 }
 
 .trend-item2 .trend-pic img {
-    width: 25%;
+    width: 100px;
+    height:100px;
+    object-fit: cover;
     /*border radius for landing page images*/
     border-radius: 1.5%;
-    filter: grayscale(100%);
 }
 
 .trend-item .trend-pic .rating {

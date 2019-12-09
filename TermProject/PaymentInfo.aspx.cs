@@ -31,8 +31,8 @@ namespace TermProject
         }
         public void BindPaymentInfo()
         {
-            // int restaurantID = Convert.ToInt32(Session["RestaurantID"].ToString());
-            string email = "gabriellafarrisi@gmail.com";
+            string email = Session["Email"].ToString();
+            //string email = "gabriellafarrisi@gmail.com";
 
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "TP_GetUser";
@@ -49,8 +49,8 @@ namespace TermProject
         public void GetBalance()
         {
             //take from session
-            //string email = Session["Email"].ToString();
-            string email = "gabriellafarrisi@gmail.com";
+            string email = Session["Email"].ToString();
+            //string email = "gabriellafarrisi@gmail.com";
 
             //get api key info
             objCommand.CommandType = CommandType.StoredProcedure;
@@ -117,8 +117,8 @@ namespace TermProject
             try
             {
                 float amount = float.Parse(txtAmount.Text, CultureInfo.InvariantCulture.NumberFormat);              
-                //string VirtualWalletID = Session["Email"].ToString();
-                string VirtualWalletID = "gabriellafarrisi@gmail.com";
+                string VirtualWalletID = Session["Email"].ToString();
+                //string VirtualWalletID = "gabriellafarrisi@gmail.com";
                 //get api key info
                 objCommand.CommandType = CommandType.StoredProcedure;
                 objCommand.CommandText = "TP_GetAPIKey";
@@ -203,8 +203,8 @@ namespace TermProject
                     //Please enter a decimal value
                     if (accountType.Text.Length > 0 && accountNumber.Text.Length > 0)
                     {
-                        //string VirtualWalletID = Session["Email"].ToString();
-                        string VirtualWalletID = "gabriellafarrisi@gmail.com";
+                        string VirtualWalletID = Session["Email"].ToString();
+                        //string VirtualWalletID = "gabriellafarrisi@gmail.com";
                         //get api key info
                         objCommand.CommandType = CommandType.StoredProcedure;
                         objCommand.CommandText = "TP_GetAPIKey";

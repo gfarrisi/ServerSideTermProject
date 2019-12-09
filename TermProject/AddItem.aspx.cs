@@ -25,8 +25,15 @@ namespace TermProject
             if (Session["item"] != null)
             {
                 mItem = (MenuItem)Session["item"];
-                newItem = false;
-                BindExistingMenuItem();
+                if(mItem.Category != null)
+                {
+                    newItem = false;
+                    BindExistingMenuItem();
+                }
+                else
+                {
+                    newItem = true;
+                }
             }
             else
             {
@@ -42,7 +49,7 @@ namespace TermProject
                 txtItemImg.Text = mItem.Image;
                 txtItemDescription.Text = mItem.Description;
                 txtItemPrice.Text = mItem.Price.ToString();
-                              
+                ddlCategory.SelectedValue = mItem.Category;
 
                 foreach (MenuConfigurableItem mci in mItem.Configurables)
                 {
@@ -102,9 +109,10 @@ namespace TermProject
             string itemImage = txtItemImg.Text;
             string itemDesc = txtItemDescription.Text;
             float price = float.Parse(txtItemPrice.Text);
+            string category = ddlCategory.SelectedValue;
 
-            // int restaurantID = Convert.ToInt32(Session["RestaurantID"].ToString());
-            int restaurantID = 400;
+            int restaurantID = Convert.ToInt32(Session["RestaurantID"].ToString());
+           // int restaurantID = 400;
             //create menu item objects
 
             //FoodOrderingUtils.MenuItem menuItem = new FoodOrderingUtils.MenuItem();
@@ -113,6 +121,7 @@ namespace TermProject
             mItem.Description = itemDesc;
             mItem.Price = price;
             mItem.RestaurantID = restaurantID;
+            mItem.Category = category;
             //add to database
             SqlParameter returnParameter = new SqlParameter();
             SqlCommand sqlAddOrder = new SqlCommand();
@@ -135,6 +144,7 @@ namespace TermProject
             sqlAddOrder.Parameters.AddWithValue("@RestaurantID", restaurantID);
             sqlAddOrder.Parameters.AddWithValue("@Description", mItem.Description);
             sqlAddOrder.Parameters.AddWithValue("@Price", mItem.Price);
+            sqlAddOrder.Parameters.AddWithValue("@ItemCategory", mItem.Category);
 
             int returnNum = objDB.DoUpdateUsingCmdObj(sqlAddOrder);
             if (returnNum > 0)

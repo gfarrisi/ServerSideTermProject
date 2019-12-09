@@ -21,7 +21,7 @@ namespace TermProject
         // string restaurantRepEmail = Session["userEmail"].ToString();
         Restaurant res;
         
-        string userEmail = "gabriellafarrisi@gmail.com";
+        //string userEmail = "gabriellafarrisi@gmail.com";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -35,6 +35,7 @@ namespace TermProject
 
         public void BindUserInfo()
         {
+            string userEmail = Session["Email"].ToString();
 
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "TP_GetUser";
@@ -68,11 +69,13 @@ namespace TermProject
 
         protected void lbCurrentOrders_Click(object sender, EventArgs e)
         {
-            Response.Redirect("OrderStatus.aspx");
+            Response.Redirect("UserOrder.aspx");
         }
 
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
+            string userEmail = Session["Email"].ToString();
+
             foreach (RepeaterItem item in rptRepInfo.Items)
             {
                 if (item.ItemType == ListItemType.Item || item.ItemType == ListItemType.AlternatingItem)
