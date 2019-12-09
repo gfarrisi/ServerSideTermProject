@@ -111,6 +111,10 @@ namespace TermProject
             Response.Redirect("OrderStatus.aspx");
         }
 
+        protected void lbTransactions_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ViewAllTransactions.aspx");
+        }
         protected void btnFundAccount_Click(object sender, EventArgs e)
         {
             //Please enter a decimal value

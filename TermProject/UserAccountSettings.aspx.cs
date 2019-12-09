@@ -69,9 +69,12 @@ namespace TermProject
 
         protected void lbCurrentOrders_Click(object sender, EventArgs e)
         {
-            Response.Redirect("UserOrder.aspx");
+            Response.Redirect("OrderStatus.aspx");
         }
-
+        protected void lbTransactions_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ViewAllTransactions.aspx");
+        }
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
             string userEmail = Session["Email"].ToString();
@@ -109,7 +112,31 @@ namespace TermProject
                     TextBox bzip = (TextBox)item.FindControl("txtBillingZip");
                     sqlUpdate.Parameters.AddWithValue("@Billing_Zip", bzip.Text);
                     int success = objDB.DoUpdateUsingCmdObj(sqlUpdate);
-                    Response.Write(success.ToString());
+                    if (success < 1)
+                    {
+                        lblError.Visible = true;
+                        lblError.Text = "Error: your information failed to update.";
+                    }
+                    else
+                    {
+                        if (chkDeleteCookie.Checked)
+                        {
+                            HttpCookie cookie = Request.Cookies["VisitorSessionID"];
+
+                            if (cookie != null)
+                            {
+                                Response.Cookies.Remove("VisitorSessionID");
+                                cookie.Value = null;
+                                cookie.Values["Email"] = null;
+                                cookie.Expires = DateTime.Now.AddDays(-30);
+                                Response.SetCookie(cookie);
+                            }
+                        }
+
+                        lblError.Visible = true;
+                        lblError.Text = "Your account was successfully updated.";
+                    }
+                  
                 }
             }
             BindUserInfo();
