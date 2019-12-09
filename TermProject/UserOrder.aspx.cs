@@ -209,6 +209,9 @@ namespace TermProject
                         pnlMessage.Visible = true;
                         lblFunded.Visible = true;
                         lblFunded.Text = "Order successful! Head on over to the <a href='OrderStatus.aspx'>order status page</a> to view the deets.";
+                        Session.Remove("Order");
+                        Session.Remove("OrderRes");
+                        Session.Add("OrderConfirmed", o);
                     }
                     else
                     {

@@ -21,7 +21,7 @@
     </asp:ScriptManager>
 
 
-    <div class="container" style="padding-top: 10%; height: 90vh;">
+    <div class="container" style="padding-top: 10%;">
         <div class="row">
             <div class="col-md-3" style="background-color: #4D4D4D; display: table;">
                 <div class="pt-5 pb-5 pl-4 pr-4">
