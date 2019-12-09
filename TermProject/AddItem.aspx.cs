@@ -66,7 +66,7 @@ namespace TermProject
         {
             if (!txtConfigurableName.Text.Equals("") && !txtConfigurableValues.Text.Equals(""))
             {
-                configurableWarning.InnerHtml = "";
+               configurableWarning.InnerHtml = "";
                 MenuConfigurableItem mci = new MenuConfigurableItem();
                 mci.Title = txtConfigurableName.Text;
                 string valuesList = txtConfigurableValues.Text;
@@ -94,6 +94,7 @@ namespace TermProject
             mItem.Configurables = new List<MenuConfigurableItem>();
             gvConfigurables.DataSource = mItem.Configurables;
             gvConfigurables.DataBind();
+            mItem.Configurables.Clear();
             Session.Add("item", mItem);
         }
 
@@ -102,6 +103,7 @@ namespace TermProject
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             bool complete = false;
+            bool deleted = false;
 
             Session.Remove("item");
             //validate data from form
@@ -159,6 +161,20 @@ namespace TermProject
                     if (!newItem)
                     {
                         //delete all configurables from db
+
+                        sqlAddOrder.CommandText = "TP_DeleteMenuItemConfigurable";
+                        sqlAddOrder.Parameters.Clear();
+                        sqlAddOrder.Parameters.AddWithValue("@MenuItemID", mItem.ID);
+
+                        int returnval = objDB.DoUpdateUsingCmdObj(sqlAddOrder);
+                        if (returnval > 0)
+                        {
+                            deleted = true;                           
+                        }
+                        else
+                        {
+                            deleted = false;
+                        }
                     }
                     JavaScriptSerializer js = new JavaScriptSerializer();
                     List<string> json = mci.Values;
@@ -177,7 +193,7 @@ namespace TermProject
                         Response.Write("<script>alert('item created!');</script>");
                     }
                 }
-                if (complete)
+                if (complete && deleted)
                 {
                     Response.Redirect("RestaurantLanding.aspx");
                 }

@@ -110,7 +110,7 @@
                             </div>
                             <div class="row mt-4">
                                 <div class="col-lg-3">
-                                    <asp:Label ID="Label5" runat="server" Text="Payment Account Number:"></asp:Label>
+                                    <asp:Label ID="Label5" runat="server" Text="Payment Account Number: (Max legnth of 9)"></asp:Label>
                                 </div>
                                 <div class="col-lg-7">
                                     <asp:TextBox ID="txtAccountNumber" runat="server" Font-Italic="true" CssClass="form-control" Text='<%# DataBinder.Eval(Container.DataItem, "Payment_Account_Number") %>'></asp:TextBox>

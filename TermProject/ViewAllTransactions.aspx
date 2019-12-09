@@ -38,6 +38,7 @@
                             <asp:BoundField DataField="VirtualWalletReceiverID" HeaderText="Receiver" />
                             <asp:BoundField DataField="Transaction_Type" HeaderText="Type" />
                             <asp:BoundField DataField="Transaction_Amount" HeaderText="Amount" DataFormatString="{0:c}" />
+                           <asp:BoundField DataField="Transaction_DateTime" HeaderText="Date/Time" />
                         </Columns>
                     </asp:GridView>
                     <asp:Label ID="lblError" Visible="false" runat="server" Text=""></asp:Label>

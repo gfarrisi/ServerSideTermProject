@@ -14,6 +14,7 @@ namespace FoodOrderingUtils
         public String VirtualWalletReceiverID { get; set; }
         public String Transaction_Type { get; set; }
         public float Transaction_Amount { get; set; }
+        public DateTime Transaction_DateTime { get; set; }
 
         public Transaction()
         {

@@ -210,7 +210,7 @@
                         </div>
                         <div class="mt-10">
                             <label>Payment Account Number:</label>
-                            <asp:TextBox CssClass="contact-form-input" ID="txtAccountNumber" runat="server" placeholder="Account Number" required="true"></asp:TextBox>
+                            <asp:TextBox CssClass="contact-form-input" ID="txtAccountNumber" runat="server" placeholder="Account Number (Max legnth of 9)" required="true"></asp:TextBox>
                         </div>
                         <div class="row text-center">
                             <div class="col-lg-12">

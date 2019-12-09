@@ -26,8 +26,8 @@ namespace TermProject
         {
             if (!IsPostBack)
             {
-                BindPaymentInfo();
                 GetCookieData();
+                BindPaymentInfo();
             }
         }
         public void GetCookieData()
@@ -120,7 +120,7 @@ namespace TermProject
             }
 
         }
-              
+
         protected void lbAccountSettings_Click(object sender, EventArgs e)
         {
             Response.Redirect("UserAccountSettings.aspx");
@@ -145,71 +145,74 @@ namespace TermProject
             //Please enter a decimal value
             try
             {
-                float amount = float.Parse(txtAmount.Text, CultureInfo.InvariantCulture.NumberFormat);              
-                string VirtualWalletID = Session["Email"].ToString();
-                //string VirtualWalletID = "gabriellafarrisi@gmail.com";
-                //get api key info
-                objCommand.CommandType = CommandType.StoredProcedure;
-                objCommand.CommandText = "TP_GetAPIKey";
-                objCommand.Parameters.Clear();
-
-                DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
-                DataTable myDT = myDS.Tables[0];
-
-                string APIKey = myDT.Rows[0]["API_Key"].ToString();
-                string MerchantID = myDT.Rows[0]["ID"].ToString();
-
-                Transaction transaction = new Transaction(APIKey, MerchantID, VirtualWalletID, VirtualWalletID, "Fund", amount);
-                // Serialize a Customer object into a JSON string.
-                JavaScriptSerializer js = new JavaScriptSerializer();
-                String jsonCustomer = js.Serialize(transaction);
-                try
+                float amount = float.Parse(txtAmount.Text, CultureInfo.InvariantCulture.NumberFormat);
+                if (amount > 0)
                 {
-                    // Send the Transaction object to the Web API that will be used to store a new customer record in the database.
-                    // Setup an HTTP POST Web Request and get the HTTP Web Response from the server.
-                    String webApiUrl = "http://cis-iis2.temple.edu/Fall2019/CIS3342_tug35007/WebAPI/api/service/paymentgateway/";
+                    string VirtualWalletID = Session["Email"].ToString();
+                    //string VirtualWalletID = "gabriellafarrisi@gmail.com";
+                    //get api key info
+                    objCommand.CommandType = CommandType.StoredProcedure;
+                    objCommand.CommandText = "TP_GetAPIKey";
+                    objCommand.Parameters.Clear();
 
-                    WebRequest request = WebRequest.Create(webApiUrl + "FundAccount/");
-                    request.Method = "PUT";
-                    request.ContentLength = jsonCustomer.Length;
-                    request.ContentType = "application/json";
+                    DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+                    DataTable myDT = myDS.Tables[0];
 
-                    // Write the JSON data to the Web Request
-                    StreamWriter writer = new StreamWriter(request.GetRequestStream());
-                    writer.Write(jsonCustomer);
-                    writer.Flush();
-                    writer.Close();
+                    string APIKey = myDT.Rows[0]["API_Key"].ToString();
+                    string MerchantID = myDT.Rows[0]["ID"].ToString();
 
-                    // Read the data from the Web Response, which requires working with streams.
-                    WebResponse response = request.GetResponse();
-                    Stream theDataStream = response.GetResponseStream();
-                    StreamReader reader = new StreamReader(theDataStream);
-                    String data = reader.ReadToEnd();
-                    reader.Close();
-                    response.Close();
-
-                    if (data == "true")
+                    Transaction transaction = new Transaction(APIKey, MerchantID, VirtualWalletID, VirtualWalletID, "Fund", amount);
+                    // Serialize a Customer object into a JSON string.
+                    JavaScriptSerializer js = new JavaScriptSerializer();
+                    String jsonCustomer = js.Serialize(transaction);
+                    try
                     {
-                        lblPaymentUpdatedMsg.Visible = false;
-                        lblFunded.Visible = true;
-                        lblFunded.Text = "The account was successfully funded.";
-                        GetBalance();
-                    }
+                        // Send the Transaction object to the Web API that will be used to store a new customer record in the database.
+                        // Setup an HTTP POST Web Request and get the HTTP Web Response from the server.
+                        String webApiUrl = "http://cis-iis2.temple.edu/Fall2019/CIS3342_tug35007/WebAPI/api/service/paymentgateway/";
 
-                    else
+                        WebRequest request = WebRequest.Create(webApiUrl + "FundAccount/");
+                        request.Method = "PUT";
+                        request.ContentLength = jsonCustomer.Length;
+                        request.ContentType = "application/json";
+
+                        // Write the JSON data to the Web Request
+                        StreamWriter writer = new StreamWriter(request.GetRequestStream());
+                        writer.Write(jsonCustomer);
+                        writer.Flush();
+                        writer.Close();
+
+                        // Read the data from the Web Response, which requires working with streams.
+                        WebResponse response = request.GetResponse();
+                        Stream theDataStream = response.GetResponseStream();
+                        StreamReader reader = new StreamReader(theDataStream);
+                        String data = reader.ReadToEnd();
+                        reader.Close();
+                        response.Close();
+
+                        if (data == "true")
+                        {
+                            lblPaymentUpdatedMsg.Visible = false;
+                            lblFunded.Visible = true;
+                            lblFunded.Text = "The account was successfully funded.";
+                            GetBalance();
+                        }
+
+                        else
+                        {
+                            lblFunded.Visible = true;
+                            lblFunded.Text = "A problem occurred while adding the funds to the account. The data wasn't recorded.";
+                        }
+
+
+                    }
+                    catch (Exception ex)
+
                     {
-                        lblFunded.Visible = true;
-                        lblFunded.Text = "A problem occurred while adding the funds to the account. The data wasn't recorded.";
+                        lblErrorDisplay.Visible = true;
+                        lblErrorDisplay.Text = "Error: " + ex.Message;
+
                     }
-
-
-                }
-                catch (Exception ex)
-
-                {
-                    lblErrorDisplay.Visible = true;
-                    lblErrorDisplay.Text = "Error: " + ex.Message;
-
                 }
             }
             catch
@@ -230,97 +233,116 @@ namespace TermProject
                     TextBox accountNumber = (TextBox)item.FindControl("txtAccountNumber");
                     TextBox accountName = (TextBox)item.FindControl("txtAccountName");
                     //Please enter a decimal value
-                    if (accountType.Text.Length > 0 && accountNumber.Text.Length > 0)
+                    if (accountType.Text.Length > 0 && accountNumber.Text.Length > 0 && accountName.Text.Length > 0)
                     {
-                        string VirtualWalletID = Session["Email"].ToString();
-                        //string VirtualWalletID = "gabriellafarrisi@gmail.com";
-                        //get api key info
-                        objCommand.CommandType = CommandType.StoredProcedure;
-                        objCommand.CommandText = "TP_GetAPIKey";
-                        objCommand.Parameters.Clear();
-
-                        DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
-                        DataTable myDT = myDS.Tables[0];
-
-                        string APIKey = myDT.Rows[0]["API_Key"].ToString();
-                        string MerchantID = myDT.Rows[0]["ID"].ToString();
-
-                        float balance = float.Parse(Session["AccountBalace"].ToString());
-
-                        AccountHolder accountHolder = new AccountHolder(APIKey, MerchantID, VirtualWalletID, accountName.Text, accountType.Text, Convert.ToInt32(accountNumber.Text), balance);
-                        // Serialize a Customer object into a JSON string.
-                        JavaScriptSerializer js = new JavaScriptSerializer();
-                        String jsonAccountHolder = js.Serialize(accountHolder);
                         try
                         {
-                            // Send the Transaction object to the Web API that will be used to store a new customer record in the database.
-                            // Setup an HTTP POST Web Request and get the HTTP Web Response from the server.
-                            String webApiUrl = "http://cis-iis2.temple.edu/Fall2019/CIS3342_tug35007/WebAPI/api/service/paymentgateway/";
-
-                            WebRequest request = WebRequest.Create(webApiUrl + "UpdatePaymentAccount/");
-                            request.Method = "PUT";
-                            request.ContentLength = jsonAccountHolder.Length;
-                            request.ContentType = "application/json";
-
-                            // Write the JSON data to the Web Request
-                            StreamWriter writer = new StreamWriter(request.GetRequestStream());
-                            writer.Write(jsonAccountHolder);
-                            writer.Flush();
-                            writer.Close();
-
-                            // Read the data from the Web Response, which requires working with streams.
-                            WebResponse response = request.GetResponse();
-                            Stream theDataStream = response.GetResponseStream();
-                            StreamReader reader = new StreamReader(theDataStream);
-                            String data = reader.ReadToEnd();
-                            reader.Close();
-                            response.Close();
-
-                            if (data == "true")
+                            int accountNumberInt = Convert.ToInt32(accountNumber.Text);
+                            if (accountNumberInt > 0 && accountNumberInt < 1000000000)
                             {
-                                //update locals db
-                                //TP_UpdateRestaurantPaymentInfo
 
+
+                                string VirtualWalletID = Session["Email"].ToString();
+                                //string VirtualWalletID = "gabriellafarrisi@gmail.com";
+                                //get api key info
                                 objCommand.CommandType = CommandType.StoredProcedure;
-                                objCommand.CommandText = "TP_UpdateCustomerPaymentInfo";
+                                objCommand.CommandText = "TP_GetAPIKey";
                                 objCommand.Parameters.Clear();
-                                objCommand.Parameters.AddWithValue("@Payment_Account_Type", accountType.Text);
-                                objCommand.Parameters.AddWithValue("@Payment_Account_Number", Convert.ToInt32(accountNumber.Text));
-                                objCommand.Parameters.AddWithValue("@Email", VirtualWalletID);
-                                objCommand.Parameters.AddWithValue("@Payment_Account_Name", accountName.Text);
-                                int returnValue = objDB.DoUpdateUsingCmdObj(objCommand);
 
-                                if (returnValue > 0)
+                                DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+                                DataTable myDT = myDS.Tables[0];
+
+                                string APIKey = myDT.Rows[0]["API_Key"].ToString();
+                                string MerchantID = myDT.Rows[0]["ID"].ToString();
+
+                                float balance = float.Parse(Session["AccountBalace"].ToString());
+
+                                AccountHolder accountHolder = new AccountHolder(APIKey, MerchantID, VirtualWalletID, accountName.Text, accountType.Text, accountNumberInt, balance);
+                                // Serialize a Customer object into a JSON string.
+                                JavaScriptSerializer js = new JavaScriptSerializer();
+                                String jsonAccountHolder = js.Serialize(accountHolder);
+                                try
                                 {
-                                    lblFunded.Visible = false;
-                                    lblPaymentUpdatedMsg.Visible = true;
-                                    lblErrorDisplay.Text = "Your payment info was successfully updated.";
+                                    // Send the Transaction object to the Web API that will be used to store a new customer record in the database.
+                                    // Setup an HTTP POST Web Request and get the HTTP Web Response from the server.
+                                    String webApiUrl = "http://cis-iis2.temple.edu/Fall2019/CIS3342_tug35007/WebAPI/api/service/paymentgateway/";
+
+                                    WebRequest request = WebRequest.Create(webApiUrl + "UpdatePaymentAccount/");
+                                    request.Method = "PUT";
+                                    request.ContentLength = jsonAccountHolder.Length;
+                                    request.ContentType = "application/json";
+
+                                    // Write the JSON data to the Web Request
+                                    StreamWriter writer = new StreamWriter(request.GetRequestStream());
+                                    writer.Write(jsonAccountHolder);
+                                    writer.Flush();
+                                    writer.Close();
+
+                                    // Read the data from the Web Response, which requires working with streams.
+                                    WebResponse response = request.GetResponse();
+                                    Stream theDataStream = response.GetResponseStream();
+                                    StreamReader reader = new StreamReader(theDataStream);
+                                    String data = reader.ReadToEnd();
+                                    reader.Close();
+                                    response.Close();
+
+                                    if (data == "true")
+                                    {
+                                        //update locals db
+                                        //TP_UpdateRestaurantPaymentInfo
+
+                                        objCommand.CommandType = CommandType.StoredProcedure;
+                                        objCommand.CommandText = "TP_UpdateCustomerPaymentInfo";
+                                        objCommand.Parameters.Clear();
+                                        objCommand.Parameters.AddWithValue("@Payment_Account_Type", accountType.Text);
+                                        objCommand.Parameters.AddWithValue("@Payment_Account_Number", Convert.ToInt32(accountNumber.Text));
+                                        objCommand.Parameters.AddWithValue("@Email", VirtualWalletID);
+                                        objCommand.Parameters.AddWithValue("@Payment_Account_Name", accountName.Text);
+                                        int returnValue = objDB.DoUpdateUsingCmdObj(objCommand);
+
+                                        if (returnValue > 0)
+                                        {
+                                            lblFunded.Visible = false;
+                                            lblPaymentUpdatedMsg.Visible = true;
+                                            lblErrorDisplay.Text = "Your payment info was successfully updated.";
+
+                                        }
+                                        else
+                                        {
+                                            lblFunded.Visible = false;
+                                            lblPaymentUpdatedMsg.Visible = true;
+                                            lblPaymentUpdatedMsg.Text = "*Error: Your payment info was not successfully updated.";
+
+                                        }
+
+                                    }
+
+                                    else
+                                    {
+                                        lblPaymentUpdatedMsg.Visible = true;
+                                        lblPaymentUpdatedMsg.Text = "A problem occurred while updating the payment of the account. The data wasn't recorded.";
+                                    }
+
 
                                 }
-                                else
+                                catch (Exception ex)
+
                                 {
-                                    lblFunded.Visible = false;
                                     lblPaymentUpdatedMsg.Visible = true;
-                                    lblPaymentUpdatedMsg.Text = "*Error: Your payment info was not successfully updated.";
+                                    lblPaymentUpdatedMsg.Text = "Error: " + ex.Message;
 
                                 }
-
                             }
-
                             else
                             {
                                 lblPaymentUpdatedMsg.Visible = true;
-                                lblPaymentUpdatedMsg.Text = "A problem occurred while updating the payment of the account. The data wasn't recorded.";
+                                lblPaymentUpdatedMsg.Text = "Please enter a positive integer.";
                             }
-
-
                         }
-                        catch (Exception ex)
-
+                        catch(Exception ex)
                         {
                             lblPaymentUpdatedMsg.Visible = true;
                             lblPaymentUpdatedMsg.Text = "Error: " + ex.Message;
-
                         }
                     }
                     else
