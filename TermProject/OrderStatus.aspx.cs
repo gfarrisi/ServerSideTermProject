@@ -16,6 +16,7 @@ namespace TermProject
         Order o;
         int OrderID;
         DBConnect objDB = new DBConnect();
+        SqlCommand objCommand = new SqlCommand();
         protected void Page_Load(object sender, EventArgs e)
         {
             if(Session["Order"] == null)
@@ -23,6 +24,11 @@ namespace TermProject
                 warning.Visible = true;
                 dvPanel.Visible = false;
                 return;
+            }
+            if (!IsPostBack)
+            {
+                GetCookieData();
+                GetOrderItems();
             }
             o = (Order)Session["Order"];
             OrderID = o.OrderID;
@@ -43,6 +49,66 @@ namespace TermProject
                 lblStatus.Text = drMyOrder[3].ToString();
             }
         }
+
+        public void GetCookieData()
+        {
+            HttpCookie cookie = Request.Cookies["VisitorSessionID"];
+            if (Session["Email"] == null || Session["AccountType"].ToString() != "Customer")
+            {
+                Response.Redirect("Default.aspx");
+            }
+            else if (cookie != null)
+            {
+                string email = cookie.Value.ToString();
+                objCommand.CommandType = CommandType.StoredProcedure;
+                objCommand.CommandText = "TP_GetUser";
+                objCommand.Parameters.Clear();
+
+                objCommand.Parameters.AddWithValue("@Email", email);
+
+                DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+                DataTable myDT = myDS.Tables[0];
+
+                string type = myDT.Rows[0]["Account_Type"].ToString();
+                Session["Email"] = email;
+                Session["AccountType"] = type;
+            }
+        }
+
+        private void GetOrderItems()
+        {
+            o = (Order)Session["Order"];
+            int orderID = o.OrderID;
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_GetAllOrderItemsFromOrder";
+            objCommand.Parameters.Clear();
+            objCommand.Parameters.AddWithValue("@OrderID", o.OrderID);
+            DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+            DataTable myDT = myDS.Tables[0];
+            rptOrderItems.DataSource = myDT;
+            rptOrderItems.DataBind();
+        }
+
+        protected void ItemBound(object sender, RepeaterItemEventArgs args)
+        {
+
+            if (args.Item.ItemType == ListItemType.Item || args.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                HiddenField field = args.Item.FindControl("hfOrderItemID") as HiddenField;
+                int OrderItemID = Convert.ToInt32(field.Value);
+                objCommand.CommandType = CommandType.StoredProcedure;
+                objCommand.CommandText = "TP_GetOrderItemConfigurable";
+                objCommand.Parameters.Clear();
+                objCommand.Parameters.AddWithValue("@OrderItemID", OrderItemID);
+
+                DataSet myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+                DataTable myDT = myDS.Tables[0];
+                Repeater rptItemConfigurables = (Repeater)args.Item.FindControl("rptItemConfigurables");
+                rptItemConfigurables.DataSource = myDT;
+                rptItemConfigurables.DataBind();
+            }
+        }
+
 
         protected void tmOrderStatus_Tick(object sender, EventArgs e)
         {

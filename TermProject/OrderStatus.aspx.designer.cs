@@ -49,8 +49,16 @@ namespace TermProject {
         protected global::System.Web.UI.WebControls.LinkButton lbCurrentOrders;
         
         /// <summary>
-
         /// lbTransactions control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbTransactions;
+        
+        /// <summary>
+        /// warning control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
@@ -66,7 +74,6 @@ namespace TermProject {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl dvPanel;
-        protected global::System.Web.UI.WebControls.LinkButton lbTransactions;
         
         /// <summary>
         /// upOrder control.
@@ -157,5 +164,23 @@ namespace TermProject {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlImage imgStatus;
+        
+        /// <summary>
+        /// pnlMenu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlMenu;
+        
+        /// <summary>
+        /// rptOrderItems control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptOrderItems;
     }
 }

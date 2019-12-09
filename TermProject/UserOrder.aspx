@@ -82,7 +82,7 @@
                     <div style="text-align: center;">
                         <b style="color: darkslategray">
                             <asp:Label ID="lblTotal" runat="server"></asp:Label></b><br />
-                        <asp:Button ID="btnOrder" CssClass="contact-form-button-2" runat="server" Text="Buy" OnClick="btnOrder_Click" />
+                        <asp:Button ID="btnOrder" CssClass="contact-form-button-2 mb-3 mt-1" runat="server" Text="Buy" OnClick="btnOrder_Click" />
                     </div>
                 </div>
             </div>
