@@ -36,6 +36,9 @@
                     <div class="pt-3 pl-2">
                         <asp:LinkButton ID="lbCurrentOrders" ForeColor="White" OnClick="lbCurrentOrders_Click" runat="server">My Order</asp:LinkButton>
                     </div>
+                     <div class="pt-3 pl-2">
+                        <asp:LinkButton ID="lbTransactions" ForeColor="White" OnClick="lbTransactions_Click" runat="server">View All Transactions</asp:LinkButton>
+                    </div>
                     <hr style="background-color: #FF5581" />
                 </div>
             </div>

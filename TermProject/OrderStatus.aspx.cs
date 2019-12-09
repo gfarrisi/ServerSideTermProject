@@ -97,6 +97,9 @@ namespace TermProject
         {
             Response.Redirect("OrderStatus.aspx");
         }
-
+        protected void lbTransactions_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ViewAllTransactions.aspx");
+        }
     }
 }

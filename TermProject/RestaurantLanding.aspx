@@ -129,8 +129,7 @@
                                                 </asp:Repeater>
                                             </div>
                                             <div class="tic-text">
-                                                <asp:Label ID="Label1" runat="server" CssClass="pt-4 font" Text='<%# DataBinder.Eval(Container.DataItem, "Item_Category") %>'></asp:Label>
-
+                                                <asp:Label ID="lblCategory" runat="server" CssClass="pt-4 font" Text='<%# DataBinder.Eval(Container.DataItem, "Item_Category") %>'></asp:Label>
                                             </div>
 
                                         </div>
