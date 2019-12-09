@@ -16,5 +16,5 @@
         <span id="txtAddress" runat="server">Main Road , No 25/11</span> <br />
     <asp:Button ID="btnRegister" CssClass="contact-form-button" Text="View" runat="server" OnClick="btnRegister_Click" />
     </div>
-   <div class="tic-text">Restaurant</div>
+   <div class="tic-text" id="txtCategory" runat="server">Restaurant</div>
 </div>

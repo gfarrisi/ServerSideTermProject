@@ -150,6 +150,8 @@ namespace TermProject
                     Decimal total = (Decimal)o.OrderTotalCost;   //cost in $$$
                     lblFunded.Visible = true;
                     lblFunded.Text = "Order successful! Head on over to the <a href='OrderStatus.aspx'>order status page</a> to view the deets.";
+                    pnlMenu.Visible = false;
+                    //write confirmation email
                     Email objEmail = new Email();
                     //string emailTo = Session["Email"].ToString();
                     string emailTo = "hazel@temple.edu";

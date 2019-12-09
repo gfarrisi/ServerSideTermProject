@@ -18,6 +18,12 @@ namespace TermProject
         DBConnect objDB = new DBConnect();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(Session["Order"] == null)
+            {
+                warning.Visible = true;
+                dvPanel.Visible = false;
+                return;
+            }
             o = (Order)Session["Order"];
             OrderID = o.OrderID;
             //OrderID = 39;
@@ -51,7 +57,11 @@ namespace TermProject
                 DataRow drMyOrder = ds.Tables[0].Rows[0];
                 string status = drMyOrder[3].ToString();
                 lblStatus.Text = status + "<br/>";
-                if (status.Equals("Submitted"))
+                if(status.Equals("Not Submitted"))
+                {
+                    imgStatus.Src = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Antu_geany-close-all.svg/240px-Antu_geany-close-all.svg.png";
+                }
+                else if (status.Equals("Submitted"))
                 {
                     imgStatus.Src = "https://upload.wikimedia.org/wikipedia/commons/8/84/Songbird_Icon_Spinner.gif";
                 }

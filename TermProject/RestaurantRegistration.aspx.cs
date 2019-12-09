@@ -39,6 +39,7 @@ namespace TermProject
                 string resimg = txtResImg.Text;
                 string resphone = txtResPhone.Text;
                 string resemail = txtResEmail.Text;
+                string rescategory = txtResCategory.Text;
                 string resaddr = txtResAddr.Text;
                 string rescity = txtResCity.Text;
                 string resstate = ddlResState.SelectedValue;
@@ -105,6 +106,7 @@ namespace TermProject
                             sqlRegisterRestaurantRep.Parameters.AddWithValue("@Rep_Contact_Email", cemail);
                             sqlRegisterRestaurantRep.Parameters.AddWithValue("@Restaurant_Name", resname);
                             sqlRegisterRestaurantRep.Parameters.AddWithValue("@Image_URL", resimg);
+                            sqlRegisterRestaurantRep.Parameters.AddWithValue("@Restaurant_Category", rescategory);
                             sqlRegisterRestaurantRep.Parameters.AddWithValue("@Restaurant_Email", resemail);
                             sqlRegisterRestaurantRep.Parameters.AddWithValue("@Restaurant_Phone", resphone);
                             sqlRegisterRestaurantRep.Parameters.AddWithValue("@Restaurant_Address", resaddr);

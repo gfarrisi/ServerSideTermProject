@@ -88,7 +88,7 @@ namespace TermProject
                 dt = ds.Tables[0];
             if (!String.IsNullOrEmpty(strName))
             {
-                dt.DefaultView.RowFilter = "Restaurant_Name Like '%" + strName + "%'";
+                dt.DefaultView.RowFilter = "Restaurant_Name Like '%" + strName + "%' OR Restaurant_Category like '%" + strName + "%'";
             }
             if (dt != null)
             {
@@ -108,6 +108,8 @@ namespace TermProject
                     ctrl.ResTitle = drv[1].ToString();
                     ctrl.ResAddress = drv[5].ToString();
                     ctrl.ResImage = drv[2].ToString();
+                    ctrl.ResEmail = drv[4].ToString();
+                    ctrl.ResCategory = drv[13].ToString();
                     if (i % 2 == 0)
                     {
                         divRestaurantColumn.Controls.Add(ctrl);

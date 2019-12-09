@@ -49,6 +49,8 @@ namespace TermProject
             if (myDT.Rows.Count == 0)
             {
                 Session.Remove("orderRes");
+                warning.Visible = true;
+                pnlMenu.Visible = false;
             }
         }
 
@@ -104,11 +106,27 @@ namespace TermProject
                 objCommand.Parameters.Clear();
                 objCommand.Parameters.AddWithValue("@OrderItemID", itemID);
                 int result = objDB.DoUpdateUsingCmdObj(objCommand);
-                if(result > 0)
-                {
                     GetOrderItems();
+            }
+        }
+
+        protected void btnClearOrder_Click(object sender, EventArgs e)
+        {
+            foreach (RepeaterItem item in rptOrderItems.Items)
+            {
+                if (item.ItemType == ListItemType.Item || item.ItemType == ListItemType.AlternatingItem)
+                {
+                    HiddenField hfID = (HiddenField)item.FindControl("hfOrderItemID");
+                    int itemID = Convert.ToInt32(hfID.Value);
+                    objCommand.CommandType = CommandType.StoredProcedure;
+                    objCommand.CommandText = "TP_DeleteOrderItem";
+                    objCommand.Parameters.Clear();
+                    objCommand.Parameters.AddWithValue("@OrderItemID", itemID);
+                    int result = objDB.DoUpdateUsingCmdObj(objCommand);
                 }
             }
+            Session.Remove("orderRes");
+            GetOrderItems();
         }
     }
 }

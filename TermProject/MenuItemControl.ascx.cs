@@ -60,6 +60,12 @@ namespace TermProject
             set { imgMenuItem.Src = value; }
         }
 
+        public String ItemCategory
+        {
+            get { return txtCategory.InnerText; }
+            set { txtCategory.InnerText = value; }
+        }
+
         public void GetConfigurables(int ItemID)
         {
             SqlCommand sqlGetConfigurables = new SqlCommand();
@@ -109,9 +115,11 @@ namespace TermProject
             }
             if (Session["orderRes"] != null)
             {
-                if ((string)Session["orderRes"] != RestaurantEmail)
+                string orderRes = (string)Session["orderRes"];
+                if (orderRes != RestaurantEmail)
                 {
                     Response.Write("You already have items from another restaurant in your cart. Delete those before you order from this place.");
+                    return;
                 }
             }
             OrderItem oi = new OrderItem();
@@ -194,11 +202,9 @@ namespace TermProject
                 objDB.DoUpdateUsingCmdObj(sqlAddOrderItemConfigurable);
                 oci.OrderConfigurableID = (int)returnParameterItem.Value;
             }
+            Session["orderRes"] = RestaurantEmail;
             Session.Add("Order", o);
-            if (Session["orderRes"] == null)
-            {
-                Session["orderRes"] = RestaurantEmail;
-            }
+            Response.Write(ItemName + " added to order.");
         }
     }
 }

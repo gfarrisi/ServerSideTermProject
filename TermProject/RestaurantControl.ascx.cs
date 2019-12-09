@@ -36,9 +36,21 @@ namespace TermProject
             set { imgRestaurant.Src = value; }
         }
 
+        public String ResEmail
+        {
+            get;set;
+        }
+
+        public String ResCategory
+        {
+            get { return txtCategory.InnerText; }
+            set { txtCategory.InnerText = value; }
+        }
+
         protected void btnRegister_Click(object sender, EventArgs e)
         {
             Restaurant res = new Restaurant(ResID);
+            res.Email = ResEmail;
             Session.Add("currentRestaurant", res);  
             Response.Redirect("ViewRestaurant.aspx");
         }
